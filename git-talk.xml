@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<!DOCTYPE presentation SYSTEM "../pythonpoint.dtd">
+<presentation filename="git-talk.pdf" pageDuration="3">
+    <stylesheet module="modern" function="getParagraphStyles"/>
+    <title>Git Talk for MKP</title>
+    <author>Valentin Haenel</author>
+    <subject>Git - The Stupid Content Tracker</subject>
+    <section name="Main">
+    <!-- any graphics in the section go on all its pages as a backdrop -->
+    <rectangle height="480" fill="(0.765625,0.859375,0.94140625)" x="20" width="96" y="20"/>
+    <fixedimage height="64" filename="BCCN_logo_berlin.jpg" x="20" width="96" y="510"/>
+    <!-- <customshape module="customshapes" class="Logo" initargs="(20,510,96,64)"/>
+    -->
+    <!--infostring size="14" align="right" x="800" y="36">
+            &#187;%(title)s, page %(page)s&#171;
+        </infostring-->
+    <!-- Now for the slides -->
+    <slide title="Introduction" id="Slide001" effectname="Wipe">
+        <frame height="468" x="120" y="20" rightmargin="36" width="700" leftmargin="36">
+            <para style="Heading1">
+                Eine Einführung in Git, für Leute die wissen wollen was drin
+                steckt!
+                <br/>
+                <br/>
+            </para>
+            <para style="Centered">
+                Valentin Haenel
+                <br/>
+                <br/>
+            </para>
+            <para style="Centered">
+                BCCN Berlin
+                <br/>
+                <br/>
+                <br/>
+            </para>
+            <para style="Centered">
+                2. April 2009
+                <br/>
+                <br/>
+                <br/>
+            <br/>
+            </para>
+        </frame>
+    </slide>
+    <slide title="Git Basics" id="Slide001" effectname="Blinds" effectdirection="0" outlinelevel="1">
+        <frame height="468" x="120" y="72" rightmargin="36" width="700" leftmargin="36">
+            <para style="Heading1">
+                Git Basiswissen
+            </para>
+            <para style="BodyText">
+                Letztes mal haben wir die folgende Kommandos gelernt:
+            </para>
+            <para style="Bullet">  git init  </para>
+            <para style="Bullet">  git add </para>
+            <para style="Bullet">  git commit  </para>
+            <para style="Bullet">  git status  </para>
+            <para style="Bullet">  git log  </para>
+
+            <para style="BodyText">
+                Das ist o.k. wenn wir git ab und zu mal nutzen wollen.
+            </para>
+
+        </frame>
+    </slide>
+    <slide title="Fahlrplan" id="Slide002" effectname="Blinds" effectdirection="0" outlinelevel="1">
+        <frame height="468" x="120" y="72" rightmargin="36" width="700" leftmargin="36">
+            <para style="Heading1">
+                Fahrplan für Heute
+            </para>
+            <para style="Bullet">  der Index</para>
+            <para style="Bullet">  was steckt in .git </para>
+            <para style="Bullet">  spezifizieren von Revisionen</para>
+            <para style="Bullet">  arbeiten mit entfernten Repositorien</para>
+            <para style="Bullet">  git rebase</para>
+
+        </frame>
+    </slide>
+  </section>
+</presentation>
