@@ -1,0 +1,63 @@
+== Einleitung ==
+
+==== Basiswissen ====
+
+Letztes mal haben wir die folgenden Kommandos gelernt:
+
+* @git init@
+* @git add@ 
+* @git commit@
+* @git status@
+* @git log@
+
+Das mag vielleicht in Ordnung sein wenn wir git ab und zu mal nutzen wollen.
+
+==== Fahrplan für Heute ====
+
+* Terminologie
+* Setzen von Namen und Email
+* Index  
+* Der Inhalt von .git  
+* Spezifizieren von Revisionen 
+* Finden von Veränderungen 
+* Arbeiten mit entfernten Repositorien 
+* Veränderungen Rückgängig Machen 
+
+== Hauptteil ==
+
+==== Ein paar wichtige Begriffe kurz erklärt ====
+
+* Ein ''repository'' ist ein Archiv der Zustände von einem '''working tree'''
+* Ein ''working tree'' ist Verzeichnis dessen Zustände in einem '''repository''' archiviert sind
+* Der ''index'' ist die Verbindung zwischen '''working tree''' und '''repository'''
+* @HEAD@ Identifiziert den zuletzt gespeicherten zustand des '''working tree''' im '''repository'''
+
+* ''Hunk''?
+* ''Branch''?
+* ''Master''?
+* ''Blob ''?
+* ''Commit ''?
+
+==== Setzen von Namen und Email ====
+
+Noch bevor man einen commit macht ist es wichtig folgende Einstellungen zu
+Machen:
+
+* git config user.name "Valentin Haenel"
+* git config user.email valentin@cs.tu-berlin.de
+* Mit @-{-}global@ fügt man diese Optionen der @.gitconfig@ des Benutzers hinzu.
+Was passiert wenn ich das nicht mache? (Impact Graph von molif zeigen)
+
+==== Der Index ====
+
+* Der ''index'' (auch ''staging area'' genannt) bietet die Möglichkeit einen zu speichernden Zustand schrittweise aus einzelnen Veränderungen zusammenzusetzen.
+
+* Quellcode kann mit den Kommando @git-add@ dem index hinzugefügt werden.
+
+* Die Option @-{-}patch@ bzw. @-p@ erlaubt es einzelne ''hunks'' zu selektieren.
+
+* Um uns anzeigen zu lassen was sich im index befindet verwenden wir @git diff -{-}cached@.
+
+* Um veränderungen wieder aus dem index in den working tree zurückzuholen verwenden wir git @reset HEAD@.
+
+
