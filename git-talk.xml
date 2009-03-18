@@ -63,17 +63,52 @@
 
         </frame>
     </slide>
-    <slide title="Fahlrplan" id="Slide002" effectname="Blinds" effectdirection="0" outlinelevel="1">
+    <slide title="Fahrplan" id="Slide002" effectname="Blinds" effectdirection="0" outlinelevel="1">
         <frame height="468" x="120" y="72" rightmargin="36" width="700" leftmargin="36">
             <para style="Heading1">
                 Fahrplan für Heute
             </para>
-            <para style="Bullet">  der Index</para>
-            <para style="Bullet">  was steckt in .git </para>
-            <para style="Bullet">  spezifizieren von Revisionen</para>
-            <para style="Bullet">  arbeiten mit entfernten Repositorien</para>
-            <para style="Bullet">  git rebase</para>
 
+            <para style="Bullet">  Terminologie </para>
+            <para style="Bullet">  Index </para>
+            <para style="Bullet">  Der Inhalt von .git </para>
+            <para style="Bullet">  Spezifizieren von Revisionen</para>
+            <para style="Bullet">  Finden von Veränderungen</para>
+            <para style="Bullet">  Arbeiten mit entfernten Repositorien</para>
+            <para style="Bullet">  Veränderungen Rückgängig Machen</para>
+            <para style="Bullet">  </para>
+
+        </frame>
+    </slide>
+    <slide title="Index" id="Slide003" effectname="Blinds" effectdirection="0" outlinelevel="1">
+        <frame height="468" x="120" y="72" rightmargin="36" width="700" leftmargin="36">
+            <para style="Heading1">
+                Der Index
+            </para>
+            
+            <para style="Bullet">
+                Der Index (auch 'Staging Area' genannt) bietet die möglichkeit einen
+                commit schrittweise aus einzelnen veränderungen zusammenzusetzen.
+            </para>
+
+            <para style="Bullet">
+                Quellcode kann mit den Kommando git-add dem index hinzugefügt
+                werden. Wobei hier die option --patch bzw. -p besonders nützlich ist.
+            </para>
+
+            <para style="Bullet">
+                Um uns anzeigen zu lassen was sich im index befindet verwenden
+                wir git diff --cached.
+            </para>
+
+            <para style="Bullet">
+                Um veränderunge wieder aus dem index in den working tree
+                zurückzuholen verwenden wir git reset HEAD. (HEAD wird gleich
+                noch erklärt)
+            </para>
+
+            <para style="Bullet">
+            </para>
         </frame>
     </slide>
   </section>
