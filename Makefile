@@ -1,8 +1,8 @@
-base = git-talk-val
+base = slides
 
 all: $(base).pdf
 
-$(base).pdf: $(base).tex $(base)-01.tex $(base)-02.tex 
+$(base).pdf: $(base).tex $(base)-01.tex $(base)-02.tex
 	pdflatex $(base).tex
 	pdflatex $(base).tex
 
@@ -19,7 +19,7 @@ wiki2beamer/wiki2beamer.py:
 	-rm -f wiki2beamer.zip
 
 clean:
-	-rm -vf *.{toc,snm,log,dvi,aux,out,nav,*~}
+	-rm -vf *.{toc,snm,log,dvi,aux,out,nav}
 
 distclean: clean
 	-rm -vf $(base).pdf $(base)-*.tex

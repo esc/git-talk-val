@@ -1,0 +1,4 @@
+==== Inhalt von .git ====
+
+* git speichert das repository inclusive configuration in dem verzeichniss @.git/@ im wurzel Verzeichniss des working tree
+
