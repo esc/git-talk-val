@@ -10,7 +10,7 @@ Letztes mal haben wir die folgenden Kommandos gelernt:
 * @git status@
 * @git log@
 
-Das mag vielleicht in Ordnung sein wenn wir git ab und zu mal nutzen wollen.
+Diesmal nehmen wir diese etwas genauer unter die Lupe.
 
 ==== Fahrplan für Heute ====
 
@@ -25,17 +25,20 @@ Das mag vielleicht in Ordnung sein wenn wir git ab und zu mal nutzen wollen.
 
 == Hauptteil ==
 
-==== Ein paar wichtige Begriffe kurz erklärt ====
+==== Begriffe 1 ====
 
 * Ein ''repository'' ist ein Archiv der Zustände von einem '''working tree'''
 * Ein ''working tree'' ist Verzeichnis dessen Zustände in einem '''repository''' archiviert sind
+* Ein ''commit'' ist ein spezifischer Zustand des '''working tree''' der im '''repository''' gespeichert ist
 * Der ''index'' ist die Verbindung zwischen '''working tree''' und '''repository'''
-* @HEAD@ Identifiziert den zuletzt gespeicherten zustand des '''working tree''' im '''repository'''
+* @HEAD@ Identifiziert den zuletzt gespeicherten '''commit''' des '''working tree''' im '''repository'''
 
-* ''Hunk''?
-* ''Branch''?
-* ''Master''?
-* ''Blob ''?
+==== Begriffe 2 ====
+
+* Ein ''hunk'' beschreibt eine gruppe von aufeinander folgenden Veränderungen
+* Ein ''branch''
+* ''master'' beschreibt meist den haupt '''branch''' in einem commit
+* ''Blob ''
 * ''Commit ''?
 
 ==== Setzen von Namen und Email ====
@@ -51,13 +54,16 @@ Was passiert wenn ich das nicht mache? (Impact Graph von molif zeigen)
 ==== Der Index ====
 
 * Der ''index'' (auch ''staging area'' genannt) bietet die Möglichkeit einen zu speichernden Zustand schrittweise aus einzelnen Veränderungen zusammenzusetzen.
-
 * Quellcode kann mit den Kommando @git-add@ dem index hinzugefügt werden.
-
 * Die Option @-{-}patch@ bzw. @-p@ erlaubt es einzelne ''hunks'' zu selektieren.
-
 * Um uns anzeigen zu lassen was sich im index befindet verwenden wir @git diff -{-}cached@.
+* Um veränderungen wieder aus dem index in den working tree zurückzuholen (unstage) verwenden wir @git reset HEAD@.
 
-* Um veränderungen wieder aus dem index in den working tree zurückzuholen verwenden wir git @reset HEAD@.
+==== Das Repository ====
 
+* Um Veränderungen aus dem Index zu übernehmen verwenden wir @git commit@.
+* Dies ruft unseren @EDITOR@ auf und wir können die commit Nachricht eingeben.
+* Wollen wir die commit Nachrich direkt auf der Kommandozeile eingeben verwenden wir @git commit -m "NACHRICHT"@
+* Um den Index zum umgehen und gleich alle Veränderungen direkt zu übernehmen verwenden wir @git commit -a@
+* Wenn wir den working-tree zu einem frühern Zustand aus dem repository zurück setzen wollen verweden wir @git checkout@.
 
