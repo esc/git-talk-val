@@ -11,16 +11,16 @@ Letztes mal haben wir die folgenden Kommandos gelernt:
 * @git log@
 
 Ich nehme also an das ihr diese Kommandos schon mindestens einmal verwendet
-habt.
+habt, aber nicht genau wisst was sie tun, oder wie sie funktionieren. 
 
 ==== Fahrplan für Heute ====
 
 * Terminologie
-* Setzen von Namen und Email
+* Am Anfang war...
 * Umgang mit dem Index 
-* Spezifizieren von Revisionen 
+* Einsehen der Geschichte
 * Finden von Veränderungen 
-* Arbeiten mit entfernten Repositorien 
+* Kollaboration mit Anderen
 * Veränderungen Rückgängig Machen 
 
 == Begriffe ==
