@@ -1,3 +1,20 @@
-==== Slide 23 ====
+== Geschichte ==
 
-* do not read this
+==== Die Geschichte (1) ====
+
+* Mit @git-log@ kann man sich alle bisherigen ''commits'' anzeigen lassen
+* Übergibt man -ZAHL werden die letzten ZAHL ''commits'' angezeigt, z.B. -3
+* Wir eine Revision angegeben, (z.B. eine ''SHA-1 ID'' oder ein ''tag'') werden nur die ''commits'' seit dieser Revision angezeigt
+* Mit @git-log@ kann Zeitlich nach bestimmten ''commits'' gesucht werden:
+** @git-log --since="5 hours 23 minutes"@
+** @git-log --before="42 days"@
+
+==== Die Geschichte (2) ====
+
+* Die Ausgabe von @git-log@ kann mit @--pretty@ verändert werden
+* z.B. @git-log --pretty=oneline@ um nur die ''SHA-1 IDs'' und ''commit messages'' anzuzeigen
+* oder: @git-log --pretty=format:"\%Cred \%h \%Cgreen \%s \%Cblue \%ce"@
+* Um die ''commits'' zwischen zwei Revisionen anzuzeigen wird  @git-log beginning..end@ verwendet
+
+
+
