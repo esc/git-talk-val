@@ -23,25 +23,35 @@ habt.
 * Arbeiten mit entfernten Repositorien 
 * Veränderungen Rückgängig Machen 
 
-== Hauptteil ==
+== Begriffe ==
 
 ==== Begriffe 1 ====
 
-* Ein ''repository'' ist ein Archiv der Zustände von einem '''working tree'''
-* Ein ''working tree'' ist Verzeichnis dessen Zustände in einem '''repository''' archiviert sind
-* Ein ''commit'' ist ein spezifischer Zustand des '''working tree''' der im '''repository''' gespeichert ist
-* Der ''index'' ist die Verbindung zwischen '''working tree''' und '''repository'''
-* @HEAD@ Identifiziert den zuletzt gespeicherten '''commit''' des '''working tree''' im '''repository'''
+* Ein '''repository''' ist ein Archiv der Zustände von einem ''working tree''
+* Ein '''working tree''' ist Verzeichnis dessen Zustände in einem ''repository'' archiviert sind
+* Der '''index''' ist die Verbindung zwischen ''working tree'' und ''repository''
+* Ein '''commit''' ist ein spezifischer Zustand des ''working tree'' der im ''repository'' gespeichert ist
 
 ==== Begriffe 2 ====
 
-* Ein ''hunk'' beschreibt eine gruppe von aufeinander folgenden Veränderungen
-* Ein ''branch''
-* ''master'' beschreibt meist den haupt '''branch''' in einem commit
-* ''Blob ''
-* ''Commit ''?
+* Git verwendet '''SHA-1 Hashes''' um ''objects'' zu identifizieren
+* Die verschiedenen '''objects''' sind: ''blob'', ''tree'' und ''commit''
+* Ein '''blob''' enthält im allgemeinen den Inhalt einer Datei
+* Ein '''tree''' ist eine Ansammlung von ''tree'' und ''blob'' Objekten
+* (Vorsicht: ''tree'' und ''working tree'' sind nicht dasselbe!)
+* Ein '''commit''' ist ein ''tree'' mit zusätzlichen Informationen
 
-==== Setzen von Namen und Email ====
+==== Begriffe 3 ====
+
+* Ein '''tag''' wird verwendet um einem ''commit'' einen nicht ''SHA-1'' namen zu geben
+* @HEAD@ ist ein impliziter ''tag'' und identifiziert den zuletzt gespeicherten ''commit'' im ''repository''
+* Ein '''hunk''' beschreibt eine gruppe von aufeinander folgenden Zeilen im Quellcode
+* Ein '''branch'''
+* '''master''' beschreibt meist den haupt ''branch'' in einem ''repository''
+
+== ==
+
+==== Wichtig: Setzen von Namen und Email ====
 
 Noch bevor man einen commit macht ist es wichtig folgende Einstellungen zu
 Machen:
