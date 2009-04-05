@@ -61,19 +61,28 @@ Machen:
 * Mit @-{-}global@ fügt man diese Optionen der @.gitconfig@ des Benutzers hinzu.
 Was passiert wenn ich das nicht mache? (Impact Graph von molif zeigen)
 
-==== Der Index ====
+== Index ==
 
-* Der ''index'' (auch ''staging area'' genannt) bietet die Möglichkeit einen zu speichernden Zustand schrittweise aus einzelnen Veränderungen zusammenzusetzen.
-* Quellcode kann mit den Kommando @git-add@ dem index hinzugefügt werden.
-* Die Option @-{-}patch@ bzw. @-p@ erlaubt es einzelne ''hunks'' zu selektieren.
-* Um uns anzeigen zu lassen was sich im index befindet verwenden wir @git diff -{-}cached@.
-* Um veränderungen wieder aus dem index in den working tree zurückzuholen (unstage) verwenden wir @git reset HEAD@.
+==== Der Index (1) ====
+
+* Der ''index'' (auch ''staging area'' genannt) bietet die Möglichkeit einen ''commit'' schrittweise aus einzelnen ''blobs'' und ''trees'' zusammenzusetzen
+* Wie schon erwähnt ist er eine Art Verbindung zwischen ''working tree'' und ''repository''
+* Quellcode kann mit den Kommando @git-add@ dem index hinzugefügt werden
+* das geht sowohl für dateien die noch nicht im ''repository'' sind als auch für Veränderungen
+* Die Option @-{-}patch@ bzw. @-p@ erlaubt es einzelne ''hunks'' zu selektieren
+
+==== Der Index (2) ====
+
+* @git diff -{-}cached@ zeigt an was sich im ''index'' befindet
+* Um veränderungen wieder aus dem index herauszunehmen (unstage) verwenden wir @git reset HEAD@
+* Mit @git-status@ sehen wir aus welchen dateien sich veränderungen im index befinden, welche dateien veränderungen enthalten die wir dem index hinzufügen könnten, und welche dateien sich noch nicht im ''repository'' befinden
+
 
 ==== Das Repository ====
 
-* Um Veränderungen aus dem Index zu übernehmen verwenden wir @git commit@.
-* Dies ruft unseren @EDITOR@ auf und wir können die commit Nachricht eingeben.
-* Wollen wir die commit Nachrich direkt auf der Kommandozeile eingeben verwenden wir @git commit -m "NACHRICHT"@
-* Um den Index zum umgehen und gleich alle Veränderungen direkt zu übernehmen verwenden wir @git commit -a@
-* Wenn wir den working-tree zu einem frühern Zustand aus dem repository zurück setzen wollen verweden wir @git checkout@.
+* Um Veränderungen aus dem ''index'' zu übernehmen verwenden wir @git commit@
+* Dies ruft unseren @EDITOR@ auf und wir können die ''commit-message'' eingeben
+* Wollen wir die ''commit-message'' direkt auf der Kommandozeile eingeben verwenden wir @git commit -m "MESSAGE"@
+* Um den ''index'' zum umgehen und gleich alle Veränderungen direkt zu übernehmen verwenden wir @git commit -a@
+* Wenn wir den ''working tree'' zu einem frühern Zustand aus dem ''repository'' zurück setzen wollen verweden wir @git checkout@
 
