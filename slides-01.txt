@@ -78,10 +78,24 @@ Es gibt grunsätzlich zwei Möglichkeiten an ein ''repository'' zu kommen:
 Noch bevor man einen commit macht ist es wichtig folgende Einstellungen zu
 Machen:
 
-* git config user.name "Valentin Haenel"
-* git config user.email valentin@cs.tu-berlin.de
-* Mit @-{-}global@ fügt man diese Optionen der @.gitconfig@ des Benutzers hinzu.
-Was passiert wenn ich das nicht mache? (Impact Graph von molif zeigen)
+* @git config user.name "Valentin Haenel"@
+* @git config user.email valentin@cs.tu-berlin.de@
+* Mit @-{-}global@ werden diese Optionen der @~/.gitconfig@ hinzugefügt
+Was kann passieren wenn das vergessen wird?
+<<<canvas.png,scale=0.21>>>
+
+==== Farben ====
+
+Wer vor hat git von der Kommandozeile aus zu verwenden dem sind Farben ans Herz
+gelegt:
+
+Ab Version 1.55
+* @git config --global color.ui "auto"@
+
+Vorher
+* @git config --global color.branch "auto"@
+* @git config --global color.diff "auto"@
+* @git config --global color.status "auto"@
 
 == Index ==
 
