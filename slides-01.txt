@@ -10,7 +10,8 @@ Letztes mal haben wir die folgenden Kommandos gelernt:
 * @git status@
 * @git log@
 
-Diesmal nehmen wir diese etwas genauer unter die Lupe.
+Ich nehme also an das ihr diese Kommandos schon mindestens einmal verwendet
+habt.
 
 ==== Fahrplan für Heute ====
 
