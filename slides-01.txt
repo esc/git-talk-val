@@ -56,7 +56,8 @@ habt, aber nicht genau wisst was sie tun, oder wie sie funktionieren.
 
 ==== Begriffe 5 ====
 
-* Ein '''tag''' wird verwendet um einem ''commit'' einen nicht ''SHA-1'' namen zu geben
+* '''ref'''
+* Ein '''tag''' ist eine art Referenz und erlaub es einem ''commit'' einen Namen zu geben, und kann als alternative zu der ''SHA-1 ID'' verwendet werden um den ''commit'' zu bennenen
 * @HEAD@ ist ein impliziter ''tag'' und identifiziert den zuletzt gespeicherten ''commit'' im ''repository''
 * Ein '''hunk''' beschreibt eine gruppe von aufeinander folgenden Zeilen im Quellcode
 * Ein '''branch'''
