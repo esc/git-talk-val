@@ -35,6 +35,25 @@
 \end{figure}
 }
 
+\section{.git}
+
+\begin{frame}[fragile]
+\frametitle{Inhalt von .git}
+
+git speichert alles in dem Verzeichniss {\tt.git/} auch bekannt als \textbf{git
+directory}
+
+\begin{verbatim}
+    % tree -L 1  .git/
+    .
+    |-- HEAD            # der gegenwärtige HEAD
+    |-- config          # Konfiguration (user, email)
+    |-- index           # der index
+    |-- objects         # die eigentlichen Objekte
+
+\end{verbatim}
+
+\end{frame}
 
 
 \input{slides-02.tex}

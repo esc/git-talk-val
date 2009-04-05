@@ -1,4 +1,3 @@
-==== Inhalt von .git ====
+==== Slide 23 ====
 
-* git speichert das repository inclusive configuration in dem verzeichniss @.git/@ im wurzel Verzeichniss des working tree
-
+* do not read this
