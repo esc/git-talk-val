@@ -111,7 +111,7 @@ Vorher
 
 * @git diff -{-}cached@ zeigt an was sich im ''index'' befindet
 * Um veränderungen wieder aus dem index herauszunehmen (unstage) verwenden wir @git reset HEAD@
-* Mit @git-status@ sehen wir aus welchen dateien sich veränderungen im index befinden, welche dateien veränderungen enthalten die wir dem index hinzufügen könnten, und welche dateien sich noch nicht im ''repository'' befinden
+* Mit @git-status@ sehen wir aus welchen dateien sich veränderungen im ''index'' befinden, welche dateien veränderungen enthalten die wir dem ''index'' hinzufügen könnten, und welche dateien sich noch nicht im ''repository'' befinden
 
 
 ==== Das Repository ====
