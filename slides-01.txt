@@ -17,8 +17,7 @@ habt.
 
 * Terminologie
 * Setzen von Namen und Email
-* Index  
-* Der Inhalt von .git  
+* Umgang mit dem Index 
 * Spezifizieren von Revisionen 
 * Finden von Veränderungen 
 * Arbeiten mit entfernten Repositorien 
