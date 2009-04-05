@@ -63,7 +63,15 @@ habt, aber nicht genau wisst was sie tun, oder wie sie funktionieren.
 * Ein '''branch'''
 * '''master''' beschreibt meist den haupt ''branch'' in einem ''repository''
 
-== ==
+== Start ==
+
+==== Ein ''repository'' bekommen ====
+
+Es gibt grunsätzlich zwei Möglichkeiten an ein ''repository'' zu kommen:
+
+* Mit @git-init@ setzen wir ein neues auf
+* Mit @git-clone@ kopieren wir ein existierendes
+
 
 ==== Wichtig: Setzen von Namen und Email ====
 
