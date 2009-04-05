@@ -34,10 +34,17 @@ habt, aber nicht genau wisst was sie tun, oder wie sie funktionieren.
 
 ==== Begriffe 2 ====
 
-* Git verwendet '''SHA-1 Hashes''' um ''objects'' zu identifizieren
+* Git verwendet '''SHA-1 IDs''' um ein ''object'' zu identifizieren
+* ''SHA-1'' ist eine Hash-Funktion die eine belibige bit Sequenz in eine hexadezimal Sequenz der Länge 40 übersetzt
+* z.B. e42d20c7aa40674c056c1c2531809c8c717e966f
+* Ein ''SHA-1 ID'' wird aus dem Inhalt berechnet und ist somit (fast) einzigartig
+* Leider für uns Menschen etwas unhantlich
+
+==== Begriffe 3 ====
+
 * Die verschiedenen '''objects''' sind: ''blob'', ''tree'' und ''commit''
 * Ein '''blob''' enthält im allgemeinen den Inhalt einer Datei
-* Ein '''tree''' ist eine Ansammlung von ''tree'' und ''blob'' Objekten
+* Ein '''tree''' ist eine Ansammlung von ''tree'' und ''blob'' Objekten, meist der Inhalt von einem Verzeichniss
 * (Vorsicht: ''tree'' und ''working tree'' sind nicht dasselbe!)
 * Ein '''commit''' ist ein ''tree'' mit zusätzlichen Informationen
 
