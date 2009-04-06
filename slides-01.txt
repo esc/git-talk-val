@@ -15,8 +15,8 @@ habt, aber nicht genau wisst, was sie tun, oder, wie sie funktionieren.
 
 ==== Fahrplan für Heute ====
 
-* Terminologie
-* Am Anfang war...
+* Begriffe
+* Start
 * Umgang mit dem Index 
 * Einsehen der Geschichte
 * Finden von Veränderungen 
@@ -25,14 +25,14 @@ habt, aber nicht genau wisst, was sie tun, oder, wie sie funktionieren.
 
 == Begriffe ==
 
-==== Begriffe 1 ====
+==== Grundbegriffe ====
 
 * Ein '''repository''' ist ein Archiv der Zustände von einem ''working tree''
 * Ein '''working tree''' ist Verzeichnis, dessen Zustände in einem ''repository'' archiviert sind
 * Der '''index''' ist die Verbindung zwischen ''working tree'' und ''repository''
 * Ein '''commit''' ist ein spezifischer Zustand des ''working tree'' der im ''repository'' gespeichert ist
 
-==== Begriffe 2 ====
+==== SHA-1 IDs ====
 
 * Git verwendet '''SHA-1 IDs''' um ein ''object'' zu identifizieren
 * ''SHA-1'' ist eine Hash-Funktion die eine beliebige Bit-Sequenz in eine Hexadezimal-Sequenz der Länge 40 übersetzt
@@ -40,29 +40,19 @@ habt, aber nicht genau wisst, was sie tun, oder, wie sie funktionieren.
 * Ein ''SHA-1 ID'' wird aus dem Inhalt berechnet und ist somit (fast) einzigartig
 * Leider für uns Menschen etwas unhandlich
 
-==== Begriffe 3 ====
+==== Objects ====
 
-* Die verschiedenen '''objects''' sind: ''blob'', ''tree'' und ''commit''
+* Die verschiedenen '''objects''' sind: ''blob'', ''tree'', ''commit'' und ''tag''
 * Ein '''blob''' enthält im allgemeinen den Inhalt einer Datei
 * Ein '''tree''' ist eine Ansammlung von ''tree'' und ''blob'' Objekten, meist der Inhalt von einem Verzeichnis
 * (Vorsicht: ''tree'' und ''working tree'' sind nicht dasselbe!)
 * Ein '''commit''' ist ein ''tree'' mit zusätzlichen Informationen
+* Ein '''tag''' enthält ein anderes ''object'' sowie eine sinnvolle Zeichenfolge die das ''object'' beschreibt
 
-==== Begriffe 4 ====
+==== Zusammenfassung ====
 
-* Um Revisionen zu spezifizieren verwendet Git keine inkrementellen Revisionsnummern
-* stattdessen können wir eine Version bzw. ein Revision mit dem '''SHA-1 ID''' des entsprechenden ''commits'' benennen
-* Meist reichen die ersten 4-7 Zeichen
-* Viele Git-Befehle nehmen als Parameter eine Revision (z.B. git-log und git-diff )
-
-==== Begriffe 5 ====
-
-* '''ref'''
-* Ein '''tag''' ist eine art Referenz und erlaubt es, einem ''commit'' einen Namen zu geben, und kann als Alternative zu der ''SHA-1 ID'' verwendet werden, um den ''commit'' zu benennen
-* @HEAD@ ist ein impliziter ''tag'' und identifiziert den zuletzt gespeicherten ''commit'' im ''repository''
-* Ein '''hunk''' beschreibt eine Gruppe von aufeinanderfolgenden Zeilen im Quellcode
-* Ein '''branch'''
-* '''master''' beschreibt meist den haupt ''branch'' in einem ''repository''
+Ein Git ''repository'' enthält ''commits'' die durch ihre ''SHA-1 IDs'' benannt
+werden, ''commits'' wiederum bestehen aus ''trees'' und ''blobs''.
 
 == Start ==
 
@@ -80,7 +70,7 @@ Noch bevor man einen ''commit'' macht, ist es wichtig, folgende Einstellungen zu
 machen:
 
 * @git config user.name "Valentin Haenel"@
-* @git config user.email valentin@cs.tu-berlin.de@
+* @git config user.email valentin{@}cs.tu-berlin.de@
 * Mit @-{-}global@ werden diese Optionen der @~/.gitconfig@ hinzugefügt
 Was kann passieren, wenn das vergessen wird?
 <<<canvas.png,scale=0.21>>>
@@ -100,24 +90,15 @@ Vorher
 
 == Index ==
 
-==== Der Index (1) ====
+==== Der Index ====
 
 * Der ''index'' (auch ''staging area'' genannt) bietet die Möglichkeit einen ''commit'' schrittweise aus einzelnen ''blobs'' und ''trees'' zusammenzusetzen
-* Wie schon erwähnt, ist er eine Art Verbindung zwischen ''working tree'' und ''repository''
-* Quellcode kann mit den Kommando @git add@ dem index hinzugefügt werden
-* das geht sowohl für Dateien, die noch nicht im ''repository'' sind, als auch für Veränderungen
-* Die Option @-{-}patch@ bzw. @-p@ erlaubt es einzelne ''hunks'' zu selektieren
-
-==== Der Index (2) ====
-
-* @git diff -{-}cached@ zeigt an was sich im ''index'' befindet
-* Um Veränderungen wieder aus dem ''index'' herauszunehmen (unstage), verwenden wir @git reset HEAD@
+* Quellcode kann mit @git add@ dem ''index'' hinzugefügt werden, das geht sowohl für Dateien, die noch nicht im ''repository'' sind, als auch für Veränderungen
 * Mit @git status@ sehen wir, aus welchen Dateien sich Veränderungen im ''index'' befinden, welche Dateien Veränderungen enthalten, die wir dem ''index'' hinzufügen könnten, und welche Dateien sich noch nicht im ''repository'' befinden
-
 
 ==== Das Repository ====
 
-* Um Veränderungen aus dem ''index'' zu übernehmen verwenden wir @git commit@
+* Um alle Veränderungen aus dem ''index'' in ein ''commit'' ''object'' zu verwandeln und dem ''repository'' hinzuzufügen verwenden wir @git commit@
 * Dies ruft unseren @EDITOR@ auf und wir können die ''commit message'' eingeben
 * Wollen wir die ''commit message'' direkt auf der Kommandozeile eingeben, verwenden wir @git commit -m "MESSAGE"@
 * Um den ''index'' zum umgehen und gleich alle Veränderungen direkt zu übernehmen, verwenden wir @git commit -a@

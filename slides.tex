@@ -28,7 +28,7 @@
 \input{slides-01.tex}
 
 \frame{
-\frametitle{Wie das nun alles zusammen passt}
+\frametitle{Zussamenhang}
 
 \begin{figure}[ht]
 	  \includegraphics[scale=0.7]{git-im1.pdf}
@@ -36,6 +36,26 @@
       \textit{repository}}
 \end{figure}
 }
+
+\input{slides-02.tex}
+
+\frame{
+\frametitle{Alternativen}
+
+\begin{itemize}
+    \item Meistens reicht f\"ur die Angabe von einem commit die ersten 4-7
+        Zeichen des \textit{SHA-1 ID}
+    \item @HEAD@ ist eine Referenz zu dem \textit{commit} der als
+        \textit{parent} für den nächsten genommen wird, meist ist dies der
+        neueste
+    \item Relative Angaben werden mit \^{} und $\sim$ gemacht
+    \item z.B. {\tt HEAD\^{}\^{}\^{}} und {\tt HEAD$\sim$3} sind equivalent und
+        beschreiben beide den dritten \textit{commit} vor {\tt HEAD}
+\end{itemize}
+
+}
+
+\input{slides-03.tex}
 
 \section{.git}
 
@@ -57,20 +77,5 @@ directory}
 
 \end{frame}
 
-
-\input{slides-02.tex}
-
-\frame{
-\frametitle{Alternative möglichkeiten um Revisionen anzugeben}
-
-\begin{itemize}
-    \item Eine Alternative möglichkeit um Revisionen anzugeben sind relative
-        Angaben mit \^{} und $\sim$
-    \item z.B. {\tt HEAD\^{}\^{}\^{}} und {\tt HEAD$\sim$3} sind equivalent und
-        beschreiben beide den dritten \textit{commit} vor {\tt HEAD}
-    \item
-\end{itemize}
-
-}
 
 \end{document}
