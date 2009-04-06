@@ -2,7 +2,7 @@
 
 ==== Basiswissen ====
 
-Letztes mal haben wir die folgenden Kommandos gelernt:
+Letztes Mal haben wir die folgenden Kommandos gelernt:
 
 * @git init@
 * @git add@ 
@@ -10,8 +10,8 @@ Letztes mal haben wir die folgenden Kommandos gelernt:
 * @git status@
 * @git log@
 
-Ich nehme also an, das ihr diese Kommandos schon mindestens einmal verwendet
-habt, aber nicht genau wisst, was sie tun, oder wie sie funktionieren. 
+Ich nehme also an, dass ihr diese Kommandos schon mindestens einmal verwendet
+habt, aber nicht genau wisst, was sie tun, oder, wie sie funktionieren.
 
 ==== Fahrplan für Heute ====
 
@@ -28,14 +28,14 @@ habt, aber nicht genau wisst, was sie tun, oder wie sie funktionieren.
 ==== Begriffe 1 ====
 
 * Ein '''repository''' ist ein Archiv der Zustände von einem ''working tree''
-* Ein '''working tree''' ist Verzeichnis dessen Zustände in einem ''repository'' archiviert sind
+* Ein '''working tree''' ist Verzeichnis, dessen Zustände in einem ''repository'' archiviert sind
 * Der '''index''' ist die Verbindung zwischen ''working tree'' und ''repository''
 * Ein '''commit''' ist ein spezifischer Zustand des ''working tree'' der im ''repository'' gespeichert ist
 
 ==== Begriffe 2 ====
 
 * Git verwendet '''SHA-1 IDs''' um ein ''object'' zu identifizieren
-* ''SHA-1'' ist eine Hash-Funktion die eine belibige Bit-Sequenz in eine hexadezimal Sequenz der Länge 40 übersetzt
+* ''SHA-1'' ist eine Hash-Funktion die eine beliebige Bit-Sequenz in eine Hexadezimal-Sequenz der Länge 40 übersetzt
 * z.B. e42d20c7aa40674c056c1c2531809c8c717e966f
 * Ein ''SHA-1 ID'' wird aus dem Inhalt berechnet und ist somit (fast) einzigartig
 * Leider für uns Menschen etwas unhandlich
@@ -50,17 +50,17 @@ habt, aber nicht genau wisst, was sie tun, oder wie sie funktionieren.
 
 ==== Begriffe 4 ====
 
-* Um Revisionen zu spezifizieren verwendet git im keine inkrementellen Revisionsnummern
-* stattdessen können wir eine Version bzw. ein Revision mit dem '''SHA-1 ID''' des entsprechenden ''commits'' bennenen
+* Um Revisionen zu spezifizieren verwendet Git keine inkrementellen Revisionsnummern
+* stattdessen können wir eine Version bzw. ein Revision mit dem '''SHA-1 ID''' des entsprechenden ''commits'' benennen
 * Meist reichen die ersten 4-7 Zeichen
-* Viele git Befehle nehmen als parameter eine Revision (z.B. git-log und git-diff )
+* Viele Git-Befehle nehmen als Parameter eine Revision (z.B. git-log und git-diff )
 
 ==== Begriffe 5 ====
 
 * '''ref'''
-* Ein '''tag''' ist eine art Referenz und erlaub es einem ''commit'' einen Namen zu geben, und kann als alternative zu der ''SHA-1 ID'' verwendet werden um den ''commit'' zu bennenen
+* Ein '''tag''' ist eine art Referenz und erlaubt es, einem ''commit'' einen Namen zu geben, und kann als Alternative zu der ''SHA-1 ID'' verwendet werden, um den ''commit'' zu benennen
 * @HEAD@ ist ein impliziter ''tag'' und identifiziert den zuletzt gespeicherten ''commit'' im ''repository''
-* Ein '''hunk''' beschreibt eine gruppe von aufeinander folgenden Zeilen im Quellcode
+* Ein '''hunk''' beschreibt eine Gruppe von aufeinanderfolgenden Zeilen im Quellcode
 * Ein '''branch'''
 * '''master''' beschreibt meist den haupt ''branch'' in einem ''repository''
 
@@ -76,50 +76,50 @@ Es gibt grunsätzlich zwei Möglichkeiten an ein ''repository'' zu kommen:
 
 ==== Wichtig: Setzen von Namen und Email ====
 
-Noch bevor man einen commit macht ist es wichtig folgende Einstellungen zu
-Machen:
+Noch bevor man einen ''commit'' macht, ist es wichtig, folgende Einstellungen zu
+machen:
 
 * @git config user.name "Valentin Haenel"@
 * @git config user.email valentin@cs.tu-berlin.de@
 * Mit @-{-}global@ werden diese Optionen der @~/.gitconfig@ hinzugefügt
-Was kann passieren wenn das vergessen wird?
+Was kann passieren, wenn das vergessen wird?
 <<<canvas.png,scale=0.21>>>
 
 ==== Farben ====
 
-Wer vor hat git von der Kommandozeile aus zu verwenden dem sind Farben ans Herz
+Wer vor hat, Git von der Kommandozeile aus zu verwenden, dem seien Farben ans Herz
 gelegt:
 
 Ab Version 1.55
-* @git config --global color.ui "auto"@
+* @git config -{-}global color.ui "auto"@
 
 Vorher
-* @git config --global color.branch "auto"@
-* @git config --global color.diff "auto"@
-* @git config --global color.status "auto"@
+* @git config -{-}global color.branch "auto"@
+* @git config -{-}global color.diff "auto"@
+* @git config -{-}global color.status "auto"@
 
 == Index ==
 
 ==== Der Index (1) ====
 
 * Der ''index'' (auch ''staging area'' genannt) bietet die Möglichkeit einen ''commit'' schrittweise aus einzelnen ''blobs'' und ''trees'' zusammenzusetzen
-* Wie schon erwähnt ist er eine Art Verbindung zwischen ''working tree'' und ''repository''
-* Quellcode kann mit den Kommando @git-add@ dem index hinzugefügt werden
-* das geht sowohl für dateien die noch nicht im ''repository'' sind als auch für Veränderungen
+* Wie schon erwähnt, ist er eine Art Verbindung zwischen ''working tree'' und ''repository''
+* Quellcode kann mit den Kommando @git add@ dem index hinzugefügt werden
+* das geht sowohl für Dateien, die noch nicht im ''repository'' sind, als auch für Veränderungen
 * Die Option @-{-}patch@ bzw. @-p@ erlaubt es einzelne ''hunks'' zu selektieren
 
 ==== Der Index (2) ====
 
 * @git diff -{-}cached@ zeigt an was sich im ''index'' befindet
-* Um veränderungen wieder aus dem index herauszunehmen (unstage) verwenden wir @git reset HEAD@
-* Mit @git-status@ sehen wir aus welchen dateien sich veränderungen im ''index'' befinden, welche dateien veränderungen enthalten die wir dem ''index'' hinzufügen könnten, und welche dateien sich noch nicht im ''repository'' befinden
+* Um Veränderungen wieder aus dem ''index'' herauszunehmen (unstage), verwenden wir @git reset HEAD@
+* Mit @git status@ sehen wir, aus welchen Dateien sich Veränderungen im ''index'' befinden, welche Dateien Veränderungen enthalten, die wir dem ''index'' hinzufügen könnten, und welche Dateien sich noch nicht im ''repository'' befinden
 
 
 ==== Das Repository ====
 
 * Um Veränderungen aus dem ''index'' zu übernehmen verwenden wir @git commit@
-* Dies ruft unseren @EDITOR@ auf und wir können die ''commit-message'' eingeben
-* Wollen wir die ''commit-message'' direkt auf der Kommandozeile eingeben verwenden wir @git commit -m "MESSAGE"@
-* Um den ''index'' zum umgehen und gleich alle Veränderungen direkt zu übernehmen verwenden wir @git commit -a@
-* Wenn wir den ''working tree'' zu einem frühern Zustand aus dem ''repository'' zurück setzen wollen verweden wir @git checkout@
+* Dies ruft unseren @EDITOR@ auf und wir können die ''commit message'' eingeben
+* Wollen wir die ''commit message'' direkt auf der Kommandozeile eingeben, verwenden wir @git commit -m "MESSAGE"@
+* Um den ''index'' zum umgehen und gleich alle Veränderungen direkt zu übernehmen, verwenden wir @git commit -a@
+* Wenn wir den ''working tree'' zu einem frühern Zustand aus dem ''repository'' zurücksetzen wollen, verweden wir @git checkout@
 
