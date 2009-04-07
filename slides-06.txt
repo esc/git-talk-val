@@ -1,0 +1,35 @@
+==== Branch Kommandos ====
+
+* @git branch@ zum anzeigen der ''branches''
+* @git branch NAME@ zum erstellen eines ''branches''
+* @git checkout NAME@ um in der ''branch'' zu wechseln
+
+==== Die Geschichte (2) ====
+
+* Die Ausgabe von @git log@ kann mit @-{-}pretty@ verändert werden
+* z.B. @git log -{-}pretty=oneline@ um nur die ''SHA-1 IDs'' und ''commit messages'' anzuzeigen
+* oder: @git log -{-}pretty=format:"\%Cred \%h \%Cgreen \%s \%Cblue \%ce"@
+* Um die ''commits'' dazwischen anzuzeigen, wird @git-log START..END@ verwendet
+
+==== Advanced ====
+
+* Die Option @-{-}patch@ bzw. @-p@ erlaubt es interaktiv einzelne ''hunks'' zu selektieren
+* @git diff -{-}cached@ zeigt an was sich im ''index'' befindet
+* Um Veränderungen wieder aus dem ''index'' herauszunehmen (unstage), verwenden wir @git reset HEAD@
+
+==== Begriffe 4 ====
+
+* Um eine ''revision'' zu spezifizieren verwendet Git keine inkrementellen Revisionsnummern
+* stattdessen können wir eine ''revision'' mit dem '''SHA-1 ID''' des entsprechenden ''commits'' benennen
+* Meist reichen die ersten 4-7 Zeichen
+* Viele Git-Befehle nehmen als Parameter eine Revision (z.B. git-log und git-diff )
+
+==== Begriffe 5 ====
+
+* '''references''' oder auch '''refs''' sind interne Referenzen die auf ''objects'' zeigen
+* Ein '''hunk''' beschreibt eine Gruppe von aufeinanderfolgenden Zeilen im Quellcode
+* Ein '''branch''' ist ein nur auch ein '''commit'''... wirklich
+* '''master''' beschreibt meist den haupt ''branch'' in einem ''repository''
+* @HEAD@ ist eine implizite ''ref'' und identifiziert den zuletzt gespeicherten ''commit'' im ''branch''
+
+* @git diff -stat* zeigt eine statistik der veränderungen an.

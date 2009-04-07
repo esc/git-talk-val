@@ -1,4 +1,4 @@
-== Einleitung ==
+==Einleitung==
 
 ==== Basiswissen ====
 
@@ -32,75 +32,4 @@ habt, aber nicht genau wisst, was sie tun, oder, wie sie funktionieren.
 * Der '''index''' ist die Verbindung zwischen ''working tree'' und ''repository''
 * Ein '''commit''' ist ein spezifischer Zustand des ''working tree'' der im ''repository'' gespeichert ist
 
-==== SHA-1 IDs ====
-
-* Git verwendet '''SHA-1 IDs''' um ein ''object'' zu identifizieren
-* ''SHA-1'' ist eine Hash-Funktion die eine beliebige Bit-Sequenz in eine Hexadezimal-Sequenz der Länge 40 übersetzt
-* z.B. e42d20c7aa40674c056c1c2531809c8c717e966f
-* Ein ''SHA-1 ID'' wird aus dem Inhalt berechnet und ist somit (fast) einzigartig
-* Leider für uns Menschen etwas unhandlich
-
-==== Objects ====
-
-* Die verschiedenen '''objects''' sind: ''blob'', ''tree'', ''commit'' und ''tag''
-* Ein '''blob''' enthält im allgemeinen den Inhalt einer Datei
-* Ein '''tree''' ist eine Ansammlung von ''tree'' und ''blob'' Objekten, meist der Inhalt von einem Verzeichnis
-* (Vorsicht: ''tree'' und ''working tree'' sind nicht dasselbe!)
-* Ein '''commit''' ist ein ''tree'' mit zusätzlichen Informationen
-* Ein '''tag''' enthält ein anderes ''object'' sowie eine sinnvolle Zeichenfolge die das ''object'' beschreibt
-
-==== Zusammenfassung ====
-
-Ein Git ''repository'' enthält ''commits'' die durch ihre ''SHA-1 IDs'' benannt
-werden, ''commits'' wiederum bestehen aus ''trees'' und ''blobs''.
-
-== Start ==
-
-==== Ein ''repository'' bekommen ====
-
-Es gibt grunsätzlich zwei Möglichkeiten an ein ''repository'' zu kommen:
-
-* Mit @git-init@ setzen wir ein neues auf
-* Mit @git-clone@ kopieren wir ein existierendes
-
-
-==== Wichtig: Setzen von Namen und Email ====
-
-Noch bevor man einen ''commit'' macht, ist es wichtig, folgende Einstellungen zu
-machen:
-
-* @git config user.name "Valentin Haenel"@
-* @git config user.email valentin{@}cs.tu-berlin.de@
-* Mit @-{-}global@ werden diese Optionen der @~/.gitconfig@ hinzugefügt
-Was kann passieren, wenn das vergessen wird?
-<<<canvas.png,scale=0.21>>>
-
-==== Farben ====
-
-Wer vor hat, Git von der Kommandozeile aus zu verwenden, dem seien Farben ans Herz
-gelegt:
-
-Ab Version 1.55
-* @git config -{-}global color.ui "auto"@
-
-Vorher
-* @git config -{-}global color.branch "auto"@
-* @git config -{-}global color.diff "auto"@
-* @git config -{-}global color.status "auto"@
-
-== Index ==
-
-==== Der Index ====
-
-* Der ''index'' (auch ''staging area'' genannt) bietet die Möglichkeit einen ''commit'' schrittweise aus einzelnen ''blobs'' und ''trees'' zusammenzusetzen
-* Quellcode kann mit @git add@ dem ''index'' hinzugefügt werden, das geht sowohl für Dateien, die noch nicht im ''repository'' sind, als auch für Veränderungen
-* Mit @git status@ sehen wir, aus welchen Dateien sich Veränderungen im ''index'' befinden, welche Dateien Veränderungen enthalten, die wir dem ''index'' hinzufügen könnten, und welche Dateien sich noch nicht im ''repository'' befinden
-
-==== Das Repository ====
-
-* Um alle Veränderungen aus dem ''index'' in ein ''commit'' ''object'' zu verwandeln und dem ''repository'' hinzuzufügen verwenden wir @git commit@
-* Dies ruft unseren @EDITOR@ auf und wir können die ''commit message'' eingeben
-* Wollen wir die ''commit message'' direkt auf der Kommandozeile eingeben, verwenden wir @git commit -m "MESSAGE"@
-* Um den ''index'' zum umgehen und gleich alle Veränderungen direkt zu übernehmen, verwenden wir @git commit -a@
-* Wenn wir den ''working tree'' zu einem frühern Zustand aus dem ''repository'' zurücksetzen wollen, verweden wir @git checkout@
 

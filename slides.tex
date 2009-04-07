@@ -7,10 +7,9 @@
 \usepackage{graphicx}
 
 \usepackage{beamerthemesplit}
-\usetheme{Berlin}
-\useinnertheme{rounded}
-\usecolortheme{dolphin}
+\usetheme{esc}
 \author{Valentin H\"anel}
+%\email{valentin.haenel@gmx.de}
 \institute{Bernstein Center for Computational Neuroscience Berlin}
 
 \title{Eine Git Einführung}
@@ -31,13 +30,63 @@
 \frametitle{Zussamenhang}
 
 \begin{figure}[ht]
-	  \includegraphics[scale=0.7]{git-im1.pdf}
+	  \includegraphics[scale=0.7]{git-im0.pdf}
       \caption{Zussamenhang von \textit{working tree}, \textit{index} und
       \textit{repository}}
 \end{figure}
 }
 
 \input{slides-02.tex}
+
+\frame{
+\frametitle{Objects}
+
+Ein Git \emph{repository} enthält \emph{commits} die durch ihre \emph{SHA-1 IDs} benannt
+werden, \emph{commits} wiederum bestehen aus \emph{trees} und \emph{blobs}.
+
+\begin{figure}[ht]
+	  \includegraphics[scale=0.7]{git-overview.pdf}
+      \caption{\emph{commits}, \emph{trees} und \emph{blobs}}
+\end{figure}
+}
+
+
+
+\input{slides-03.tex}
+
+\frame{
+\frametitle{Transport Kommandos}
+
+\begin{figure}[ht]
+	  \includegraphics[scale=0.7]{git-im1.pdf}
+      \caption{Zusammenhang von {\tt git-add}, {\tt git-commit} und {\tt git checkout}}
+\end{figure}
+}
+
+
+\input{slides-04.tex}
+
+\begin{frame}[fragile]
+    \frametitle{Beispiel output von {\tt git log}}
+
+    \begin{verbatim}
+
+    commit b99336317088ba4ae40e45c338c6981e3f402f8e
+    Author: Valentin Haenel <valentin@cs.tu-berlin.de>
+    Date:   Sun Apr 5 20:19:50 2009 +0200
+
+    adding slides about git-log
+
+    commit 6c5fc525596ee9d4e37d1bcf04b1cd7a74989456
+    Author: Valentin Haenel <valentin@cs.tu-berlin.de>
+    Date:   Sun Apr 5 20:19:25 2009 +0200
+
+    update description of git-status
+
+
+    \end{verbatim}
+
+\end{frame}
 
 \frame{
 \frametitle{Alternativen}
@@ -52,12 +101,28 @@
     \item z.B. {\tt HEAD\^{}\^{}\^{}} und {\tt HEAD$\sim$3} sind equivalent und
         beschreiben beide den dritten \textit{commit} vor {\tt HEAD}
 \end{itemize}
-
 }
 
-\input{slides-03.tex}
+\input{slides-05.tex}
 
-\section{.git}
+\frame{
+\frametitle{Branch}
+
+\begin{itemize}
+    \item \textit{branches} haben namen
+    \item Der Name von einem \textit{branch} ist eine Referenz zu einem  \textit{commit}
+    \item Dieser \textit{commit} hat Vorfahren
+\end{itemize}
+
+
+\begin{figure}[ht]
+	  \includegraphics[scale=0.7]{git-branch.pdf}
+      \caption{Graphische Darstellung von einem \textit{branch}}
+\end{figure}
+}
+
+\input{slides-06.tex}
+
 
 \begin{frame}[fragile]
 \frametitle{Inhalt von .git}

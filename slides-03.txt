@@ -1,52 +1,52 @@
-==== Veränderungen ====
+== Anfang ==
 
-* Wollen wir einsehen was sich verändert hat verwenden wir @git diff@
-* Ohne Argumente werden die Unterschiede zwischen dem ''working tree'' und dem HEAD angezeigt
-* @git diff --cached@ zeigt an was sich im index befindet
-* @git diff COMMITA COMMITB@ zeigt an was sich zwischen zwei ''commits'' verändert hat
+==== Ein ''repository'' bekommen ====
 
-== Branching ==
+Es gibt grunsätzlich zwei Möglichkeiten an ein ''repository'' zu kommen:
 
-==== Branches ====
-
-* Bisher haben wir nur eine lineare Geschichte
-* 
-* Um 
-* In vielen anderen Versionskontrollsystemen werden ''branches'' als eine art ''black art'' angesehen die nur eingeweihten zugänglich ist
-* In Git sind sie eigentlich ganz einfach, es sind nur ''commits''... (ja, wirklich!)
-* ''branches'' haben namen
-* Der Name von einem ''branch'' ist eine Referenz zu einem ''commit''
-* Dieser ''commit'' hat Vorfahren
+* Mit @git-init@ setzen wir ein neues auf
+* Mit @git-clone@ kopieren wir ein existierendes
 
 
-==== Die Geschichte (2) ====
+==== Wichtig: Setzen von Namen und Email ====
 
-* Die Ausgabe von @git log@ kann mit @-{-}pretty@ verändert werden
-* z.B. @git log -{-}pretty=oneline@ um nur die ''SHA-1 IDs'' und ''commit messages'' anzuzeigen
-* oder: @git log -{-}pretty=format:"\%Cred \%h \%Cgreen \%s \%Cblue \%ce"@
-* Um die ''commits'' dazwischen anzuzeigen, wird @git-log START..END@ verwendet
+Noch bevor man einen ''commit'' macht, ist es wichtig, folgende Einstellungen zu
+machen:
+
+* @git config user.name "Valentin Haenel"@
+* @git config user.email valentin{@}cs.tu-berlin.de@
+* Mit @-{-}global@ werden diese Optionen der @~/.gitconfig@ hinzugefügt
+Was kann passieren, wenn das vergessen wird?
+<<<canvas.png,scale=0.21>>>
+
+==== Farben ====
+
+Wer vor hat, Git von der Kommandozeile aus zu verwenden, dem seien Farben ans Herz
+gelegt:
+
+Ab Version 1.55
+* @git config -{-}global color.ui "auto"@
+
+Vorher
+* @git config -{-}global color.branch "auto"@
+* @git config -{-}global color.diff "auto"@
+* @git config -{-}global color.status "auto"@
+
+== Index ==
+
+==== Der Index ====
+
+* Der ''index'' (auch ''staging area'' genannt) bietet die Möglichkeit einen ''commit'' schrittweise aus einzelnen ''blobs'' und ''trees'' zusammenzusetzen
+* Quellcode kann mit @git add@ dem ''index'' hinzugefügt werden, das geht sowohl für Dateien, die noch nicht im ''repository'' sind, als auch für Veränderungen
+* Mit @git status@ sehen wir, aus welchen Dateien sich Veränderungen im ''index'' befinden, welche Dateien Veränderungen enthalten, die wir dem ''index'' hinzufügen könnten, und welche Dateien sich noch nicht im ''repository'' befinden
+
+==== Das Repository ====
+
+* Um alle Veränderungen aus dem ''index'' in ein ''commit'' ''object'' zu verwandeln und dem ''repository'' hinzuzufügen verwenden wir @git commit@
+* Dies ruft unseren @EDITOR@ auf und wir können die ''commit message'' eingeben
+* Wollen wir die ''commit message'' direkt auf der Kommandozeile eingeben, verwenden wir @git commit -m "MESSAGE"@
+* Um den ''index'' zum umgehen und gleich alle Veränderungen direkt zu übernehmen, verwenden wir @git commit -a@
+* Wenn wir den ''working tree'' zu einem frühern Zustand aus dem ''repository'' zurücksetzen wollen, verweden wir @git checkout@
 
 
 
-==== Advanced ====
-
-* Die Option @-{-}patch@ bzw. @-p@ erlaubt es interaktiv einzelne ''hunks'' zu selektieren
-* @git diff -{-}cached@ zeigt an was sich im ''index'' befindet
-* Um Veränderungen wieder aus dem ''index'' herauszunehmen (unstage), verwenden wir @git reset HEAD@
-
-==== Begriffe 4 ====
-
-* Um eine ''revision'' zu spezifizieren verwendet Git keine inkrementellen Revisionsnummern
-* stattdessen können wir eine ''revision'' mit dem '''SHA-1 ID''' des entsprechenden ''commits'' benennen
-* Meist reichen die ersten 4-7 Zeichen
-* Viele Git-Befehle nehmen als Parameter eine Revision (z.B. git-log und git-diff )
-
-==== Begriffe 5 ====
-
-* '''references''' oder auch '''refs''' sind interne Referenzen die auf ''objects'' zeigen
-* Ein '''hunk''' beschreibt eine Gruppe von aufeinanderfolgenden Zeilen im Quellcode
-* Ein '''branch''' ist ein nur auch ein '''commit'''... wirklich
-* '''master''' beschreibt meist den haupt ''branch'' in einem ''repository''
-* @HEAD@ ist eine implizite ''ref'' und identifiziert den zuletzt gespeicherten ''commit'' im ''branch''
-
-* @git diff -stat* zeigt eine statistik der veränderungen an.
