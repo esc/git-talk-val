@@ -13,6 +13,7 @@
 * Bisher haben wir nur eine lineare Geschichte
 * Manchmal ist nicht-linerität wichtig, besonders bei grösseren Projekten
 * In vielen anderen Versionskontrollsystemen werden ''branches'' als eine art ''black art'' angesehen die nur Eingeweihten zugänglich ist
-* In Git sind sie eigentlich ganz einfach, es sind nur ''commits''... (ja, wirklich!)
+* In Git sind sie eigentlich ganz einfach, es sind nur ''commits''...\\(ja, wirklich!)
+* 
 
 

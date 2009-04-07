@@ -2,34 +2,54 @@
 
 * @git branch@ zum anzeigen der ''branches''
 * @git branch NAME@ zum erstellen eines ''branches''
-* @git checkout NAME@ um in der ''branch'' zu wechseln
+* @git checkout NAME@ um in den ''branch'' zu wechseln
+* @git merge NAME@ um den Inhalt in den gegenwärtigen ''branch'' zu übernehmen
+* @git branch -d NAME@ um einen ''branch'' zu löschen (prüft vorher ob was verloren geht, erzwingen mit @-D@)
 
-==== Die Geschichte (2) ====
+* Wollen wir statt den Inhalt in einem ''commit'' zu übernehmen (@git merge@), die ''commits'' von einem ''branch'' an einen andern dranhängen brauchen wir @git rebase@
 
-* Die Ausgabe von @git log@ kann mit @-{-}pretty@ verändert werden
-* z.B. @git log -{-}pretty=oneline@ um nur die ''SHA-1 IDs'' und ''commit messages'' anzuzeigen
-* oder: @git log -{-}pretty=format:"\%Cred \%h \%Cgreen \%s \%Cblue \%ce"@
-* Um die ''commits'' dazwischen anzuzeigen, wird @git-log START..END@ verwendet
+==== Tags ====
 
-==== Advanced ====
+* Da die ''SHA-1 IDs'' unhandlich und semantikarm sind bietet Git eine möglichkeit um ''commits'' mit namen, so gennanten ''tags'' zu versehen
+* Wie schon erwähnt sind ''tags'' auch nur ''objects''
+* @git tag@ zum anzeigen aller ''tags''
+* @git tag NAME@ um den jetzigen @HEAD@ zu ''taggen''
+* @git tag -d NAME@ um ein ''tag'' zu löschen
+* Der name vom ''tag'' kann als paramter für @git diff@ @git log@ @git checkout@ usw.. verwendet werden, also überall dort wo ein ''object name'' verwendet wird
+* Git tags sind eine gute möglichkeit um markannte punkte in der Geschichte zu markieren
 
-* Die Option @-{-}patch@ bzw. @-p@ erlaubt es interaktiv einzelne ''hunks'' zu selektieren
-* @git diff -{-}cached@ zeigt an was sich im ''index'' befindet
+==== Going Deep! ====
+
+* Die Option @-{-}patch@ bzw. @-p@ für @git add@ erlaubt es interaktiv einzelne Blöcke zu wählen
+* Mit @git log -{-}pretty=oneline@ werden nur die ''SHA-1 IDs'' und ''commit messages'' angezeigt
 * Um Veränderungen wieder aus dem ''index'' herauszunehmen (unstage), verwenden wir @git reset HEAD@
+* Um dem letzten ''commit'' noch eine kleine änderung hinzuzufügen: @git commit -reuse-message=HEAD -a --ammend@
 
-==== Begriffe 4 ====
 
-* Um eine ''revision'' zu spezifizieren verwendet Git keine inkrementellen Revisionsnummern
-* stattdessen können wir eine ''revision'' mit dem '''SHA-1 ID''' des entsprechenden ''commits'' benennen
-* Meist reichen die ersten 4-7 Zeichen
-* Viele Git-Befehle nehmen als Parameter eine Revision (z.B. git-log und git-diff )
+==== Zussamenfassung der Heute gelernten Kommandos ====
+
+* @git config@
+* @git checkout@
+* @git clone@
+* @HEAD@
+* @git diff@
+* @git branch@
+* @git merge@
+* @git tag@
+
+
+==== Was ich euch nicht erzählt habe ====
+
+* Der Umgang mit entfernten ''repositories'' via @git push@, @git pull@ und @git fetch@
+* Das Lösen von Konflikten die bei @merge@ und @rebase@ auftreten können
+* Was wir mit @git rebase@ noch so alles machen können, z.B. ''commit'' Reinfolge ändern
+* Patches formattieren und per Email versenden
+* Was der @reflog@ ist, und warum er ALLES speichert
+* Wie man @git stash@ verwendet
+* Git aliase
+
+==== Literatur Empfehlungen ====
 
 ==== Begriffe 5 ====
 
-* '''references''' oder auch '''refs''' sind interne Referenzen die auf ''objects'' zeigen
-* Ein '''hunk''' beschreibt eine Gruppe von aufeinanderfolgenden Zeilen im Quellcode
-* Ein '''branch''' ist ein nur auch ein '''commit'''... wirklich
 * '''master''' beschreibt meist den haupt ''branch'' in einem ''repository''
-* @HEAD@ ist eine implizite ''ref'' und identifiziert den zuletzt gespeicherten ''commit'' im ''branch''
-
-* @git diff -stat* zeigt eine statistik der veränderungen an.

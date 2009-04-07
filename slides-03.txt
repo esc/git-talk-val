@@ -2,11 +2,15 @@
 
 ==== Ein ''repository'' bekommen ====
 
-Es gibt grunsätzlich zwei Möglichkeiten an ein ''repository'' zu kommen:
+* Es gibt zwei Möglichkeiten ein ''repository'' zu bekommen:
+** Mit @git-init@ setzen wir ein neues auf
+** Mit @git-clone@ kopieren wir ein existierendes
 
-* Mit @git-init@ setzen wir ein neues auf
-* Mit @git-clone@ kopieren wir ein existierendes
 
+*@git clone@ wird gebraucht um existierende Projekte herunterzuladen, in dem fall ist meist eine ''clone url'' auf der Homepage des Projektes angegeben:
+
+
+*@git clone git://git.debian.org/git/pkg-exppsy/pymvpa.git@
 
 ==== Wichtig: Setzen von Namen und Email ====
 
