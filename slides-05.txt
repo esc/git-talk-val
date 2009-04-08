@@ -1,10 +1,10 @@
-
 ==== Veränderungen ====
 
 * Wollen wir einsehen was sich verändert hat verwenden wir @git diff@
 * Ohne Argumente werden die Unterschiede zwischen dem ''working tree'' und dem @HEAD@ angezeigt
 * @git diff --cached@ zeigt an was sich im ''index'' befindet
 * @git diff COMMIT1 COMMIT1@ zeigt an was sich zwischen zwei ''commits'' verändert hat
+
 
 == Branches ==
 

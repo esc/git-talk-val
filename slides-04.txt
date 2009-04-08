@@ -1,12 +1,3 @@
-== History ==
 
-==== History ====
-
-* Mit @git log@ kann man sich alle bisherigen ''commits'' anzeigen lassen
-* Übergibt man -ZAHL werden die letzten ZAHL ''commits'' angezeigt, z.B. -3
-* Wenn wir eine ''SHA-1 ID'' angegeben, werden nur die ''commits'' bis zu diesem angezeigt
-* Mit @git log@ kann zeitlich nach bestimmten ''commits'' gesucht werden:
-** @git log --since="5 hours 23 minutes"@
-** @git log --before="42 days"@
 
 
