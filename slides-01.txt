@@ -30,6 +30,7 @@ habt, aber nicht genau wisst, was sie tun, oder, wie sie funktionieren.
 * Ein '''repository''' ist ein Archiv der Zustände von einem ''working tree''
 * Ein '''working tree''' ist Verzeichnis, dessen Zustände in einem ''repository'' archiviert sind
 * Der '''index''' ist die Verbindung zwischen ''working tree'' und ''repository''
+
 * Ein '''commit''' ist ein spezifischer Zustand des ''working tree'' der im ''repository'' gespeichert ist
 
 
