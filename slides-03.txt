@@ -28,7 +28,7 @@ Was kann passieren, wenn das vergessen wird?
 
 ==== Der Index ====
 
-* Der ''index'' (auch ''staging area'' genannt) bietet die Möglichkeit einen ''commit'' schrittweise aus einzelnen ''blobs'' und ''trees'' zusammenzusetzen
+* Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Möglichkeit einen ''commit'' schrittweise aus einzelnen ''blobs'' und ''trees'' zusammenzusetzen
 * Quellcode kann mit @git add@ dem ''index'' hinzugefügt werden, das geht sowohl für Dateien, die noch nicht im ''repository'' sind, als auch für Veränderungen
 * Mit @git status@ sehen wir, aus welchen Dateien sich Veränderungen im ''index'' befinden, welche Dateien Veränderungen enthalten, die wir dem ''index'' hinzufügen könnten, und welche Dateien sich noch nicht im ''repository'' befinden
 
