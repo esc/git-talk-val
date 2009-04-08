@@ -31,7 +31,6 @@
 * @git config@
 * @git checkout@
 * @git clone@
-* @HEAD@
 * @git diff@
 * @git branch@
 * @git merge@
