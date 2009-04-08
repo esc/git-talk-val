@@ -26,16 +26,17 @@ Was kann passieren, wenn das vergessen wird?
 
 == Index ==
 
-==== Der Index ====
+==== Vom ''working tree'' in den ''index'' ====
 
 * Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Möglichkeit einen ''commit'' schrittweise aus einzelnen ''blobs'' und ''trees'' zusammenzusetzen
 * Quellcode kann mit @git add@ dem ''index'' hinzugefügt werden, das geht sowohl für Dateien, die noch nicht im ''repository'' sind, als auch für Veränderungen
 * Mit @git status@ sehen wir, aus welchen Dateien sich Veränderungen im ''index'' befinden, welche Dateien Veränderungen enthalten, die wir dem ''index'' hinzufügen könnten, und welche Dateien sich noch nicht im ''repository'' befinden
 
-==== Das Repository ====
+==== Vom ''index'' in das ''repository'' ====
 
-* Um alle Veränderungen aus dem ''index'' in ein ''commit'' ''object'' zu verwandeln und dem ''repository'' hinzuzufügen verwenden wir @git commit@
-* Dies ruft unseren @EDITOR@ auf und wir können die ''commit message'' eingeben
+* Nun da wir Veränderungen im ''index'' haben wollen wir diese in einem ''commit'' ''object'' bündeln und dem ''repository'' hinzufügen
+* Dies machen wir mit @git commit@ und...
+* der @EDITOR@ geht auf und wir können die ''commit message'' eingeben
 * Wollen wir die ''commit message'' direkt auf der Kommandozeile eingeben, verwenden wir @git commit -m "MESSAGE"@
 * Um den ''index'' zum umgehen und gleich alle Veränderungen direkt zu übernehmen, verwenden wir @git commit -a@
 * Wenn wir den ''working tree'' zu einem frühern Zustand aus dem ''repository'' zurücksetzen wollen, verweden wir @git checkout@
