@@ -2,12 +2,10 @@
 
 ==== Objects ====
 
-* Alle sachen die im ''repository'' gespeichert werden sind ''objects''
-* Die verschiedenen ''objects'' sind: ''blob'', ''tree'', ''commit'' und ''tag''
+* Git speichert im ''repository'' sogenannte ''objects''
+* Die verschiedenen ''objects'' sind: ''blob'', ''tree'', ''commit'' (und ''tag'')
 * Ein '''blob''' enthält im allgemeinen den Inhalt einer Datei
 * Ein '''tree''' ist eine Ansammlung von ''tree'' und ''blob'' Objekten, meist der Inhalt von einem Verzeichnis
-* (Vorsicht: ''tree'' und ''working tree'' sind nicht dasselbe!)
-* Ein '''tag''' enthält ein anderes ''object'' sowie eine sinnvolle Zeichenfolge die das ''object'' beschreibt
 
 * Ein '''commit''' besteht aus einem ''tree'' mit zusätzlichen Informationen, unter anderem: ''author'' und ''parents''
 
