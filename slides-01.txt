@@ -1,18 +1,5 @@
 ==Einleitung==
 
-==== Basiswissen ====
-
-Letztes Mal haben wir die folgenden Kommandos gelernt:
-
-* @git init@
-* @git add@ 
-* @git commit@
-* @git status@
-* @git log@
-
-Ich nehme also an, dass ihr diese Kommandos schon mindestens einmal verwendet
-habt, aber nicht genau wisst, was sie tun, oder, wie sie funktionieren.
-
 ==== Fahrplan für Heute ====
 
 * Begriffe
