@@ -3,7 +3,7 @@
 ==== Ein ''repository'' bekommen ====
 
 * Es gibt zwei Möglichkeiten ein ''repository'' zu bekommen:
-** Mit @git-init@ setzen wir ein neues auf
+** Mit @git-init@ setzen wir ein leeres auf
 ** Mit @git-clone@ kopieren wir ein existierendes
 
 
