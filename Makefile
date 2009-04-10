@@ -2,18 +2,15 @@ base = slides
 
 all: $(base).pdf
 
-$(base).pdf: $(base).tex subslides
+$(base).pdf: $(base).tex $(base).wiki.tex
 	pdflatex $(base).tex
 	pdflatex $(base).tex
 
 #$(base)-0?.tex: $(base)-0?.txt wiki2beamer/wiki2beamer.py
 #	python wiki2beamer/wiki2beamer.py $(wildcard $(base)-0?.txt) > $(wildcard $(base)-0?.tex)
 
-subslides:
-	-zsh subslides.sh
-
-#$(base)-02.tex: $(base)-02.txt wiki2beamer/wiki2beamer.py
-#	python wiki2beamer/wiki2beamer.py $(base)-02.txt > $(base)-02.tex
+$(base).wiki.tex: $(base).wiki wiki2beamer/wiki2beamer.py
+	python wiki2beamer/wiki2beamer.py $(base).wiki > $(base).wiki.tex
 
 
 wiki2beamer/wiki2beamer.py:
