@@ -117,7 +117,7 @@ Was kann passieren, wenn das vergessen wird?
 * Wie ihr vielleicht schon erahnen, könnt sind ''commits'' das Geheimniss um Git wirklich zu verstehen.
 * Viele Git Kommandos akzeptieren einen ''commit'', und es gibt ein paar Alternativen (zu der lästigen 40-Zeichen-Sequenz) um diese zu benennen
 * Meistens reicht für die Angabe von einem ''commit'' die ersten 4-7 Zeichen des ''object name''
-* @HEAD@ ist eine implzite Referenz zu dem aktuellsten ''commit''
+* @HEAD@ ist eine implzite Referenz zu dem aktuellsten ''commit'' (naja, zumindest quasi)
 * Relative Angaben werden mit \^{} und $\sim$ gemacht
 * z.B. {\tt HEAD\^{}\^{}\^{}} und {\tt HEAD$\sim$3} sind equivalent und beschreiben beide den dritten ''commit'' vor @HEAD@
 
@@ -137,7 +137,7 @@ Was kann passieren, wenn das vergessen wird?
 {\tt git log COMMIT}                        & bis zu @COMMIT@ anzeigen \\
 {\tt git log --since="23 hours"}            & alle seit ... \\
 {\tt git log --before="42 days"}            & alle vor ... \\
-{\tt git log --pretty=oneline}              & eine Zeile pro \textit{Zeile} \\
+{\tt git log --pretty=oneline}              & ein ''commit'' pro Zeile \\
 {\tt git log A..B}                          & alle zwischen {\tt A} und {\tt B}
 \end{tabular}
 
@@ -146,7 +146,7 @@ Was kann passieren, wenn das vergessen wird?
 \item
 <[verbatim]
 commit b99336317088ba4ae40e45c338c6981e3f402f8e 
-Author: Valentin Haenel <valenti@ncs.tu-berlin.de> 
+Author: Valentin Haenel <valentin@cs.tu-berlin.de> 
 Date:   Sun Apr 5 20:19:50 2009 +0200 
 
 adding slides about git-log
@@ -254,6 +254,7 @@ Mit @git rebase@ ändern wir den ''base commit''
 
 ==== Was ich euch nicht erzählt habe ====
 
+* Veränderungen rückgängig machen mit @git reset@ und @git revert@
 * Der Umgang mit entfernten ''repositories'' via @git push@, @git pull@ und @git fetch@
 * Das Lösen von Konflikten die bei @merge@ und @rebase@ auftreten können
 * Was wir mit @git rebase@ noch so alles machen können, z.B. ''commit'' Reinfolge ändern
