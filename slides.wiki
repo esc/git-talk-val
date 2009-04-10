@@ -22,10 +22,10 @@
 
 ==== Zussamenhang ====
 
-\begin{figure}[ht]
-      \includegraphics[scale=0.7]{figs/git-im0.pdf}
-      \caption{Zussamenhang von ''working tree'', ''index'' und ''repository''}
-\end{figure}
+<[figure][ht]
+	<<<figs/git-im0.pdf,scale=0.7>>>
+	\caption{Zussamenhang von ''working tree'', ''index'' und ''repository''}
+[figure]>
 
 == Objects == 
 
@@ -51,10 +51,10 @@
 Ein Git ''repository'' enthält ''commits'' die durch ihre ''SHA-1 IDs'' benannt
 werden, ''commits'' wiederum bestehen aus ''trees'' und ''blobs''.
 
-\begin{figure}[ht]
-	  \includegraphics[scale=0.7]{figs/git-overview.pdf}
-      \caption{''commits'', ''trees'' und ''blobs''}
-\end{figure}
+<[figure][ht]
+	<<<figs/git-overview.pdf,scale=0.7>>>
+	\caption{Zussamenhang von ''working tree'', ''index'' und ''repository''}
+[figure]>
 
 == Anfang ==
 
@@ -76,11 +76,15 @@ Noch bevor man einen ''commit'' macht, ist es wichtig, folgende Einstellungen zu
 machen:
 
 * @git config user.name "Valentin Haenel"@
-* @git config user.email valentin{@}cs.tu-berlin.de@
+* \texttt{git config user.email valentin@cs.tu-berlin.de}
 * Mit @-{-}global@ werden diese Optionen der @~/.gitconfig@ hinzugefügt
 Was kann passieren, wenn das vergessen wird?
-<<<canvas.png,scale=0.21>>>
 
+\hspace{0.5cm}
+
+<[figure][ht]
+	<<<canvas.png,scale=0.21>>>
+[figure]>
 
 == Index ==
 
@@ -101,34 +105,28 @@ Was kann passieren, wenn das vergessen wird?
 
 ==== Transport Kommandos ====
 
-\begin{figure}[ht]
-	  \includegraphics[scale=0.7]{figs/git-im1.pdf}
-      \caption{Zusammenhang von @git-add@, @git-commit@ und @git checkout@}
-\end{figure}
+<[figure][ht]
+	<<<figs/git-im1.pdf,scale=0.7>>>
+	\caption{Zusammenhang von @git-add@, @git-commit@ und @git checkout@}
+[figure]>
 
 == Suchen und Finden ==
 
 ==== ''commits'' sind das Geheimniss ====
 
-\begin{itemize}
-    \item Wie ihr vielleicht schon erahnen, könnt sind \textit{commits} das
-        Geheimniss um Git wirklich zu verstehen.
-    \item Viele Git Kommandos akzeptieren einen \textit{commit}, und es gibt ein
-        paar Alternativen (zu der lästigen 40-Zeichen-Sequenz) um diese zu benennen
-    \item Meistens reicht f\"ur die Angabe von einem \textit{commit} die ersten 4-7
-        Zeichen des \textit{object name}
-    \item @HEAD@ ist eine implzite Referenz zu dem aktuellsten \textit{commit}
-    \item Relative Angaben werden mit \^{} und $\sim$ gemacht
-    \item z.B. {\tt HEAD\^{}\^{}\^{}} und {\tt HEAD$\sim$3} sind equivalent und
-        beschreiben beide den dritten \textit{commit} vor {\tt HEAD}
-\end{itemize}
+* Wie ihr vielleicht schon erahnen, könnt sind ''commits'' das Geheimniss um Git wirklich zu verstehen.
+* Viele Git Kommandos akzeptieren einen ''commit'', und es gibt ein paar Alternativen (zu der lästigen 40-Zeichen-Sequenz) um diese zu benennen
+* Meistens reicht für die Angabe von einem ''commit'' die ersten 4-7 Zeichen des ''object name''
+* @HEAD@ ist eine implzite Referenz zu dem aktuellsten ''commit''
+* Relative Angaben werden mit \^{} und $\sim$ gemacht
+* z.B. {\tt HEAD\^{}\^{}\^{}} und {\tt HEAD$\sim$3} sind equivalent und beschreiben beide den dritten ''commit'' vor @HEAD@
 
 [frame]>
 
 \begin{frame}[fragile]{Die Geschichte einsehen mit @git log@}
 
 \begin{itemize}
-    \item Mit \emph{git log} kann man sich alle bisherigen \textit{commits} anzeigen lassen
+    \item Mit @git log@ kann man sich alle bisherigen ''commits'' anzeigen lassen
     \item Es gibt eine Vielzahl von Möglichkeiten die Ausgabe zu verändern:
 
 \hspace{0.5cm}
@@ -165,7 +163,7 @@ adding slides about git-log
 * Wollen wir einsehen was sich verändert hat verwenden wir @git diff@
 * Ohne Argumente werden die Unterschiede angezeigt die weder im ''index'' noch im ''repository''
 * @git diff --cached@ zeigt an was sich im ''index'' befindet
-* @git diff HEAD@ zeigt die Unterschiede zwischen i''working tree'' und dem @HEAD@ an (also inklusive ''index'')
+* @git diff HEAD@ zeigt die Unterschiede zwischen ''working tree'' und dem @HEAD@ an (also inklusive ''index'')
 * @git diff A B@ zeigt an was sich zwischen zwei ''commits'' verändert hat
 
 == Branches ==
@@ -185,7 +183,7 @@ adding slides about git-log
 * Der gemeinsame Vorfahre heisst '''base commit'''
 
 <[figure][ht]
-    \includegraphics[scale=0.7]{figs/git-branch.pdf}
+    <<<figs/git-branch.pdf,scale=0.7>>>
     \caption{Graphische Darstellung von einem ''branch''}
 [figure]>
 
