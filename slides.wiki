@@ -177,7 +177,6 @@ adding slides about git-log
 
 ==== Branch Diagram ==== 
 
-* ''branches'' haben Namen
 * Der Name von einem ''branch'' ist eine Referenz zu einem  ''commit''
 * Dieser ''commit'' hat Vorfahren
 * Der gemeinsame Vorfahre heisst '''base commit'''
