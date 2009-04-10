@@ -1,6 +1,12 @@
+Version 0.6 (2009-04-07)
+=======================================
+Frames can be closed "manually" using [frame]>. Thanks to Kai Dietrich
+for providing the appropriate code.
+
+
 Version 0.5 (2008-05-02)
 =======================================
-\color bug fixed, now uses \textcolor
+\color bug fixed, now uses \teduixtcolor
 New markup for colors: _red_ example_  (%red% example% does not work any longer)
 
 

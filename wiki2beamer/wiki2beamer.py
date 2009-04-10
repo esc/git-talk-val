@@ -7,11 +7,14 @@
 # Warning: This is mostly all-in-one-procedure-code -- but it works ;-)       #
 ###############################################################################
 # This program is licensed under the terms of the GPL (see gpl.txt).          #
+#                                                                             #
+# Thanks to Kai Dietrich <mail@cleeus.de> for providing his                   #
+# frame-close-detection patch.                                                #
 ###############################################################################
 
 import sys, re
 
-VERSIONTAG = "0.5"
+VERSIONTAG = "0.6"
 
 
 def mydebug(message):
@@ -80,6 +83,12 @@ def transform(string):
         next_frame_footer = m.group(1)
         string = ""
 
+
+    # detect manual closing of frames
+    p = re.compile(r"(?:^\s*\\end{\s*frame\s*})|(?:^\[\s*frame\s*\]>)")
+    if (frame_opened == 1):
+        if (len(p.findall(string)) > 0):
+            frame_opened = 0
 
     # headings (3) to frames
     p = re.compile("^====\s*(.*?)\s*====(.*)", re.VERBOSE)

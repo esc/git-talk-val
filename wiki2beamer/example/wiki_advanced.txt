@@ -12,11 +12,11 @@ Flushright, \ldots
 * Columns
 * Substitutions
 * Footnotes
-
+* Manual Frame Closing
 
 ==== Overlays ====
 
-*<1-> Overlays are very useful concept of the beamer class
+*<1-> Overlays are a very useful concept of the beamer class
 *<2-> They can be used to uncover content step by step
 *<3-> They can be used for list items
 *<4-> Or for any other type of content \\[4mm]
@@ -168,6 +168,46 @@ created like this: \\[6mm]
   Footnotes({(}(as you can see here){)}) are quite useful on some occasions.
 }
 
+
+==== Manual Frame Closing ====
+
+If you want to write \LaTeX\ code outside of the frame environment
+you can manually close the frame (which was opened by {\tt ====}) via:
+
+* '''wiki2beamer''' syntax: {\tt [frame]$>$}
+* \LaTeX\ syntax: {\tt $\backslash$end\{frame\}}
+
+'''wiki2beamer''' detects these when at the beginning of a line and then
+consideres the frame closed.
+
+[frame]>
+
+\defverbatim\somelisting{
+<[verbatim]
+\defverbatim\somelisting{
+Some verbatim code
+as a \defverbatim
+outside of a frame.
+
+Can be referenced
+as \somelisting
+later.
+}
+[verbatim]>
+}
+
+==== Manual Frame Closing ====
+
+This verbatim code was defined via {\tt $\backslash$defverbatim} outside
+the frame and then included via it's name:
+
+\pause
+
+<[block]{Some Listing}
+
+\somelisting
+
+[block]>
 
 ==== Finally... ====
 
