@@ -2,15 +2,13 @@
 
 ==== Fahrplan für Heute ====
 
-* Begriffe
-* Start
-* Umgang mit dem Index 
-* Einsehen der Geschichte
-* Finden von Veränderungen 
-* Kollaboration mit Anderen
-* Veränderungen Rückgängig Machen 
+* Konzepte
+* Index 
+* Geschichte
+* Veränderungen
+* Branches
 
-== Begriffe ==
+== Konzepte ==
 
 ==== Grundbegriffe ====
 
@@ -162,7 +160,7 @@ adding slides about git-log
 \end{frame}
 
 
-==== Veränderungen einsehen mit @git diff@ ====
+==== Veränderungen einsehen ====
 
 * Wollen wir einsehen was sich verändert hat verwenden wir @git diff@
 * Ohne Argumente werden die Unterschiede angezeigt die weder im ''index'' noch im ''repository''
@@ -181,7 +179,7 @@ adding slides about git-log
 
 ==== Branch Diagram ==== 
 
-* branches haben Namen
+* ''branches'' haben Namen
 * Der Name von einem ''branch'' ist eine Referenz zu einem  ''commit''
 * Dieser ''commit'' hat Vorfahren
 * Der gemeinsame Vorfahre heisst '''base commit'''
@@ -200,7 +198,6 @@ adding slides about git-log
 * @git checkout NAME@ um in den ''branch'' zu wechseln
 * @git branch -m OLD NEW@ umbenennen vom einem ''branch''
 * @git branch -d NAME@ um einen ''branch'' zu löschen (prüft vorher ob was verloren geht, erzwingen mit @-D@)
-
 
 * @git merge NAME@ versucht den Inhalt von @NAME@ in den gegenwärtigen ''branch'' zu übernehmen
 
@@ -241,8 +238,6 @@ Mit @git rebase@ ändern wir den ''base commit''
     \caption{''rebaseing''}
 [figure]>
 
-
-
 ==== Tags ====
 
 * Da die ''SHA-1 IDs'' unhandlich und semantikarm sind bietet Git eine möglichkeit um ''commits'' mit namen, so gennanten ''tags'' zu versehen
@@ -253,24 +248,12 @@ Mit @git rebase@ ändern wir den ''base commit''
 * Der name vom ''tag'' kann als paramter für @git diff@ @git log@ @git checkout@ usw.. verwendet werden, also überall dort wo ein ''object name'' verwendet wird
 * Git tags sind eine gute möglichkeit um markannte punkte in der Geschichte zu markieren
 
-==== Going Deep! ====
+==== Nützliches ====
 
 * Die Option @-{-}patch@ bzw. @-p@ für @git add@ erlaubt es interaktiv einzelne Blöcke zu wählen
 * Mit @git log -{-}pretty=oneline@ werden nur die ''SHA-1 IDs'' und ''commit messages'' angezeigt
 * Um Veränderungen wieder aus dem ''index'' herauszunehmen (unstage), verwenden wir @git reset HEAD@
 * Um dem letzten ''commit'' noch eine kleine änderung hinzuzufügen: @git commit -reuse-message=HEAD -a --ammend@
-
-
-==== Zussamenfassung der Heute gelernten Kommandos ====
-
-* @git config@
-* @git checkout@
-* @git clone@
-* @git diff@
-* @git branch@
-* @git merge@
-* @git tag@
-
 
 ==== Was ich euch nicht erzählt habe ====
 
@@ -283,9 +266,6 @@ Mit @git rebase@ ändern wir den ''base commit''
 * Git aliase
 
 ==== Literatur Empfehlungen ====
-
-==== Begriffe 5 ====
-
 
 
 
