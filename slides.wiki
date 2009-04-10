@@ -4,8 +4,6 @@
 
 * Konzepte
 * Index 
-* Geschichte
-* Veränderungen
 * Branches
 
 == Konzepte ==
@@ -258,6 +256,8 @@ Mit @git rebase@ ändern wir den ''base commit''
 * Der Umgang mit entfernten ''repositories'' via @git push@, @git pull@ und @git fetch@
 * Das Lösen von Konflikten die bei @merge@ und @rebase@ auftreten können
 * Was wir mit @git rebase@ noch so alles machen können, z.B. ''commit'' Reinfolge ändern
+* Dateien ignorieren
+* Git in eclipse mit egit oder gitclipse
 * Patches formattieren und per Email versenden
 * Was der @reflog@ ist, und warum er ALLES speichert
 * Wie man @git stash@ verwendet
@@ -265,5 +265,17 @@ Mit @git rebase@ ändern wir den ''base commit''
 
 ==== Literatur Empfehlungen ====
 
-well
+* Pragmatic Version Control Using Git, by Travis Swicegood (200 pages, Dec 2008, ISBN: 9781934356159 )
+* Sehr gute Einführung, exzellente Beispiele die auch online verfügbar sind
+
+* \href{http://www.newartisans.com/2008/04/git-from-the-bottom-up.html}{git-from-the-bottom-up}
+* Sehr gute Beschreibung der Details, relativ kurz
+
+* \href{http://book.git-scm.com/}{git community book}
+* Hervoragende beschreibung von ''objects'' und implementations Details, mit Videos
+
+
+
+
+
 
