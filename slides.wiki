@@ -17,6 +17,8 @@
 * Ein '''repository''' ist ein Archiv der Zustände von einem ''working tree''
 * Ein '''working tree''' ist Verzeichnis, dessen Zustände in einem ''repository'' archiviert sind
 * Der '''index''' ist die Verbindung zwischen ''working tree'' und ''repository''
+
+
 * Ein '''commit''' ist ein spezifischer Zustand des ''working tree'' der im ''repository'' gespeichert ist
 
 
@@ -177,25 +179,66 @@ adding slides about git-log
 * In vielen anderen Versionskontrollsystemen werden ''branches'' als eine art ''black art'' angesehen die nur Eingeweihten zugänglich ist
 * In Git sind sie eigentlich ganz einfach, es sind nur ''commits''...\\(ja, wirklich!)
 
+==== Branch Diagram ==== 
+
+* branches haben Namen
+* Der Name von einem ''branch'' ist eine Referenz zu einem  ''commit''
+* Dieser ''commit'' hat Vorfahren
+* Der gemeinsame Vorfahre heisst '''base commit'''
+
+<[figure][ht]
+    \includegraphics[scale=0.7]{figs/git-branch.pdf}
+    \caption{Graphische Darstellung von einem ''branch''}
+[figure]>
+
+* '''master''' beschreibt meist den haupt ''branch'' in einem ''repository''
+
 ==== Branch Kommandos ====
 
 * @git branch@ zum anzeigen der ''branches''
 * @git branch NAME@ zum erstellen eines ''branches''
 * @git checkout NAME@ um in den ''branch'' zu wechseln
-* @git merge NAME@ um den Inhalt in den gegenwärtigen ''branch'' zu übernehmen
+* @git branch -m OLD NEW@ umbenennen vom einem ''branch''
 * @git branch -d NAME@ um einen ''branch'' zu löschen (prüft vorher ob was verloren geht, erzwingen mit @-D@)
 
-* Wollen wir statt den Inhalt in einem ''commit'' zu übernehmen (@git merge@), die ''commits'' von einem ''branch'' an einen andern dranhängen brauchen wir @git rebase@
 
-==== Branch ==== 
+* @git merge NAME@ versucht den Inhalt von @NAME@ in den gegenwärtigen ''branch'' zu übernehmen
 
-* branches haben Namen
-* Der Name von einem ''branch'' ist eine Referenz zu einem  ''commit''
-* Dieser ''commit'' hat Vorfahren
+==== Verschiedene Merge Strategien ====
+
+Das Zusammenführen von Veränderungen aus zwei ''branches'' kann auf vielerlei Arten passieren:
+
+* '''fast forward''': mit @git merge@ den @HEAD@ vorspulen (geht nur wenn der @HEAD@ auch der ''base commit'' ist)
+* '''straight merging''':  mit @git merge@ aus den @HEAD@s der ''branches'' einen neuen ''commit'' machen
+* '''squashing commits''':  mit @git merge --squash@ alle ''commits'' aus einem ''branch'' in einem einzigen ''commit'' zusammenfassen
+* '''cherry picking''': mit @git cherry pick@ einzelne ''commits'' aus einem ''branch'' übernehmen
+* '''rebaseing''': mit @git rebase@  den ''base commit'' von ändern 
+
+==== ''fast forward'' ====
+
+Wenn der @HEAD@ der ''base commit'' ist spult @git merge@ den @HEAD@ einfach vor.
 
 <[figure][ht]
-    \includegraphics[scale=0.7]{figs/git-branch.pdf}
-    \caption{Graphische Darstellung von einem ''branch''}
+    \includegraphics[scale=0.55]{figs/fast-forward.pdf}
+    \caption{''fast forward''}
+[figure]>
+
+==== ''straight merge '' ====
+
+Hier entsteht mit @git merge@ ein neuer ''commit'' der zwei Vorfahren hat. 
+
+<[figure][ht]
+    \includegraphics[scale=0.55]{figs/git-merge.pdf}
+    \caption{''straight merge''}
+[figure]>
+
+==== ''rebaseing'' ====
+
+Mit @git rebase@ ändern wir den ''base commit''
+
+<[figure][ht]
+    \includegraphics[scale=0.55]{figs/git-rebase.pdf}
+    \caption{''rebaseing''}
 [figure]>
 
 
@@ -243,7 +286,6 @@ adding slides about git-log
 
 ==== Begriffe 5 ====
 
-* '''master''' beschreibt meist den haupt ''branch'' in einem ''repository''
 
 
 
