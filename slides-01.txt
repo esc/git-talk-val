@@ -17,7 +17,233 @@
 * Ein '''repository''' ist ein Archiv der Zustände von einem ''working tree''
 * Ein '''working tree''' ist Verzeichnis, dessen Zustände in einem ''repository'' archiviert sind
 * Der '''index''' ist die Verbindung zwischen ''working tree'' und ''repository''
-
 * Ein '''commit''' ist ein spezifischer Zustand des ''working tree'' der im ''repository'' gespeichert ist
+
+
+==== Zussamenhang ====
+
+\begin{figure}[ht]
+      \includegraphics[scale=0.7]{git-im0.pdf}
+      \caption{Zussamenhang von ''working tree'', ''index'' und ''repository''}
+\end{figure}
+
+== Objects == 
+
+==== Objects ====
+
+* Git speichert im ''repository'' sogenannte ''objects''
+* Die verschiedenen ''objects'' sind: ''blob'', ''tree'', ''commit'' (und ''tag'')
+* Ein '''blob''' enthält im allgemeinen den Inhalt einer Datei
+* Ein '''tree''' ist eine Ansammlung von ''tree'' und ''blob'' Objekten, meist der Inhalt von einem Verzeichnis
+
+* Ein '''commit''' besteht aus einem ''tree'' mit zusätzlichen Informationen, unter anderem: ''author'' und ''parents''
+
+==== SHA-1 IDs ====
+
+* Git verwendet '''SHA-1 IDs''' um ein ''object'' zu identifizieren, auch bekannt als der '''object name'''
+* ''SHA-1'' ist eine Hash-Funktion die eine beliebige Bit-Sequenz in eine Hexadezimal-Sequenz der Länge 40 übersetzt
+* z.B. e42d20c7aa40674c056c1c2531809c8c717e966f
+* Ein ''SHA-1 ID'' wird aus dem Inhalt berechnet und ist somit (fast) einzigartig
+* Leider für uns Menschen etwas unhandlich
+
+==== Zusammenfassung ====
+
+Ein Git ''repository'' enthält ''commits'' die durch ihre ''SHA-1 IDs'' benannt
+werden, ''commits'' wiederum bestehen aus ''trees'' und ''blobs''.
+
+\begin{figure}[ht]
+	  \includegraphics[scale=0.7]{git-overview.pdf}
+      \caption{''commits'', ''trees'' und ''blobs''}
+\end{figure}
+
+== Anfang ==
+
+==== Ein ''repository'' bekommen ====
+
+* Es gibt zwei Möglichkeiten ein ''repository'' zu bekommen:
+** Mit @git-init@ setzen wir ein leeres auf
+** Mit @git-clone@ kopieren wir ein existierendes
+
+
+*@git clone@ wird gebraucht um existierende Projekte herunterzuladen, in dem fall ist meist eine ''clone url'' auf der Homepage des Projektes angegeben:
+
+
+*@git clone git://git.debian.org/git/pkg-exppsy/pymvpa.git@
+
+==== Wichtig: Setzen von Namen und Email ====
+
+Noch bevor man einen ''commit'' macht, ist es wichtig, folgende Einstellungen zu
+machen:
+
+* @git config user.name "Valentin Haenel"@
+* @git config user.email valentin{@}cs.tu-berlin.de@
+* Mit @-{-}global@ werden diese Optionen der @~/.gitconfig@ hinzugefügt
+Was kann passieren, wenn das vergessen wird?
+<<<canvas.png,scale=0.21>>>
+
+
+== Index ==
+
+==== Vom ''working tree'' in den ''index'' ====
+
+* Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Möglichkeit einen ''commit'' schrittweise aus einzelnen ''blobs'' und ''trees'' zusammenzusetzen
+* Quellcode kann mit @git add@ dem ''index'' hinzugefügt werden, das geht sowohl für Dateien, die noch nicht im ''repository'' sind, als auch für Veränderungen
+* Mit @git status@ sehen wir, aus welchen Dateien sich Veränderungen im ''index'' befinden, welche Dateien Veränderungen enthalten, die wir dem ''index'' hinzufügen könnten, und welche Dateien sich noch nicht im ''repository'' befinden
+
+==== Vom ''index'' in das ''repository'' ====
+
+* Nun da wir Veränderungen im ''index'' haben wollen wir diese in einem ''commit'' ''object'' bündeln und dem ''repository'' hinzufügen
+* Dies machen wir mit @git commit@ und...
+* der @EDITOR@ geht auf und wir können die ''commit message'' eingeben
+* Wollen wir die ''commit message'' direkt auf der Kommandozeile eingeben, verwenden wir @git commit -m "MESSAGE"@
+* Um den ''index'' zum umgehen und gleich alle Veränderungen direkt zu übernehmen, verwenden wir @git commit -a@
+* Wenn wir den ''working tree'' zu einem frühern Zustand aus dem ''repository'' zurücksetzen wollen, verweden wir @git checkout@
+
+==== Transport Kommandos ====
+
+\begin{figure}[ht]
+	  \includegraphics[scale=0.7]{git-im1.pdf}
+      \caption{Zusammenhang von {\tt git-add}, {\tt git-commit} und {\tt git checkout}}
+\end{figure}
+
+== Suchen und Finden ==
+
+==== ''commits'' sind das Geheimniss ====
+
+\begin{itemize}
+    \item Wie ihr vielleicht schon erahnen, könnt sind \textit{commits} das
+        Geheimniss um Git wirklich zu verstehen.
+    \item Viele Git Kommandos akzeptieren einen \textit{commit}, und es gibt ein
+        paar Alternativen (zu der lästigen 40-Zeichen-Sequenz) um diese zu benennen
+    \item Meistens reicht f\"ur die Angabe von einem \textit{commit} die ersten 4-7
+        Zeichen des \textit{object name}
+    \item @HEAD@ ist eine implzite Referenz zu dem aktuellsten \textit{commit}
+    \item Relative Angaben werden mit \^{} und $\sim$ gemacht
+    \item z.B. {\tt HEAD\^{}\^{}\^{}} und {\tt HEAD$\sim$3} sind equivalent und
+        beschreiben beide den dritten \textit{commit} vor {\tt HEAD}
+\end{itemize}
+
+[frame]>
+
+\begin{frame}[fragile]{Die Geschichte einsehen mit @git log@}
+
+\begin{itemize}
+    \item Mit \emph{git log} kann man sich alle bisherigen \textit{commits} anzeigen lassen
+    \item Es gibt eine Vielzahl von Möglichkeiten die Ausgabe zu verändern:
+
+\hspace{0.5cm}
+
+    \item
+\begin{tabular}{ l l }
+{\tt git log -N}                            & die letzten @N@ anzeigen\\
+{\tt git log COMMIT}                        & bis zu @COMMIT@ anzeigen \\
+{\tt git log --since="23 hours"}            & alle seit ... \\
+{\tt git log --before="42 days"}            & alle vor ... \\
+{\tt git log --pretty=oneline}              & eine Zeile pro \textit{Zeile} \\
+{\tt git log A..B}                          & alle zwischen {\tt A} und {\tt B}
+\end{tabular}
+
+\hspace{0.5cm}
+
+\item
+<[verbatim]
+commit b99336317088ba4ae40e45c338c6981e3f402f8e 
+Author: Valentin Haenel <valenti@ncs.tu-berlin.de> 
+Date:   Sun Apr 5 20:19:50 2009 +0200 
+
+adding slides about git-log
+[verbatim]>
+
+
+\end{itemize}
+
+\end{frame}
+
+
+==== Veränderungen einsehen mit @git diff@ ====
+
+* Wollen wir einsehen was sich verändert hat verwenden wir @git diff@
+* Ohne Argumente werden die Unterschiede angezeigt die weder im ''index'' noch im ''repository''
+* @git diff --cached@ zeigt an was sich im ''index'' befindet
+* @git diff HEAD@ zeigt die Unterschiede zwischen i''working tree'' und dem @HEAD@ an (also inklusive ''index'')
+* @git diff A B@ zeigt an was sich zwischen zwei ''commits'' verändert hat
+
+== Branches ==
+
+==== Branches ====
+
+* Bisher haben wir nur eine lineare Geschichte
+* Manchmal ist nicht-linerität wichtig, besonders bei grösseren Projekten
+* In vielen anderen Versionskontrollsystemen werden ''branches'' als eine art ''black art'' angesehen die nur Eingeweihten zugänglich ist
+* In Git sind sie eigentlich ganz einfach, es sind nur ''commits''...\\(ja, wirklich!)
+
+==== Branch Kommandos ====
+
+* @git branch@ zum anzeigen der ''branches''
+* @git branch NAME@ zum erstellen eines ''branches''
+* @git checkout NAME@ um in den ''branch'' zu wechseln
+* @git merge NAME@ um den Inhalt in den gegenwärtigen ''branch'' zu übernehmen
+* @git branch -d NAME@ um einen ''branch'' zu löschen (prüft vorher ob was verloren geht, erzwingen mit @-D@)
+
+* Wollen wir statt den Inhalt in einem ''commit'' zu übernehmen (@git merge@), die ''commits'' von einem ''branch'' an einen andern dranhängen brauchen wir @git rebase@
+
+==== Branch ==== 
+
+* branches haben Namen
+* Der Name von einem ''branch'' ist eine Referenz zu einem  ''commit''
+* Dieser ''commit'' hat Vorfahren
+
+<[figure][ht]
+    \includegraphics[scale=0.7]{git-branch.pdf}
+    \caption{Graphische Darstellung von einem ''branch''}
+[figure]>
+
+
+
+==== Tags ====
+
+* Da die ''SHA-1 IDs'' unhandlich und semantikarm sind bietet Git eine möglichkeit um ''commits'' mit namen, so gennanten ''tags'' zu versehen
+* Wie schon erwähnt sind ''tags'' auch nur ''objects''
+* @git tag@ zum anzeigen aller ''tags''
+* @git tag NAME@ um den jetzigen @HEAD@ zu ''taggen''
+* @git tag -d NAME@ um ein ''tag'' zu löschen
+* Der name vom ''tag'' kann als paramter für @git diff@ @git log@ @git checkout@ usw.. verwendet werden, also überall dort wo ein ''object name'' verwendet wird
+* Git tags sind eine gute möglichkeit um markannte punkte in der Geschichte zu markieren
+
+==== Going Deep! ====
+
+* Die Option @-{-}patch@ bzw. @-p@ für @git add@ erlaubt es interaktiv einzelne Blöcke zu wählen
+* Mit @git log -{-}pretty=oneline@ werden nur die ''SHA-1 IDs'' und ''commit messages'' angezeigt
+* Um Veränderungen wieder aus dem ''index'' herauszunehmen (unstage), verwenden wir @git reset HEAD@
+* Um dem letzten ''commit'' noch eine kleine änderung hinzuzufügen: @git commit -reuse-message=HEAD -a --ammend@
+
+
+==== Zussamenfassung der Heute gelernten Kommandos ====
+
+* @git config@
+* @git checkout@
+* @git clone@
+* @git diff@
+* @git branch@
+* @git merge@
+* @git tag@
+
+
+==== Was ich euch nicht erzählt habe ====
+
+* Der Umgang mit entfernten ''repositories'' via @git push@, @git pull@ und @git fetch@
+* Das Lösen von Konflikten die bei @merge@ und @rebase@ auftreten können
+* Was wir mit @git rebase@ noch so alles machen können, z.B. ''commit'' Reinfolge ändern
+* Patches formattieren und per Email versenden
+* Was der @reflog@ ist, und warum er ALLES speichert
+* Wie man @git stash@ verwendet
+* Git aliase
+
+==== Literatur Empfehlungen ====
+
+==== Begriffe 5 ====
+
+* '''master''' beschreibt meist den haupt ''branch'' in einem ''repository''
+
 
 
