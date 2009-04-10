@@ -238,13 +238,13 @@ Mit @git rebase@ ändern wir den ''base commit''
 
 ==== Tags ====
 
-* Da die ''SHA-1 IDs'' unhandlich und semantikarm sind bietet Git eine möglichkeit um ''commits'' mit namen, so gennanten ''tags'' zu versehen
+* Da die ''SHA-1 IDs'' unhandlich und semantikarm sind bietet Git eine Möglichkeit um ''commits'' mit Namen, so gennanten ''tags'', zu versehen
 * Wie schon erwähnt sind ''tags'' auch nur ''objects''
 * @git tag@ zum anzeigen aller ''tags''
 * @git tag NAME@ um den jetzigen @HEAD@ zu ''taggen''
 * @git tag -d NAME@ um ein ''tag'' zu löschen
-* Der name vom ''tag'' kann als paramter für @git diff@ @git log@ @git checkout@ usw.. verwendet werden, also überall dort wo ein ''object name'' verwendet wird
-* Git tags sind eine gute möglichkeit um markannte punkte in der Geschichte zu markieren
+* Der name vom ''tag'' kann als paramter für @git diff@, @git log@, @git checkout@ usw.. verwendet werden, also überall dort wo ein ''object name'' verwendet wird
+* ''tags'' werden verwendet um wichtige ''commits'' zu markieren, z.B. Versionen
 
 ==== Nützliches ====
 
@@ -265,5 +265,5 @@ Mit @git rebase@ ändern wir den ''base commit''
 
 ==== Literatur Empfehlungen ====
 
-
+well
 
