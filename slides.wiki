@@ -11,7 +11,7 @@
 ==== Grundbegriffe ====
 
 * Ein '''repository''' ist ein Archiv der Zustände von einem ''working tree''
-* Ein '''working tree''' ist Verzeichnis, dessen Zustände in einem ''repository'' archiviert sind
+* Ein '''working tree''' ist ein Verzeichnis, dessen Zustände in einem ''repository'' archiviert sind
 * Der '''index''' ist die Verbindung zwischen ''working tree'' und ''repository''
 
 
@@ -51,6 +51,7 @@ werden, ''commits'' wiederum bestehen aus ''trees'' und ''blobs''.
 
 <[figure][ht]
 	<<<figs/git-overview.pdf,scale=0.7>>>
+    FIXME
 	\caption{Zussamenhang von ''working tree'', ''index'' und ''repository''}
 [figure]>
 
@@ -114,12 +115,30 @@ Was kann passieren, wenn das vergessen wird?
 
 * Wie ihr vielleicht schon erahnen, könnt sind ''commits'' das Geheimniss um Git wirklich zu verstehen.
 * Viele Git Kommandos akzeptieren einen ''commit'', und es gibt ein paar Alternativen (zu der lästigen 40-Zeichen-Sequenz) um diese zu benennen
-* Meistens reicht für die Angabe von einem ''commit'' die ersten 4-7 Zeichen des ''object name''
+* Meistens reicht für die Angabe von einem ''commit'' die ersten 4-7 Zeichen des ''object name'', auch bekannt als '''partial SHA'''
 * @HEAD@ ist eine implzite Referenz zu dem aktuellsten ''commit'' (naja, zumindest quasi)
 * Relative Angaben werden mit \^{} und $\sim$ gemacht
 * z.B. {\tt HEAD\^{}\^{}\^{}} und {\tt HEAD$\sim$3} sind equivalent und beschreiben beide den dritten ''commit'' vor @HEAD@
 
 [frame]>
+
+\begin{frame}[fragile]
+\frametitle{Inhalt von .git}
+
+Git speichert alles in dem Verzeichniss {\tt.git/} auch bekannt als \textbf{git
+directory}, hier sehen wir einen Ausschnitt.
+
+\begin{verbatim}
+    % tree -L 1  .git/
+    .
+    |-- HEAD            # der gegenwärtige HEAD
+    |-- config          # Konfiguration (user, email)
+    |-- index           # der index
+    |-- objects         # die eigentlichen Objekte
+
+\end{verbatim}
+
+\end{frame}
 
 \begin{frame}[fragile]{Die Geschichte einsehen mit @git log@}
 
@@ -172,6 +191,7 @@ adding slides about git-log
 * Manchmal ist nicht-linerität wichtig, besonders bei grösseren Projekten
 * In vielen anderen Versionskontrollsystemen werden ''branches'' als eine art ''black art'' angesehen die nur Eingeweihten zugänglich ist
 * In Git sind sie eigentlich ganz einfach, es sind nur ''commits''...\\(ja, wirklich!)
+* Aus diesem grund können sie verwendet werden um einen ''commit'' zu benennen
 
 ==== Branch Diagram ==== 
 
@@ -235,24 +255,39 @@ Mit @git rebase@ ändern wir den ''base commit''
 
 ==== Tags ====
 
-* Da die ''SHA-1 IDs'' unhandlich und semantikarm sind bietet Git eine Möglichkeit um ''commits'' mit Namen, so gennanten ''tags'', zu versehen
+* Da die ''SHA-1 IDs'' unhandlich und semantikarm sind bietet Git eine Möglichkeit um ''commits'' mit Namen, so genanten ''tags'', zu versehen
 * Wie schon erwähnt sind ''tags'' auch nur ''objects''
 * @git tag@ zum anzeigen aller ''tags''
 * @git tag NAME@ um den jetzigen @HEAD@ zu ''taggen''
 * @git tag -d NAME@ um ein ''tag'' zu löschen
-* Der name vom ''tag'' kann als paramter für @git diff@, @git log@, @git checkout@ usw.. verwendet werden, also überall dort wo ein ''object name'' verwendet wird
+* Ein ''tag'' kann verwendet werden um einen ''commit'' zu benennen
 * ''tags'' werden verwendet um wichtige ''commits'' zu markieren, z.B. Versionen
+
+==== Veränderungen Rückgängig machen die noch nicht im ''repository'' sind ====
+
+* Um Veränderungen wieder aus dem ''index'' herauszunehmen (unstage), verwenden wir @git reset HEAD@
+* Wollen wir eine Datei in den Zustand des @HEAD@ versetzen verwenden wir @git checkout FILE@ (Veränderungen die bereits im ''index'' sind, werden nicht zurückgesetzt)
+* Um den gesamten ''working tree'' zurück zu setzen, verwenden wir @git reset -{-}hard HEAD@
+* \textbf{VORSICHT!} Veränderungen am ''working tree'' die rückgängig gemacht werden sind unwiderruflich gelöscht
+
+==== Veränderungen Rückgängig machen die bereites im ''repository'' sind ====
+
+* Um ''commits'' rückgängig zu machen verwenden wir wieder @git reset COMMIT@, z.B. @git reset HEAD\^{}@
+** Ohne option kommen die Veränderungen in den ''working tree''
+** Die option @-{-}soft@ führt dazu das die Veränderungen in den ''index'' kommen
+** Die option @-{-}hard@ führt dazu das die Veränderungen gelöscht werden (\textbf{VORSICHT!})
+* Es gibt jedoch eine viel bessere Alternative als ''commits'' zu löschen, und zwar können wir mit @git revert@ einen neuen ''commit'' erstellen der die Veränderungen eines alten ''commits'' wieder rückgängig macht, somit bleiben alle Veränderungen erhalten.
+* Ausserdem gibt es mit @git rebase@ folgende Optionen: Reihenfolge der ''commits'' ändern, ''commits'' trennen und zusammenfügen, sowie ''commits'' zu editieren
+
 
 ==== Nützliches ====
 
 * Die Option @-{-}patch@ bzw. @-p@ für @git add@ erlaubt es interaktiv einzelne Blöcke zu wählen
 * Mit @git log -{-}pretty=oneline@ werden nur die ''SHA-1 IDs'' und ''commit messages'' angezeigt
-* Um Veränderungen wieder aus dem ''index'' herauszunehmen (unstage), verwenden wir @git reset HEAD@
-* Um dem letzten ''commit'' noch eine kleine änderung hinzuzufügen: @git commit -reuse-message=HEAD -a --ammend@
+* Um dem letzten ''commit'' noch eine kleine Änderung hinzuzufügen: @git commit -reuse-message=HEAD -a --ammend@
 
 ==== Was ich euch nicht erzählt habe ====
 
-* Veränderungen rückgängig machen mit @git reset@ und @git revert@
 * Der Umgang mit entfernten ''repositories'' via @git push@, @git pull@ und @git fetch@
 * Das Lösen von Konflikten die bei @merge@ und @rebase@ auftreten können
 * Was wir mit @git rebase@ noch so alles machen können, z.B. ''commit'' Reinfolge ändern
