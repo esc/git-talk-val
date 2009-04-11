@@ -1,12 +1,11 @@
-==Einleitung==
-
-==== Fahrplan für Heute ====
-
-* Konzepte
-* Index 
-* Branches
-
 == Konzepte ==
+
+==== Fahrplan ====
+
+\tableofcontents[currentsection]
+
+
+=== Grundbegriffe ===
 
 ==== Grundbegriffe ====
 
@@ -21,20 +20,19 @@
 ==== Zussamenhang ====
 
 <[figure][ht]
-	<<<figs/git-im0.pdf,scale=0.7>>>
+	<<<figs/git-im0.pdf, scale=0.7>>>
 	\caption{Zussamenhang von ''working tree'', ''index'' und ''repository''}
 [figure]>
 
-== Objects == 
+=== Objekt Model === 
 
-==== Objects ====
+==== Objekt Model ====
 
-* Git speichert im ''repository'' sogenannte ''objects''
-* Die verschiedenen ''objects'' sind: ''blob'', ''tree'', ''commit'' (und ''tag'')
+* Git speichert im ''repository'' sogenannte ''objects''; ''blob'', ''tree'', ''commit''
 * Ein '''blob''' enthält im allgemeinen den Inhalt einer Datei
 * Ein '''tree''' ist eine Ansammlung von ''tree'' und ''blob'' Objekten, meist der Inhalt von einem Verzeichnis
 
-* Ein '''commit''' besteht aus einem ''tree'' mit zusätzlichen Informationen, unter anderem: ''author'' und ''parents''
+* Ein '''commit''' besteht aus einem ''tree'' mit zusätzlichen Informationen, unter anderem: ''author'', ''parents'' und ''commit message''
 
 ==== SHA-1 IDs ====
 
@@ -42,7 +40,6 @@
 * ''SHA-1'' ist eine Hash-Funktion die eine beliebige Bit-Sequenz in eine Hexadezimal-Sequenz der Länge 40 übersetzt
 * z.B. e42d20c7aa40674c056c1c2531809c8c717e966f
 * Ein ''SHA-1 ID'' wird aus dem Inhalt berechnet und ist somit (fast) einzigartig
-* Leider für uns Menschen etwas unhandlich
 
 ==== Zusammenfassung ====
 
@@ -50,77 +47,114 @@ Ein Git ''repository'' enthält ''commits'' die durch ihre ''SHA-1 IDs'' benannt
 werden, ''commits'' wiederum bestehen aus ''trees'' und ''blobs''.
 
 <[figure][ht]
-	<<<figs/git-overview.pdf,scale=0.7>>>
-    FIXME
-	\caption{Zussamenhang von ''working tree'', ''index'' und ''repository''}
+	<<<figs/git-overview.pdf, scale=0.7>>>
+	\caption{''blobs'' ''trees'' und ''commits''}
 [figure]>
 
-== Anfang ==
+
+== Workflow ==
+
+==== Fahrplan ====
+
+\tableofcontents[currentsection]
+
+=== Start ===
 
 ==== Ein ''repository'' bekommen ====
 
-* Es gibt zwei Möglichkeiten ein ''repository'' zu bekommen:
-** Mit @git-init@ setzen wir ein leeres auf
-** Mit @git-clone@ kopieren wir ein existierendes
+<[block]{leeres ''repository'' aufsetzen}
+    @git init@
+[block]>
 
+<[block]{existierendes kopieren}
+    @git clone@
+[block]>
 
-*@git clone@ wird gebraucht um existierende Projekte herunterzuladen, in dem fall ist meist eine ''clone url'' auf der Homepage des Projektes angegeben:
+<[block]{Beispiel}
+@git clone git://git.debian.org/git/pkg-exppsy/pymvpa.git@
+[block]>
 
-
-*@git clone git://git.debian.org/git/pkg-exppsy/pymvpa.git@
 
 ==== Wichtig: Setzen von Namen und Email ====
 
-Noch bevor man einen ''commit'' macht, ist es wichtig, folgende Einstellungen zu
-machen:
+<[block]{setzen des Namen}
+@git config user.name "Valentin Haenel"@
+[block]>
 
-* @git config user.name "Valentin Haenel"@
-* \texttt{git config user.email valentin@cs.tu-berlin.de}
-* Mit @-{-}global@ werden diese Optionen der @~/.gitconfig@ hinzugefügt
+<[block]{setzen der Email}
+\texttt{git config user.email valentin@cs.tu-berlin.de}
+[block]>
+
+* Mit der option @-{-}global@ werden diese der @~/.gitconfig@ hinzugefügt
+
+
 Was kann passieren, wenn das vergessen wird?
 
 \hspace{0.5cm}
 
 <[figure][ht]
-	<<<canvas.png,scale=0.21>>>
+	<<<canvas.png, scale=0.21>>>
 [figure]>
 
-== Index ==
+=== Commits Machen  ===
 
 ==== Vom ''working tree'' in den ''index'' ====
 
-* Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Möglichkeit einen ''commit'' schrittweise aus einzelnen ''blobs'' und ''trees'' zusammenzusetzen
-* Quellcode kann mit @git add@ dem ''index'' hinzugefügt werden, das geht sowohl für Dateien, die noch nicht im ''repository'' sind, als auch für Veränderungen
-* Mit @git status@ sehen wir, aus welchen Dateien sich Veränderungen im ''index'' befinden, welche Dateien Veränderungen enthalten, die wir dem ''index'' hinzufügen könnten, und welche Dateien sich noch nicht im ''repository'' befinden
+Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Möglichkeit einen ''commit'' schrittweise zusammenzusetzen. 
+
+<[block]{Quellcode dem ''index'' hinzufügen}
+    @git add@
+[block]>
+
+<[block]{Sehen welche Dateien mit Veränderungen sich im ''index'' befinden, und welche nicht}
+    @git status@
+[block]>
+
 
 ==== Vom ''index'' in das ''repository'' ====
 
-* Nun da wir Veränderungen im ''index'' haben wollen wir diese in einem ''commit'' ''object'' bündeln und dem ''repository'' hinzufügen
-* Dies machen wir mit @git commit@ und...
-* der @EDITOR@ geht auf und wir können die ''commit message'' eingeben
-* Wollen wir die ''commit message'' direkt auf der Kommandozeile eingeben, verwenden wir @git commit -m "MESSAGE"@
-* Um den ''index'' zum umgehen und gleich alle Veränderungen direkt zu übernehmen, verwenden wir @git commit -a@
-* Wenn wir den ''working tree'' zu einem frühern Zustand aus dem ''repository'' zurücksetzen wollen, verweden wir @git checkout@
+<[block]{Alles im ''index'' als ''commit'' ins ''repository''}
+    @git commit@
+[block]>
+
+<[block]{''commit message'' angeben}
+    @git commit -m "MESSAGE"@
+[block]>
+
+<[block]{''index'' umgehen, und direkt vom ''working tree'' ins ''repository''}
+    @git commit -a@
+[block]>
+
+<[block]{''working tree'' in einen früheren Zustand zurückversetzen}
+    @git checkout@
+[block]>
 
 ==== Transport Kommandos ====
 
 <[figure][ht]
-	<<<figs/git-im1.pdf,scale=0.7>>>
+	<<<figs/git-im1.pdf, scale=0.7>>>
 	\caption{Zusammenhang von @git-add@, @git-commit@ und @git checkout@}
 [figure]>
 
-== Suchen und Finden ==
+=== Commits Benennen ===
 
 ==== ''commits'' sind das Geheimniss ====
+
+
+<[block]{aktueller ''commit''}
+@HEAD@
+[block]>
 
 * Wie ihr vielleicht schon erahnen, könnt sind ''commits'' das Geheimniss um Git wirklich zu verstehen.
 * Viele Git Kommandos akzeptieren einen ''commit'', und es gibt ein paar Alternativen (zu der lästigen 40-Zeichen-Sequenz) um diese zu benennen
 * Meistens reicht für die Angabe von einem ''commit'' die ersten 4-7 Zeichen des ''object name'', auch bekannt als '''partial SHA'''
-* @HEAD@ ist eine implzite Referenz zu dem aktuellsten ''commit'' (naja, zumindest quasi)
+* @HEAD@ ist eine implizite Referenz zu dem aktuellsten ''commit''
 * Relative Angaben werden mit \^{} und $\sim$ gemacht
 * z.B. {\tt HEAD\^{}\^{}\^{}} und {\tt HEAD$\sim$3} sind equivalent und beschreiben beide den dritten ''commit'' vor @HEAD@
 
 [frame]>
+
+=== Inhalt von .git ===
 
 \begin{frame}[fragile]
 \frametitle{Inhalt von .git}
@@ -140,15 +174,15 @@ directory}, hier sehen wir einen Ausschnitt.
 
 \end{frame}
 
-\begin{frame}[fragile]{Die Geschichte einsehen mit @git log@}
+=== Commit Geschichte ===
 
-\begin{itemize}
-    \item Mit @git log@ kann man sich alle bisherigen ''commits'' anzeigen lassen
-    \item Es gibt eine Vielzahl von Möglichkeiten die Ausgabe zu verändern:
+==== Die ''commit'' Geschichte einsehen ====
 
-\hspace{0.5cm}
+<[block]{Alle ''commits'' anzeigen}
+@git log@
+[block]>
 
-    \item
+<[block]{Optionen}
 \begin{tabular}{ l l }
 {\tt git log -N}                            & die letzten @N@ anzeigen\\
 {\tt git log COMMIT}                        & bis zu @COMMIT@ anzeigen \\
@@ -157,50 +191,52 @@ directory}, hier sehen wir einen Ausschnitt.
 {\tt git log --pretty=oneline}              & ein ''commit'' pro Zeile \\
 {\tt git log A..B}                          & alle zwischen {\tt A} und {\tt B}
 \end{tabular}
+[block]>
 
-\hspace{0.5cm}
+=== Unterschiede ===
 
-\item
-<[verbatim]
-commit b99336317088ba4ae40e45c338c6981e3f402f8e 
-Author: Valentin Haenel <valentin@cs.tu-berlin.de> 
-Date:   Sun Apr 5 20:19:50 2009 +0200 
+==== Unterschiede ====
 
-adding slides about git-log
-[verbatim]>
+<[block]{Unterschiede zwischen ''working tree'' ohne ''index'' und @HEAD@}
+@git diff@
+[block]>
+
+<[block]{Unterschiede zwischen ''working tree'' und ''index''}
+@git diff --cached@
+[block]>
+
+<[block]{Unterschiede zwischen ''working tree'' mit ''index'' und @HEAD@}
+@git diff HEAD@
+[block]>
+
+<[block]{Unterschiede zwischen zwei ''commits''}
+@git diff A B@
+[block]>
+
+== Advanced Workflow ==
+
+==== Fahrplan ====
+
+\tableofcontents[currentsection]
 
 
-\end{itemize}
-
-\end{frame}
-
-
-==== Veränderungen einsehen ====
-
-* Wollen wir einsehen was sich verändert hat verwenden wir @git diff@
-* Ohne Argumente werden die Unterschiede angezeigt die weder im ''index'' noch im ''repository''
-* @git diff --cached@ zeigt an was sich im ''index'' befindet
-* @git diff HEAD@ zeigt die Unterschiede zwischen ''working tree'' und dem @HEAD@ an (also inklusive ''index'')
-* @git diff A B@ zeigt an was sich zwischen zwei ''commits'' verändert hat
-
-== Branches ==
+=== Branches ===
 
 ==== Branches ====
 
-* Bisher haben wir nur eine lineare Geschichte
+* Bisher haben wir nur eine lineare ''commit'' Geschichte
 * Manchmal ist nicht-linerität wichtig, besonders bei grösseren Projekten
 * In vielen anderen Versionskontrollsystemen werden ''branches'' als eine art ''black art'' angesehen die nur Eingeweihten zugänglich ist
 * In Git sind sie eigentlich ganz einfach, es sind nur ''commits''...\\(ja, wirklich!)
-* Aus diesem grund können sie verwendet werden um einen ''commit'' zu benennen
 
 ==== Branch Diagram ==== 
 
 * Der Name von einem ''branch'' ist eine Referenz zu einem  ''commit''
-* Dieser ''commit'' hat Vorfahren
+* Ein ''commit'' hat Vorfahren
 * Der gemeinsame Vorfahre heisst '''base commit'''
 
 <[figure][ht]
-    <<<figs/git-branch.pdf,scale=0.7>>>
+    <<<figs/git-branch.pdf, scale=0.7>>>
     \caption{Graphische Darstellung von einem ''branch''}
 [figure]>
 
@@ -208,67 +244,104 @@ adding slides about git-log
 
 ==== Branch Kommandos ====
 
-* @git branch@ zum anzeigen der ''branches''
-* @git branch NAME@ zum erstellen eines ''branches''
-* @git checkout NAME@ um in den ''branch'' zu wechseln
-* @git branch -m OLD NEW@ umbenennen vom einem ''branch''
-* @git branch -d NAME@ um einen ''branch'' zu löschen (prüft vorher ob was verloren geht, erzwingen mit @-D@)
 
-* @git merge NAME@ versucht den Inhalt von @NAME@ in den gegenwärtigen ''branch'' zu übernehmen
+<[block]{Anzeigen aller ''branches''}
+@git branch@
+[block]>
+
+<[block]{Erstellen von einem ''branch''}
+@git branch NAME@
+[block]>
+
+<[block]{In einen ''branch'' wechseln}
+@git checkout NAME@
+[block]>
+
+<[block]{'branch' löschen}
+@git branch -d NAME
+[block]>
+
+<[block]{'branch' umbenennen}
+@git branch -m OLD NEW
+[block]>
+
+=== Merging ===
 
 ==== Verschiedene Merge Strategien ====
 
 Das Zusammenführen von Veränderungen aus zwei ''branches'' kann auf vielerlei Arten passieren:
 
-* '''fast forward''': mit @git merge@ den @HEAD@ vorspulen (geht nur wenn der @HEAD@ auch der ''base commit'' ist)
-* '''straight merging''':  mit @git merge@ aus den @HEAD@s der ''branches'' einen neuen ''commit'' machen
-* '''squashing commits''':  mit @git merge --squash@ alle ''commits'' aus einem ''branch'' in einem einzigen ''commit'' zusammenfassen
-* '''cherry picking''': mit @git cherry pick@ einzelne ''commits'' aus einem ''branch'' übernehmen
-* '''rebaseing''': mit @git rebase@  den ''base commit'' von ändern 
+* '''fast forward''': den @HEAD@ vorspulen 
+* '''straight merging''':  aus @HEAD@s von ''branches'' einen neuen ''commit'' machen
+* '''rebaseing''': den ''base commit'' ändern
 
 ==== ''fast forward'' ====
 
-Wenn der @HEAD@ der ''base commit'' ist spult @git merge@ den @HEAD@ einfach vor.
+<[block]{Wenn der @HEAD@ der ''base commit'' ist}
+@git merge@
+[block]>
 
 <[figure][ht]
     \includegraphics[scale=0.55]{figs/fast-forward.pdf}
-    \caption{''fast forward''}
 [figure]>
 
 ==== ''straight merge '' ====
 
-Hier entsteht mit @git merge@ ein neuer ''commit'' der zwei Vorfahren hat. 
+<[block]{Wenn der @HEAD@ nicht der ''base commit'' ist}
+@git merge@
+[block]>
 
 <[figure][ht]
     \includegraphics[scale=0.55]{figs/git-merge.pdf}
-    \caption{''straight merge''}
 [figure]>
 
 ==== ''rebaseing'' ====
 
-Mit @git rebase@ ändern wir den ''base commit''
+<[block]{Ändern vom ''base commit''}
+@git rebase@
+[block]>
 
 <[figure][ht]
     \includegraphics[scale=0.55]{figs/git-rebase.pdf}
-    \caption{''rebaseing''}
 [figure]>
+
+=== Tags ===
 
 ==== Tags ====
 
-* Da die ''SHA-1 IDs'' unhandlich und semantikarm sind bietet Git eine Möglichkeit um ''commits'' mit Namen, so genanten ''tags'', zu versehen
-* Wie schon erwähnt sind ''tags'' auch nur ''objects''
-* @git tag@ zum anzeigen aller ''tags''
-* @git tag NAME@ um den jetzigen @HEAD@ zu ''taggen''
-* @git tag -d NAME@ um ein ''tag'' zu löschen
-* Ein ''tag'' kann verwendet werden um einen ''commit'' zu benennen
-* ''tags'' werden verwendet um wichtige ''commits'' zu markieren, z.B. Versionen
+Da die ''SHA-1 IDs'' unhandlich und semantikarm sind bietet Git eine
+Möglichkeit um ''commits'' mit Namen, so genanten ''tags'', zu versehen. z.B.
+um eine Version zu kennzeichnen.
+
+<[block]{Anzeigen aller tags}
+@git tag@
+[block]>
+
+<[block]{Den @HEAD@ mit einem ''tag'' versehn}
+@git tag NAME@
+[block]>
+
+<[block]{''tag'' löschen}
+@git tag -d NAME@
+[block]>
+
+=== Zurücksetzen ===
 
 ==== Veränderungen Rückgängig machen die noch nicht im ''repository'' sind ====
 
-* Um Veränderungen wieder aus dem ''index'' herauszunehmen (unstage), verwenden wir @git reset HEAD@
-* Wollen wir eine Datei in den Zustand des @HEAD@ versetzen verwenden wir @git checkout FILE@ (Veränderungen die bereits im ''index'' sind, werden nicht zurückgesetzt)
-* Um den gesamten ''working tree'' zurück zu setzen, verwenden wir @git reset -{-}hard HEAD@
-* \textbf{VORSICHT!} Veränderungen am ''working tree'' die rückgängig gemacht werden sind unwiderruflich gelöscht
+<[block]{Veränderung aus dem ''index'' herausnehmen (''unstage'')}
+@git reset HEAD@
+[block]>
+
+<[block]{Einzelne Datei zurücksetzen}
+@git checkout FILE@
+[block]>
+
+<[block]{Gesamten ''working tree'' zurücksetzen}
+@git reset -{-}hard HEAD@
+[block]>
+
+\textbf{VORSICHT!} Veränderungen am ''working tree'' die zurückgesetzt werden sind unwiderruflich gelöscht
 
 ==== Veränderungen Rückgängig machen die bereites im ''repository'' sind ====
 
@@ -279,12 +352,14 @@ Mit @git rebase@ ändern wir den ''base commit''
 * Es gibt jedoch eine viel bessere Alternative als ''commits'' zu löschen, und zwar können wir mit @git revert@ einen neuen ''commit'' erstellen der die Veränderungen eines alten ''commits'' wieder rückgängig macht, somit bleiben alle Veränderungen erhalten.
 * Ausserdem gibt es mit @git rebase@ folgende Optionen: Reihenfolge der ''commits'' ändern, ''commits'' trennen und zusammenfügen, sowie ''commits'' zu editieren
 
+== Schluss ==
 
 ==== Nützliches ====
 
 * Die Option @-{-}patch@ bzw. @-p@ für @git add@ erlaubt es interaktiv einzelne Blöcke zu wählen
 * Mit @git log -{-}pretty=oneline@ werden nur die ''SHA-1 IDs'' und ''commit messages'' angezeigt
 * Um dem letzten ''commit'' noch eine kleine Änderung hinzuzufügen: @git commit -reuse-message=HEAD -a --ammend@
+
 
 ==== Was ich euch nicht erzählt habe ====
 
