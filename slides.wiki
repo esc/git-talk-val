@@ -32,15 +32,19 @@
 	<<<figs/objects.pdf, scale=0.6>>>
 [figure]>
 
-
-
-
 ==== SHA-1 IDs ====
 
-* Git verwendet '''SHA-1 IDs''' um ein ''object'' zu identifizieren, auch bekannt als der '''object name'''
+* ''objects'' werden mit '''SHA-1 IDs''' identifiziert, auch bekannt als ''object name''
 * ''SHA-1'' ist eine Hash-Funktion die eine beliebige Bit-Sequenz in eine Hexadezimal-Sequenz der Länge 40 übersetzt
-* z.B. e42d20c7aa40674c056c1c2531809c8c717e966f
-* Ein ''SHA-1 ID'' wird aus dem Inhalt berechnet und ist somit (fast) einzigartig
+* Wird aus dem Inhalt berechnet und ist somit fast Einzigartig
+* Erlaubt es schnell ''objects'' miteinander zu vergleichen
+
+<[figure][htp]
+	<<<figs/sha.pdf, scale=0.7>>>
+[figure]>
+
+
+
 
 ==== Zusammenfassung ====
 

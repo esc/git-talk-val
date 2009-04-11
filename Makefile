@@ -11,12 +11,7 @@ $(base).pdf: $(base).tex $(base).wiki.tex
 
 $(base).wiki.tex: $(base).wiki wiki2beamer/wiki2beamer.py
 	python wiki2beamer/wiki2beamer.py $(base).wiki > $(base).wiki.tex
-
-
-wiki2beamer/wiki2beamer.py:
-	wget -O wiki2beamer.zip http://downloads.sourceforge.net/sourceforge/wiki2beamer/wiki2beamer.zip
-	unzip wiki2beamer.zip
-	-rm -f wiki2beamer.zip
+	
 
 clean:
 	-rm -vf *.{toc,snm,log,dvi,aux,out,nav}
