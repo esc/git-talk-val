@@ -52,7 +52,7 @@ Ein Git ''repository'' enthält ''commits'', diese wiederum bestehen aus ''trees
 [figure]>
 
 
-== Workflow ==
+== Arbeitsablauf ==
 
 ==== Fahrplan ====
 
@@ -86,15 +86,14 @@ Ein Git ''repository'' enthält ''commits'', diese wiederum bestehen aus ''trees
 [block]>
 
 * Mit der option @-{-}global@ werden diese der @~/.gitconfig@ hinzugefügt
-
-
-Was kann passieren, wenn das vergessen wird?
+* Bei vergessen wird @username@ und @host@ von dem aktuellen Rechner verwendet
 
 \hspace{0.5cm}
 
 <[figure][ht]
 	<<<canvas.png, scale=0.21>>>
-    FIXME caption
+    \caption{ \href{http://github.com/esc/molif/graphs/impact}{Impact Graph von @molif@}: 
+    Jeder Farbe steht für einen ''committer'', aber bei dem projekt gab es nur 2 Entwickler.}
 [figure]>
 
 === Commits Machen  ===
@@ -214,7 +213,7 @@ directory}, hier sehen wir einen Ausschnitt.
 @git diff A B@
 [block]>
 
-== Advanced Workflow ==
+== Fortgeschrittener Arbeitsablauf ==
 
 ==== Fahrplan ====
 
@@ -226,20 +225,19 @@ directory}, hier sehen wir einen Ausschnitt.
 ==== Branches ====
 
 * Bisher: lineare ''commit'' Geschichte
-* Nicht-linerität ist wichtig
-* 
-* In vielen anderen Versionskontrollsystemen werden ''branches'' als eine art ''black art'' angesehen die nur Eingeweihten zugänglich ist
-* In Git sind sie eigentlich ganz einfach, es sind nur ''commits''...\\(ja, wirklich!)
+* Nicht-Linerität ist wichtig
+* ''Branches'' sind die Lösung
+* Sind keine schwarze Magie
+* Sondern einfach nur ''commits''
 
 ==== Branch Diagram ==== 
 
-* Der Name von einem ''branch'' ist eine Referenz zu einem  ''commit''
+* ''Branch'' ist eine Referenz zu einem  ''commit''
 * Ein ''commit'' hat Vorfahren
 * Der gemeinsame Vorfahre heisst '''base commit'''
 
 <[figure][ht]
-    <<<figs/git-branch.pdf, scale=0.7>>>
-    \caption{Graphische Darstellung von einem ''branch''}
+    <<<figs/branch-basic.pdf, scale=0.6>>>
 [figure]>
 
 * '''master''' beschreibt meist den haupt ''branch'' in einem ''repository''
@@ -283,9 +281,21 @@ Das Zusammenführen von Veränderungen aus zwei ''branches'' kann auf vielerlei 
 @git merge@
 [block]>
 
+<[block]{vorher}
 <[figure][ht]
-    \includegraphics[scale=0.55]{figs/fast-forward.pdf}
+    \includegraphics[scale=0.35]{figs/fast-forward-before.pdf}
 [figure]>
+[block]>
+
+\pause
+
+<[block]{nachher}
+<[figure][ht]
+    \includegraphics[scale=0.35]{figs/fast-forward-after.pdf}
+[figure]>
+[block]>
+
+
 
 ==== ''straight merge '' ====
 
@@ -293,9 +303,19 @@ Das Zusammenführen von Veränderungen aus zwei ''branches'' kann auf vielerlei 
 @git merge@
 [block]>
 
+<[block]{vorher}
 <[figure][ht]
-    \includegraphics[scale=0.55]{figs/git-merge.pdf}
+    \includegraphics[scale=0.35]{figs/merge-before.pdf}
 [figure]>
+[block]>
+
+\pause
+
+<[block]{nachher}
+<[figure][ht]
+    \includegraphics[scale=0.35]{figs/merge-after.pdf}
+[figure]>
+[block]>
 
 ==== ''rebaseing'' ====
 
@@ -303,9 +323,20 @@ Das Zusammenführen von Veränderungen aus zwei ''branches'' kann auf vielerlei 
 @git rebase@
 [block]>
 
+<[block]{vorher}
 <[figure][ht]
-    \includegraphics[scale=0.55]{figs/git-rebase.pdf}
+    \includegraphics[scale=0.35]{figs/merge-before.pdf}
 [figure]>
+[block]>
+
+\pause
+
+<[block]{nachher}
+<[figure][ht]
+    \includegraphics[scale=0.35]{figs/rebase-after.pdf}
+[figure]>
+[block]>
+
 
 === Tags ===
 
@@ -343,7 +374,7 @@ um eine Version zu kennzeichnen.
 @git reset -{-}hard HEAD@
 [block]>
 
-\textbf{VORSICHT!} Veränderungen am ''working tree'' die zurückgesetzt werden sind unwiderruflich gelöscht
+\textcolor{red}{\textbf{VORSICHT!} Veränderungen am ''working tree'' die zurückgesetzt werden sind unwiderruflich gelöscht}
 
 ==== Veränderungen Rückgängig machen die bereites im ''repository'' sind ====
 
