@@ -23,10 +23,9 @@
 
 ==== Objekt Model ====
 
-* Git speichert im ''repository'' sogenannte ''objects''; ''blob'', ''tree'', ''commit''
-* Ein '''blob''' enthält im allgemeinen den Inhalt einer Datei
-* Ein '''tree''' ist eine Ansammlung von ''tree'' und ''blob'' Objekten, meist der Inhalt von einem Verzeichnis
-* Ein '''commit''' besteht aus einem ''tree'' mit zusätzlichen Informationen, unter anderem: ''author'', ''parents'' und ''commit message''
+* '''Blob''' enthält im allgemeinen den Inhalt einer Datei
+* '''Tree''' ist eine Ansammlung von ''tree'' und ''blob'' Objekten, meist der Inhalt von einem Verzeichnis
+* '''Commit''' besteht aus einem ''tree'' mit zusätzlichen Informationen, unter anderem: ''author'', ''parents'' und ''commit message''
 
 <[figure][ht]
 	<<<figs/objects.pdf, scale=0.6>>>
@@ -44,16 +43,12 @@
 [figure]>
 
 
-
-
 ==== Zusammenfassung ====
 
-Ein Git ''repository'' enthält ''commits'' die durch ihre ''SHA-1 IDs'' benannt
-werden, ''commits'' wiederum bestehen aus ''trees'' und ''blobs''.
+Ein Git ''repository'' enthält ''commits'', diese wiederum bestehen aus ''trees'' und ''blobs''.
 
 <[figure][ht]
-	<<<figs/git-overview.pdf, scale=0.7>>>
-	\caption{''blobs'' ''trees'' und ''commits''}
+	<<<figs/structure.pdf, scale=0.7>>>
 [figure]>
 
 
@@ -99,6 +94,7 @@ Was kann passieren, wenn das vergessen wird?
 
 <[figure][ht]
 	<<<canvas.png, scale=0.21>>>
+    FIXME caption
 [figure]>
 
 === Commits Machen  ===
@@ -229,8 +225,9 @@ directory}, hier sehen wir einen Ausschnitt.
 
 ==== Branches ====
 
-* Bisher haben wir nur eine lineare ''commit'' Geschichte
-* Manchmal ist nicht-linerität wichtig, besonders bei grösseren Projekten
+* Bisher: lineare ''commit'' Geschichte
+* Nicht-linerität ist wichtig
+* 
 * In vielen anderen Versionskontrollsystemen werden ''branches'' als eine art ''black art'' angesehen die nur Eingeweihten zugänglich ist
 * In Git sind sie eigentlich ganz einfach, es sind nur ''commits''...\\(ja, wirklich!)
 
