@@ -106,7 +106,7 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
     @git add@
 [block]>
 
-<[block]{Sehen welche Dateien mit Veränderungen sich im ''index'' befinden, und welche nicht}
+<[block]{Sehen welche Dateien sich im ''index'' befinden}
     @git status@
 [block]>
 
@@ -186,9 +186,9 @@ directory}, hier sehen wir einen Ausschnitt.
 \begin{tabular}{ l l }
 {\tt git log -N}                            & die letzten @N@ anzeigen\\
 {\tt git log COMMIT}                        & bis zu @COMMIT@ anzeigen \\
-{\tt git log --since="23 hours"}            & alle seit ... \\
-{\tt git log --before="42 days"}            & alle vor ... \\
-{\tt git log --pretty=oneline}              & ein ''commit'' pro Zeile \\
+{\tt git log -{-}since="23 hours"}            & alle seit ... \\
+{\tt git log -{-}before="42 days"}            & alle vor ... \\
+{\tt git log -{-}pretty=oneline}              & ein ''commit'' pro Zeile \\
 {\tt git log A..B}                          & alle zwischen {\tt A} und {\tt B}
 \end{tabular}
 [block]>
@@ -201,7 +201,7 @@ directory}, hier sehen wir einen Ausschnitt.
 @git diff@
 [block]>
 
-<[block]{Unterschiede zwischen ''working tree'' und ''index''}
+<[block]{Unterschiede zwischen ''index'' und ''repository''}
 @git diff --cached@
 [block]>
 
@@ -258,11 +258,11 @@ directory}, hier sehen wir einen Ausschnitt.
 [block]>
 
 <[block]{'branch' löschen}
-@git branch -d NAME
+@git branch -d NAME@
 [block]>
 
 <[block]{'branch' umbenennen}
-@git branch -m OLD NEW
+@git branch -m OLD NEW@
 [block]>
 
 === Merging ===
@@ -357,7 +357,6 @@ um eine Version zu kennzeichnen.
 ==== Nützliches ====
 
 * Die Option @-{-}patch@ bzw. @-p@ für @git add@ erlaubt es interaktiv einzelne Blöcke zu wählen
-* Mit @git log -{-}pretty=oneline@ werden nur die ''SHA-1 IDs'' und ''commit messages'' angezeigt
 * Um dem letzten ''commit'' noch eine kleine Änderung hinzuzufügen: @git commit -reuse-message=HEAD -a --ammend@
 
 
