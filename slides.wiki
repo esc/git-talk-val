@@ -416,7 +416,19 @@ um eine Version zu kennzeichnen.
 * \href{http://book.git-scm.com/}{git community book}
 * Hervoragende beschreibung von ''objects'' und implementations Details, mit Videos
 
+==== Dank ====
 
+Dank gilt den Entwicklern von:
+* wiki2beamer
+* \LaTeX beamer
+* impressive
+* pdflatex
+* gnu make
+* vim
+
+Dank gilt Folgenden Personen fürs Korrekturlesen
+* Dan Levin
+* Sebastian Pipping
 
 
 
