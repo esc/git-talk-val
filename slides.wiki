@@ -13,16 +13,11 @@
 * Ein '''working tree''' ist ein Verzeichnis, dessen Zustände in einem ''repository'' archiviert sind
 * Der '''index''' ist die Verbindung zwischen ''working tree'' und ''repository''
 
+<[figure][ht]
+	<<<figs/state-diagram.pdf, scale=0.5>>>
+[figure]>
 
 * Ein '''commit''' ist ein spezifischer Zustand des ''working tree'' der im ''repository'' gespeichert ist
-
-
-==== Zussamenhang ====
-
-<[figure][ht]
-	<<<figs/git-im0.pdf, scale=0.7>>>
-	\caption{Zussamenhang von ''working tree'', ''index'' und ''repository''}
-[figure]>
 
 === Objekt Model === 
 
@@ -31,8 +26,14 @@
 * Git speichert im ''repository'' sogenannte ''objects''; ''blob'', ''tree'', ''commit''
 * Ein '''blob''' enthält im allgemeinen den Inhalt einer Datei
 * Ein '''tree''' ist eine Ansammlung von ''tree'' und ''blob'' Objekten, meist der Inhalt von einem Verzeichnis
-
 * Ein '''commit''' besteht aus einem ''tree'' mit zusätzlichen Informationen, unter anderem: ''author'', ''parents'' und ''commit message''
+
+<[figure][ht]
+	<<<figs/objects.pdf, scale=0.6>>>
+[figure]>
+
+
+
 
 ==== SHA-1 IDs ====
 
@@ -132,7 +133,7 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
 ==== Transport Kommandos ====
 
 <[figure][ht]
-	<<<figs/git-im1.pdf, scale=0.7>>>
+	<<<figs/transport-commands.pdf, scale=0.6>>>
 	\caption{Zusammenhang von @git-add@, @git-commit@ und @git checkout@}
 [figure]>
 
