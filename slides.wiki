@@ -9,23 +9,23 @@
 
 ==== Grundbegriffe ====
 
-* Ein '''repository''' ist ein Archiv der Zustände von einem ''working tree''
-* Ein '''working tree''' ist ein Verzeichnis, dessen Zustände in einem ''repository'' archiviert sind
-* Der '''index''' ist die Verbindung zwischen ''working tree'' und ''repository''
+* '''Repository''': ein Archiv der Zustände von einem ''working tree''
+* '''Working Tree''':ein Verzeichnis, dessen Zustände in einem ''repository'' archiviert sind
+* '''Index''': die Verbindung zwischen ''working tree'' und ''repository''
 
 <[figure][ht]
 	<<<figs/state-diagram.pdf, scale=0.5>>>
 [figure]>
 
-* Ein '''commit''' ist ein spezifischer Zustand des ''working tree'' der im ''repository'' gespeichert ist
+* '''Commit''': ein spezifischer Zustand des ''working tree'' der im ''repository'' gespeichert ist
 
 === Objekt Model === 
 
 ==== Objekt Model ====
 
-* '''Blob''' enthält im allgemeinen den Inhalt einer Datei
-* '''Tree''' ist eine Ansammlung von ''tree'' und ''blob'' Objekten, meist der Inhalt von einem Verzeichnis
-* '''Commit''' besteht aus einem ''tree'' mit zusätzlichen Informationen, unter anderem: ''author'', ''parents'' und ''commit message''
+* '''Blob''': enthält im allgemeinen den Inhalt einer Datei
+* '''Tree''': eine Ansammlung von ''tree'' und ''blob'' Objekten, meist der Inhalt von einem Verzeichnis
+* '''Commit''': besteht aus einem ''tree'' mit zusätzlichen Informationen, unter anderem: ''author'', ''parents'' und ''commit message''
 
 <[figure][ht]
 	<<<figs/objects.pdf, scale=0.6>>>
@@ -232,7 +232,7 @@ directory}, hier sehen wir einen Ausschnitt.
 
 ==== Branch Diagram ==== 
 
-* ''Branch'' ist eine Referenz zu einem  ''commit''
+* '''Branch''': eine Referenz zu einem  ''commit''
 * Ein ''commit'' hat Vorfahren
 * Der gemeinsame Vorfahre heisst '''base commit'''
 
@@ -240,7 +240,7 @@ directory}, hier sehen wir einen Ausschnitt.
     <<<figs/branch-basic.pdf, scale=0.6>>>
 [figure]>
 
-* '''master''' beschreibt meist den haupt ''branch'' in einem ''repository''
+* '''Master''': meist der haupt ''branch'' in einem ''repository''
 
 ==== Branch Kommandos ====
 
@@ -269,11 +269,11 @@ directory}, hier sehen wir einen Ausschnitt.
 
 ==== Verschiedene Merge Strategien ====
 
-Das Zusammenführen von Veränderungen aus zwei ''branches'' kann auf vielerlei Arten passieren:
+Das Zusammenführen von Veränderungen aus zwei (oder mehr) ''branches'' kann auf vielerlei Arten passieren:
 
-* '''fast forward''': den @HEAD@ vorspulen 
-* '''straight merging''':  aus @HEAD@s von ''branches'' einen neuen ''commit'' machen
-* '''rebaseing''': den ''base commit'' ändern
+* '''Fast Forward''': den @HEAD@ vorspulen 
+* '''Straight Merging''':  aus @HEAD@s von ''branches'' einen neuen ''commit'' machen
+* '''Rebaseing''': den ''base commit'' ändern
 
 ==== ''fast forward'' ====
 
