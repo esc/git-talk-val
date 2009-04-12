@@ -305,7 +305,7 @@ Das Zusammenführen von Veränderungen aus zwei (oder mehr) ''branches'' kann au
 
 <[block]{vorher}
 <[figure][ht]
-    \includegraphics[scale=0.35]{figs/merge-before.pdf}
+    \includegraphics[scale=0.32]{figs/merge-before.pdf}
 [figure]>
 [block]>
 
@@ -313,7 +313,7 @@ Das Zusammenführen von Veränderungen aus zwei (oder mehr) ''branches'' kann au
 
 <[block]{nachher}
 <[figure][ht]
-    \includegraphics[scale=0.35]{figs/merge-after.pdf}
+    \includegraphics[scale=0.32]{figs/merge-after.pdf}
 [figure]>
 [block]>
 
@@ -325,7 +325,7 @@ Das Zusammenführen von Veränderungen aus zwei (oder mehr) ''branches'' kann au
 
 <[block]{vorher}
 <[figure][ht]
-    \includegraphics[scale=0.35]{figs/merge-before.pdf}
+    \includegraphics[scale=0.32]{figs/merge-before.pdf}
 [figure]>
 [block]>
 
@@ -333,7 +333,7 @@ Das Zusammenführen von Veränderungen aus zwei (oder mehr) ''branches'' kann au
 
 <[block]{nachher}
 <[figure][ht]
-    \includegraphics[scale=0.35]{figs/rebase-after.pdf}
+    \includegraphics[scale=0.32]{figs/rebase-after.pdf}
 [figure]>
 [block]>
 
