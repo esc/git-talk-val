@@ -10,7 +10,7 @@
 ==== Grundbegriffe ====
 
 * '''Repository''': ein Archiv der Zustände von einem ''working tree''
-* '''Working Tree''':ein Verzeichnis, dessen Zustände in einem ''repository'' archiviert sind
+* '''Working Tree''': ein Verzeichnis, dessen Zustände in einem ''repository'' archiviert sind
 * '''Index''': die Verbindung zwischen ''working tree'' und ''repository''
 
 <[figure][ht]
@@ -23,7 +23,7 @@
 
 ==== Objekt Model ====
 
-* '''Blob''': enthält im allgemeinen den Inhalt einer Datei
+* '''Blob''': enthält im Allgemeinen den Inhalt einer Datei
 * '''Tree''': eine Ansammlung von ''tree'' und ''blob'' Objekten, meist der Inhalt von einem Verzeichnis
 * '''Commit''': besteht aus einem ''tree'' mit zusätzlichen Informationen, unter anderem: ''author'', ''parents'' und ''commit message''
 
@@ -35,7 +35,7 @@
 
 * ''objects'' werden mit '''SHA-1 IDs''' identifiziert, auch bekannt als ''object name''
 * ''SHA-1'' ist eine Hash-Funktion die eine beliebige Bit-Sequenz in eine Hexadezimal-Sequenz der Länge 40 übersetzt
-* Wird aus dem Inhalt berechnet und ist somit fast Einzigartig
+* Wird aus dem Inhalt berechnet und ist somit fast einzigartig
 * Erlaubt es schnell ''objects'' miteinander zu vergleichen
 
 <[figure][htp]
@@ -85,15 +85,15 @@ Ein Git ''repository'' enthält ''commits'', diese wiederum bestehen aus ''trees
 \texttt{git config user.email valentin@cs.tu-berlin.de}
 [block]>
 
-* Mit der option @-{-}global@ werden diese der @~/.gitconfig@ hinzugefügt
-* Bei vergessen wird @username@ und @host@ von dem aktuellen Rechner verwendet
+* Mit der option @-{-}global@ werden diese der @~/.git/config@ hinzugefügt
+* Bei Vergessen wird @username@ und @host@ von dem aktuellen Rechner verwendet
 
 \hspace{0.5cm}
 
 <[figure][ht]
 	<<<canvas.png, scale=0.21>>>
     \caption{ \href{http://github.com/esc/molif/graphs/impact}{Impact Graph von @molif@}: 
-    Jeder Farbe steht für einen ''committer'', aber bei dem projekt gab es nur 2 Entwickler.}
+    Jeder Farbe steht für einen ''committer'', aber bei dem Projekt gab es nur 2 Entwickler.}
 [figure]>
 
 === Commits Machen  ===
@@ -106,7 +106,7 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
     @git add@
 [block]>
 
-<[block]{Sehen welche Dateien sich im ''index'' befinden}
+<[block]{Sehen, welche Dateien sich im ''index'' befinden}
     @git status@
 [block]>
 
@@ -133,7 +133,7 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
 
 <[figure][ht]
 	<<<figs/transport-commands.pdf, scale=0.6>>>
-	\caption{Zusammenhang von @git-add@, @git-commit@ und @git checkout@}
+	\caption{Zusammenhang von @git add@, @git commit@ und @git checkout@}
 [figure]>
 
 === Commits Benennen ===
@@ -145,8 +145,8 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
 @HEAD@
 [block]>
 
-* Wie ihr vielleicht schon erahnen, könnt sind ''commits'' das Geheimniss um Git wirklich zu verstehen.
-* Viele Git Kommandos akzeptieren einen ''commit'', und es gibt ein paar Alternativen (zu der lästigen 40-Zeichen-Sequenz) um diese zu benennen
+* Wie ihr vielleicht schon erahnen könnt, sind ''commits'' das Geheimnis um Git wirklich zu verstehen.
+* Viele Git-Kommandos akzeptieren einen ''commit'', und es gibt ein paar Alternativen (zu der lästigen 40-Zeichen-Sequenz) um diese zu benennen
 * Meistens reicht für die Angabe von einem ''commit'' die ersten 4-7 Zeichen des ''object name'', auch bekannt als '''partial SHA'''
 * @HEAD@ ist eine implizite Referenz zu dem aktuellsten ''commit''
 * Relative Angaben werden mit \^{} und $\sim$ gemacht
@@ -202,7 +202,7 @@ directory}, hier sehen wir einen Ausschnitt.
 [block]>
 
 <[block]{Unterschiede zwischen ''index'' und ''repository''}
-@git diff --cached@
+@git diff -{-}cached@
 [block]>
 
 <[block]{Unterschiede zwischen ''working tree'' mit ''index'' und @HEAD@}
@@ -224,7 +224,7 @@ directory}, hier sehen wir einen Ausschnitt.
 
 ==== Branches ====
 
-* Bisher: lineare ''commit'' Geschichte
+* Bisher: lineare ''commit''-Geschichte
 * Nicht-Linerität ist wichtig
 * ''Branches'' sind die Lösung
 * Sind keine schwarze Magie
@@ -342,8 +342,8 @@ Das Zusammenführen von Veränderungen aus zwei (oder mehr) ''branches'' kann au
 
 ==== Tags ====
 
-Da die ''SHA-1 IDs'' unhandlich und semantikarm sind bietet Git eine
-Möglichkeit um ''commits'' mit Namen, so genanten ''tags'', zu versehen. z.B.
+Da die ''SHA-1 IDs'' unhandlich und semantikarm sind, bietet Git eine
+Möglichkeit, um ''commits'' mit Namen, so genanten ''tags'', zu versehen, z.B.
 um eine Version zu kennzeichnen.
 
 <[block]{Anzeigen aller tags}
@@ -379,10 +379,10 @@ um eine Version zu kennzeichnen.
 ==== Veränderungen Rückgängig machen die bereites im ''repository'' sind ====
 
 * Um ''commits'' rückgängig zu machen verwenden wir wieder @git reset COMMIT@, z.B. @git reset HEAD\^{}@
-** Ohne option kommen die Veränderungen in den ''working tree''
-** Die option @-{-}soft@ führt dazu das die Veränderungen in den ''index'' kommen
-** Die option @-{-}hard@ führt dazu das die Veränderungen gelöscht werden (\textbf{VORSICHT!})
-* Es gibt jedoch eine viel bessere Alternative als ''commits'' zu löschen, und zwar können wir mit @git revert@ einen neuen ''commit'' erstellen der die Veränderungen eines alten ''commits'' wieder rückgängig macht, somit bleiben alle Veränderungen erhalten.
+** Ohne Option kommen die Veränderungen in den ''working tree''
+** Die Option @-{-}soft@ führt dazu das die Veränderungen in den ''index'' kommen
+** Die Option @-{-}hard@ führt dazu das die Veränderungen gelöscht werden (\textbf{VORSICHT!})
+* Es gibt jedoch eine viel bessere Alternative als ''commits'' zu löschen, und zwar können wir mit @git revert@ einen neuen ''commit'' erstellen, der die Veränderungen eines alten ''commits'' wieder rückgängig macht; somit bleiben alle Veränderungen erhalten.
 * Ausserdem gibt es mit @git rebase@ folgende Optionen: Reihenfolge der ''commits'' ändern, ''commits'' trennen und zusammenfügen, sowie ''commits'' zu editieren
 
 == Schluss ==
@@ -390,14 +390,14 @@ um eine Version zu kennzeichnen.
 ==== Nützliches ====
 
 * Die Option @-{-}patch@ bzw. @-p@ für @git add@ erlaubt es interaktiv einzelne Blöcke zu wählen
-* Um dem letzten ''commit'' noch eine kleine Änderung hinzuzufügen: @git commit -reuse-message=HEAD -a --ammend@
+* Um dem letzten ''commit'' noch eine kleine Änderung hinzuzufügen: @git commit -{-}reuse-message=HEAD -a --amend@
 
 
 ==== Was ich euch nicht erzählt habe ====
 
 * Der Umgang mit entfernten ''repositories'' via @git push@, @git pull@ und @git fetch@
 * Das Lösen von Konflikten die bei @merge@ und @rebase@ auftreten können
-* Was wir mit @git rebase@ noch so alles machen können, z.B. ''commit'' Reinfolge ändern
+* Was wir mit @git rebase@ noch so alles machen können, z.B. ''commit'' Reihenfolge ändern
 * Dateien ignorieren
 * Git in eclipse mit egit oder gitclipse
 * Patches formattieren und per Email versenden
@@ -405,7 +405,7 @@ um eine Version zu kennzeichnen.
 * Wie man @git stash@ verwendet
 * Git aliase
 
-==== Literatur Empfehlungen ====
+==== Literatur-Empfehlungen ====
 
 * Pragmatic Version Control Using Git, by Travis Swicegood (200 pages, Dec 2008, ISBN: 9781934356159 )
 * Sehr gute Einführung, exzellente Beispiele die auch online verfügbar sind
@@ -426,7 +426,7 @@ Dank gilt den Entwicklern von:
 * gnu make
 * vim
 
-Dank gilt Folgenden Personen fürs Korrekturlesen
+Dank gilt folgenden Personen fürs Korrekturlesen
 * Dan Levin
 * Sebastian Pipping
 
