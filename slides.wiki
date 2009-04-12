@@ -51,6 +51,34 @@ Ein Git ''repository'' enthält ''commits'', diese wiederum bestehen aus ''trees
 	<<<figs/structure.pdf, scale=0.7>>>
 [figure]>
 
+[frame]>
+
+=== Inhalt von .git ===
+
+\begin{frame}[fragile]
+\frametitle{Inhalt von .git}
+
+Git speichert alles in dem Verzeichnis {\tt.git/} auch bekannt als \textbf{git
+directory}, hier ein Ausschnitt:
+
+\begin{verbatim}
+
+        .git/
+        |-- HEAD
+        |-- branches
+        |-- config
+        |-- index          # Der index
+        |-- info
+        |-- logs
+        |-- objects        # Die objects
+        `-- refs
+
+\end{verbatim}
+
+\end{frame}
+
+
+
 
 == Arbeitsablauf ==
 
@@ -166,13 +194,7 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
 Git speichert alles in dem Verzeichniss {\tt.git/} auch bekannt als \textbf{git
 directory}, hier sehen wir einen Ausschnitt.
 
-\begin{verbatim}
-    % tree -L 1  .git/
-    .
-    |-- HEAD            # der gegenwärtige HEAD
-    |-- config          # Konfiguration (user, email)
-    |-- index           # der index
-    |-- objects         # die eigentlichen Objekte
+Für Git Kommandos müssen wir ''commits'' benennen
 
 \end{verbatim}
 
