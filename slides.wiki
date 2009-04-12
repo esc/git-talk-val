@@ -142,7 +142,7 @@ directory}, hier ein Ausschnitt:
 <[figure][ht]
 	<<<canvas.png, scale=0.21>>>
     \caption{ \href{http://github.com/esc/molif/graphs/impact}{Impact Graph von @molif@}: 
-    Jeder Farbe steht für einen ''committer'', aber bei dem Projekt gab es nur 2 Entwickler.}
+    Jeder Farbe steht für einen ''committer'', aber bei dem Projekt gab es nur 2 Entwickler. :-(}
 [figure]>
 
 === Commits Machen  ===
@@ -268,7 +268,7 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
 @git branch@
 [block]>
 
-<[block]{Erstellen von einem ''branch''}
+<[block]{''branch'' Erstellen}
 @git branch NAME@
 [block]>
 
@@ -276,11 +276,11 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
 @git checkout NAME@
 [block]>
 
-<[block]{'branch' löschen}
+<[block]{''branch'' löschen}
 @git branch -d NAME@
 [block]>
 
-<[block]{'branch' umbenennen}
+<[block]{''branch'' umbenennen}
 @git branch -m OLD NEW@
 [block]>
 
