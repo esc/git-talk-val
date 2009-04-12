@@ -53,6 +53,27 @@ Ein Git ''repository'' enthält ''commits'', diese wiederum bestehen aus ''trees
 
 [frame]>
 
+==== ''commits'' Benennen ====
+
+
+<[columns]
+[[[2cm]]]
+
+<[figure][ht]
+	<<<figs/History.pdf, scale=0.7>>>
+[figure]>
+
+[[[9cm]]]
+
+Für Git Kommandos müssen wir ''commits'' benennen
+
+\hspace{1cm}
+
+* Meist reicht ein '''partial SHA''': die ersten 4-7 Zeichen vom ''SHA-1 ID''
+* \textbf{\texttt{HEAD}} : aktueller ''commit''
+* Relative Angaben mit \^{} und $\sim$
+[columns]>
+
 === Inhalt von .git ===
 
 \begin{frame}[fragile]
@@ -167,27 +188,6 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
 	<<<figs/transport-commands.pdf, scale=0.6>>>
 	\caption{Zusammenhang von @git add@, @git commit@ und @git checkout@}
 [figure]>
-
-==== ''commits'' Benennen ====
-
-
-<[columns]
-[[[2cm]]]
-
-<[figure][ht]
-	<<<figs/History.pdf, scale=0.7>>>
-[figure]>
-
-[[[9cm]]]
-
-Für Git Kommandos müssen wir ''commits'' benennen
-
-\hspace{1cm}
-
-* Meist reicht ein '''partial SHA''': die ersten 4-7 Zeichen vom ''SHA-1 ID''
-* \textbf{\texttt{HEAD}} : aktueller ''commit''
-* Relative Angaben mit \^{} und $\sim$
-[columns]>
 
 === Commit Geschichte ===
 
