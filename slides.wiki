@@ -277,7 +277,7 @@ directory}, hier sehen wir einen Ausschnitt.
 
 ==== Verschiedene Merge Strategien ====
 
-Das Zusammenführen von Veränderungen aus zwei (oder mehr) ''branches'' kann auf vielerlei Arten passieren:
+Das Zusammenführen von Veränderungen ('''merge''') aus zwei (oder mehr) ''branches'' kann auf vielerlei Arten passieren:
 
 * '''Fast Forward''': den @HEAD@ vorspulen 
 * '''Straight Merging''':  aus @HEAD@s von ''branches'' einen neuen ''commit'' machen
