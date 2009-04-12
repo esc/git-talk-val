@@ -436,11 +436,12 @@ Dank gilt den Entwicklern von:
 * wiki2beamer
 * \LaTeX beamer
 * impressive
+* dia
 * pdflatex
 * gnu make
 * vim
 
-Dank gilt folgenden Personen fürs Korrekturlesen
+Dank gilt folgenden Personen fürs Korrekturlesen und patches
 * Dan Levin
 * Sebastian Pipping
 
