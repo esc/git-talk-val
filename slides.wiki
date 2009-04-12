@@ -208,7 +208,7 @@ Für Git Kommandos müssen wir ''commits'' benennen
 \end{tabular}
 [block]>
 
-=== Unterschiede ===
+=== Unterschiede Anzeigen ===
 
 ==== Unterschiede ====
 
@@ -252,7 +252,7 @@ Für Git Kommandos müssen wir ''commits'' benennen
 ==== Branch Diagram ==== 
 
 * '''Branch''': eine Referenz zu einem  ''commit''
-* Ein ''commit'' hat Vorfahren
+* Ein ''commit'' hat Vorfahren (evtl. mehrere)
 * Der gemeinsame Vorfahre heisst '''base commit'''
 
 <[figure][ht]
@@ -314,8 +314,6 @@ Das Zusammenführen von Veränderungen ('''merge''') aus zwei (oder mehr) ''bran
 [figure]>
 [block]>
 
-
-
 ==== ''straight merge '' ====
 
 <[block]{Wenn der @HEAD@ nicht der ''base commit'' ist}
@@ -355,7 +353,6 @@ Das Zusammenführen von Veränderungen ('''merge''') aus zwei (oder mehr) ''bran
     \includegraphics[scale=0.32]{figs/rebase-after.pdf}
 [figure]>
 [block]>
-
 
 === Tags ===
 
@@ -455,7 +452,4 @@ Dank gilt den Entwicklern von:
 Dank gilt folgenden Personen fürs Korrekturlesen und patches
 * Dan Levin
 * Sebastian Pipping
-
-
-
 
