@@ -386,12 +386,20 @@ um eine Version zu kennzeichnen.
 
 ==== Veränderungen Rückgängig machen die bereites im ''repository'' sind ====
 
-* Um ''commits'' rückgängig zu machen verwenden wir wieder @git reset COMMIT@, z.B. @git reset HEAD\^{}@
-** Ohne Option kommen die Veränderungen in den ''working tree''
-** Die Option @-{-}soft@ führt dazu das die Veränderungen in den ''index'' kommen
-** Die Option @-{-}hard@ führt dazu das die Veränderungen gelöscht werden (\textbf{VORSICHT!})
-* Es gibt jedoch eine viel bessere Alternative als ''commits'' zu löschen, und zwar können wir mit @git revert@ einen neuen ''commit'' erstellen, der die Veränderungen eines alten ''commits'' wieder rückgängig macht; somit bleiben alle Veränderungen erhalten.
-* Ausserdem gibt es mit @git rebase@ folgende Optionen: Reihenfolge der ''commits'' ändern, ''commits'' trennen und zusammenfügen, sowie ''commits'' zu editieren
+<[block]{Rückgängig machen von ''commits''}
+@git reset COMMIT@
+* ohne Option: in den ''working tree''
+* @-{-}soft@: in den ''index''
+* @-{-}hard@: Löschen (\textcolor{red}{\textbf{VORSICHT!}})
+[block]>
+
+<[block]{Veränderungen von einem ''commit'' in einem neuen rückgängig machen}
+@git revert@
+[block]>
+
+<[block]{Reihenfolge ändern, sowie ''commits'' trennen oder zusammenfügen}
+@git rebase -i@
+[block]>
 
 == Schluss ==
 
@@ -404,7 +412,6 @@ um eine Version zu kennzeichnen.
 
 * Der Umgang mit entfernten ''repositories'' via @git push@, @git pull@ und @git fetch@
 * Das Lösen von Konflikten die bei @merge@ und @rebase@ auftreten können
-* Was wir mit @git rebase@ noch so alles machen können, z.B. ''commit'' Reihenfolge ändern
 * Dateien ignorieren
 * Git in eclipse mit egit oder gitclipse
 * Patches formattieren und per Email versenden
