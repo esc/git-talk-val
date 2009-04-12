@@ -168,37 +168,26 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
 	\caption{Zusammenhang von @git add@, @git commit@ und @git checkout@}
 [figure]>
 
-=== Commits Benennen ===
-
-==== ''commits'' sind das Geheimniss ====
+==== ''commits'' Benennen ====
 
 
-<[block]{aktueller ''commit''}
-@HEAD@
-[block]>
+<[columns]
+[[[2cm]]]
 
-* Wie ihr vielleicht schon erahnen könnt, sind ''commits'' das Geheimnis um Git wirklich zu verstehen.
-* Viele Git-Kommandos akzeptieren einen ''commit'', und es gibt ein paar Alternativen (zu der lästigen 40-Zeichen-Sequenz) um diese zu benennen
-* Meistens reicht für die Angabe von einem ''commit'' die ersten 4-7 Zeichen des ''object name'', auch bekannt als '''partial SHA'''
-* @HEAD@ ist eine implizite Referenz zu dem aktuellsten ''commit''
-* Relative Angaben werden mit \^{} und $\sim$ gemacht
-* z.B. {\tt HEAD\^{}\^{}\^{}} und {\tt HEAD$\sim$3} sind equivalent und beschreiben beide den dritten ''commit'' vor @HEAD@
+<[figure][ht]
+	<<<figs/History.pdf, scale=0.7>>>
+[figure]>
 
-[frame]>
-
-=== Inhalt von .git ===
-
-\begin{frame}[fragile]
-\frametitle{Inhalt von .git}
-
-Git speichert alles in dem Verzeichniss {\tt.git/} auch bekannt als \textbf{git
-directory}, hier sehen wir einen Ausschnitt.
+[[[9cm]]]
 
 Für Git Kommandos müssen wir ''commits'' benennen
 
-\end{verbatim}
+\hspace{1cm}
 
-\end{frame}
+* Meist reicht ein '''partial SHA''': die ersten 4-7 Zeichen vom ''SHA-1 ID''
+* \textbf{\texttt{HEAD}} : aktueller ''commit''
+* Relative Angaben mit \^{} und $\sim$
+[columns]>
 
 === Commit Geschichte ===
 
