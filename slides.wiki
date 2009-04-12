@@ -213,6 +213,10 @@ directory}, hier sehen wir einen Ausschnitt.
 @git diff A B@
 [block]>
 
+<[block]{Unterschiede zwischen den letzten zwei}
+@git diff HEAD\^{} HEAD@
+[block]>
+
 == Fortgeschrittener Arbeitsablauf ==
 
 ==== Fahrplan ====
