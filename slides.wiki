@@ -85,7 +85,7 @@ Ein Git ''repository'' enthält ''commits'', diese wiederum bestehen aus ''trees
 \texttt{git config user.email valentin@cs.tu-berlin.de}
 [block]>
 
-* Mit der option @-{-}global@ werden diese der @~/.git/config@ hinzugefügt
+* Mit der Option @-{-}global@ werden diese der @~/.git/config@/@~/.gitconfig@ hinzugefügt
 * Bei Vergessen wird @username@ und @host@ von dem aktuellen Rechner verwendet
 
 \hspace{0.5cm}
