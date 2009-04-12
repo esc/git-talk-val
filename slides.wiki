@@ -106,6 +106,10 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
     @git add@
 [block]>
 
+<[block]{Interaktiv einzelne Veränderungen hinzufügen}
+@git add -p@
+[block]>
+
 <[block]{Sehen, welche Dateien sich im ''index'' befinden}
     @git status@
 [block]>
@@ -393,7 +397,6 @@ um eine Version zu kennzeichnen.
 
 ==== Nützliches ====
 
-* Die Option @-{-}patch@ bzw. @-p@ für @git add@ erlaubt es interaktiv einzelne Blöcke zu wählen
 * Um dem letzten ''commit'' noch eine kleine Änderung hinzuzufügen: @git commit -{-}reuse-message=HEAD -a --amend@
 
 
