@@ -71,7 +71,7 @@ Ein Git ''repository'' enthält ''commits'', diese wiederum bestehen aus ''trees
 [block]>
 
 <[block]{Beispiel}
-@git clone git://git.debian.org/git/pkg-exppsy/pymvpa.git@
+@git clone git://git.goodpoint.de/git-talk-val.git@
 [block]>
 
 
