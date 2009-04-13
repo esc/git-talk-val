@@ -208,7 +208,7 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
 @git diff@
 [block]>
 
-<[block]{Unterschiede zwischen ''index'' und ''repository''}
+<[block]{Unterschiede zwischen ''index'' und ''repository'' (Inhalt des ''index'')}
 @git diff -{-}cached@
 [block]>
 
@@ -259,7 +259,7 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
 [block]>
 
 <[block]{''branch'' Erstellen}
-@git branch NAME@
+@git branch NAME COMMIT@
 [block]>
 
 <[block]{In einen ''branch'' wechseln}
@@ -411,7 +411,7 @@ um eine Version zu kennzeichnen.
 ==== Beispiel ====
 
 Kopieren wir mit @git clone@ ein ''repository'' entstehen zwei ''branches''
-* @master@: lokale Arbeitskopie und '''remote tracking branch''
+* @master@: lokale Arbeitskopie und '''remote tracking branch'''
 * @orgin/master@: lokale Kopie des '''remote branch'''
 
 * @origin@: der Ursprung von unserm Klon
@@ -452,14 +452,14 @@ Kopieren wir mit @git clone@ ein ''repository'' entstehen zwei ''branches''
 
 ==== Was ich euch nicht erzählt habe ====
 
-* Der Umgang mit entfernten ''repositories'' via @git push@, @git pull@ und @git fetch@
 * Das Lösen von Konflikten die bei @merge@ und @rebase@ auftreten können
-* Dateien ignorieren
+* ''remote branches'' erstellen und löschen
+* Dateien ignorieren mit @.gitignore@
 * Git in eclipse mit egit oder gitclipse
 * Patches formattieren und per Email versenden
 * Was der @reflog@ ist, und warum er ALLES speichert
 * Wie man @git stash@ verwendet
-* Git aliase
+* Git aliase erstellen
 
 ==== Literatur-Empfehlungen ====
 
@@ -467,7 +467,7 @@ Kopieren wir mit @git clone@ ein ''repository'' entstehen zwei ''branches''
 * Sehr gute Einführung, exzellente Beispiele die auch online verfügbar sind
 
 * \href{http://www.newartisans.com/2008/04/git-from-the-bottom-up.html}{git-from-the-bottom-up}
-* Sehr gute Beschreibung der Details, relativ kurz
+* Sehr gute Beschreibung der Details und trotzdem relativ kurz
 
 * \href{http://book.git-scm.com/}{git community book}
 * Hervoragende beschreibung von ''objects'' und implementations Details, mit Videos
