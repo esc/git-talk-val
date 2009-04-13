@@ -408,11 +408,11 @@ um eine Version zu kennzeichnen.
 * Der Schlüssel zu Kollaboration mit anderen
 * Veränderungen müssen hin-und-her geschoben werden
 
-==== Beispiel ====
+==== Was passiert bei @git clone@ ====
 
-Kopieren wir mit @git clone@ ein ''repository'' entstehen zwei ''branches''
-* @master@: lokale Arbeitskopie und '''remote tracking branch'''
-* @orgin/master@: lokale Kopie des '''remote branch'''
+* Es entstehen zwei ''branches''
+** @master@: lokale Arbeitskopie und '''remote tracking branch'''
+** @orgin/master@: lokale Kopie des '''remote branch'''
 
 * @origin@: der Ursprung von unserm Klon
 
