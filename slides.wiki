@@ -4,7 +4,6 @@
 
 \tableofcontents[currentsection]
 
-
 === Grundbegriffe ===
 
 ==== Grundbegriffe ====
@@ -42,7 +41,6 @@
 	<<<figs/sha.pdf, scale=0.7>>>
 [figure]>
 
-
 ==== Zusammenfassung ====
 
 Ein Git ''repository'' enthält ''commits'', diese wiederum bestehen aus ''trees'' und ''blobs''.
@@ -54,7 +52,6 @@ Ein Git ''repository'' enthält ''commits'', diese wiederum bestehen aus ''trees
 [frame]>
 
 ==== ''commits'' Benennen ====
-
 
 <[columns]
 [[[2cm]]]
@@ -98,9 +95,6 @@ directory}, hier ein Ausschnitt:
 
 \end{frame}
 
-
-
-
 == Arbeitsablauf ==
 
 ==== Fahrplan ====
@@ -122,7 +116,6 @@ directory}, hier ein Ausschnitt:
 <[block]{Beispiel}
 @git clone git://git.goodpoint.de/git-talk-val.git@
 [block]>
-
 
 ==== Wichtig: Setzen von Namen und Email ====
 
@@ -162,7 +155,6 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
 <[block]{Sehen, welche Dateien sich im ''index'' befinden}
     @git status@
 [block]>
-
 
 ==== Vom ''index'' in das ''repository'' ====
 
@@ -238,7 +230,6 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
 
 \tableofcontents[currentsection]
 
-
 === Branches ===
 
 ==== Branches ====
@@ -262,7 +253,6 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
 * '''Master''': meist der haupt ''branch'' in einem ''repository''
 
 ==== Branch Kommandos ====
-
 
 <[block]{Anzeigen aller ''branches''}
 @git branch@
@@ -414,7 +404,6 @@ um eine Version zu kennzeichnen.
 ==== Nützliches ====
 
 * Um dem letzten ''commit'' noch eine kleine Änderung hinzuzufügen: @git commit -{-}reuse-message=HEAD -a --amend@
-
 
 ==== Was ich euch nicht erzählt habe ====
 
