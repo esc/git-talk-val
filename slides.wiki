@@ -8,8 +8,8 @@
 
 ==== Grundbegriffe ====
 
-* '''Repository''': ein Archiv der Zustände von einem ''working tree''
 * '''Working Tree''': ein Verzeichnis, dessen Zustände in einem ''repository'' archiviert sind
+* '''Repository''': ein Archiv der Zustände von einem ''working tree''
 * '''Index''': die Verbindung zwischen ''working tree'' und ''repository''
 
 <[figure][ht]
@@ -18,9 +18,9 @@
 
 * '''Commit''': ein spezifischer Zustand des ''working tree'' der im ''repository'' gespeichert ist
 
-=== Objekt Model === 
+=== Objekt Modell === 
 
-==== Objekt Model ====
+==== Objekt Modell ====
 
 * '''Blob''': enthält im Allgemeinen den Inhalt einer Datei
 * '''Tree''': eine Ansammlung von ''tree'' und ''blob'' Objekten, meist der Inhalt von einem Verzeichnis
@@ -32,10 +32,10 @@
 
 ==== SHA-1 IDs ====
 
-* ''objects'' werden mit '''SHA-1 IDs''' identifiziert, auch bekannt als ''object name''
+* ''objects'' werden mit '''SHA-1 IDs''' identifiziert
+* Dies ist der '''object name'''
 * ''SHA-1'' ist eine Hash-Funktion die eine beliebige Bit-Sequenz in eine Hexadezimal-Sequenz der Länge 40 übersetzt
 * Wird aus dem Inhalt berechnet und ist somit fast einzigartig
-* Erlaubt es schnell ''objects'' miteinander zu vergleichen
 
 <[figure][htp]
 	<<<figs/sha.pdf, scale=0.7>>>
@@ -54,7 +54,7 @@ Ein Git ''repository'' enthält ''commits'', diese wiederum bestehen aus ''trees
 ==== ''commits'' Benennen ====
 
 <[columns]
-[[[2cm]]]
+[[[3cm]]]
 
 <[figure][ht]
 	<<<figs/History.pdf, scale=0.7>>>
@@ -67,7 +67,7 @@ Für Git Kommandos müssen wir ''commits'' benennen
 \hspace{1cm}
 
 * Meist reicht ein '''partial SHA''': die ersten 4-7 Zeichen vom ''SHA-1 ID''
-* \textbf{\texttt{HEAD}} : aktueller ''commit''
+* \textbf{\texttt{HEAD}} : Zeiger auf den aktuellen ''commit''
 * Relative Angaben mit \^{} und $\sim$
 [columns]>
 
@@ -76,19 +76,22 @@ Für Git Kommandos müssen wir ''commits'' benennen
 \begin{frame}[fragile]
 \frametitle{Inhalt von .git}
 
-Git speichert alles in dem Verzeichnis {\tt.git/} auch bekannt als \textbf{git
-directory}, hier ein Ausschnitt:
+* Git speichert alles in dem Verzeichnis {\tt.git/} im Wurzelverzeichnis des ''working tree''.
+* auch bekannt als \textbf{git directory}
+
+
+hier ein Ausschnitt:
 
 \begin{verbatim}
 
         .git/
-        |-- HEAD
+        |-- HEAD            # Der HEAD
         |-- branches
         |-- config
-        |-- index          # Der index
+        |-- index           # Der index
         |-- info
         |-- logs
-        |-- objects        # Die objects
+        |-- objects         # Die objects
         `-- refs
 
 \end{verbatim}
@@ -127,16 +130,32 @@ directory}, hier ein Ausschnitt:
 \texttt{git config user.email valentin@cs.tu-berlin.de}
 [block]>
 
-* Mit der Option @-{-}global@ werden diese der @~/.git/config@/@~/.gitconfig@ hinzugefügt
-* Bei Vergessen wird @username@ und @host@ von dem aktuellen Rechner verwendet
+* Sonst wird @username@ und @host@ von dem aktuellen Rechner verwendet
 
-\hspace{0.5cm}
+* Mit der Option @-{-}global@ werden diese der @$\sim$/.gitconfig@ hinzugefügt
+
+
+==== FAIL! ====
+
+Wird das Setzen von Name und Email vergessen:
+
+\hspace{1cm}
 
 <[figure][ht]
-	<<<canvas.png, scale=0.21>>>
-    \caption{ \href{http://github.com/esc/molif/graphs/impact}{Impact Graph von @molif@}: 
-    Jeder Farbe steht für einen ''committer'', aber bei dem Projekt gab es nur 2 Entwickler. :-(}
+	<<<canvas.png, scale=0.23>>>
 [figure]>
+
+\href{http://github.com/esc/molif/graphs/impact}{Impact Graph von @molif@}: 
+Jeder Farbe steht für einen ''committer'', aber bei dem Projekt gab es nur 2 Entwickler. :-(
+
+
+==== Transport Kommandos ====
+
+<[figure][ht]
+	<<<figs/transport-commands.pdf, scale=0.6>>>
+	\caption{Zusammenhang von @git add@, @git commit@ und @git checkout@}
+[figure]>
+
 
 === Commits Machen  ===
 
@@ -173,13 +192,6 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
 <[block]{''working tree'' in einen früheren Zustand zurückversetzen}
     @git checkout@
 [block]>
-
-==== Transport Kommandos ====
-
-<[figure][ht]
-	<<<figs/transport-commands.pdf, scale=0.6>>>
-	\caption{Zusammenhang von @git add@, @git commit@ und @git checkout@}
-[figure]>
 
 === Commit Geschichte ===
 
@@ -235,14 +247,16 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
 ==== Branches ====
 
 * Bisher: lineare ''commit''-Geschichte
-* Nicht-Linerität ist wichtig
-* ''Branches'' sind die Lösung
-* Sind keine schwarze Magie
-* Sondern einfach nur ''commits''
+* Problem: parallele Entwicklung
+* Lösung: ''Branches''
+
+* Neue Funktionalität 
+* 'Herumexperimentieren'
+* Bugs Reparieren
 
 ==== Branch Diagram ==== 
 
-* '''Branch''': eine Referenz zu einem  ''commit''
+* '''Branch''': ein Zeiger auf einem  ''commit''
 * Ein ''commit'' hat Vorfahren (evtl. mehrere)
 * Der gemeinsame Vorfahre heisst '''base commit'''
 
@@ -250,16 +264,16 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
     <<<figs/branch-basic.pdf, scale=0.6>>>
 [figure]>
 
-* '''Master''': meist der haupt ''branch'' in einem ''repository''
+* '''Master''': meist der Haupt-''branch''
 
 ==== Branch Kommandos ====
 
-<[block]{Anzeigen aller ''branches''}
+<[block]{Anzeigen der ''branches''}
 @git branch@
 [block]>
 
-<[block]{''branch'' Erstellen}
-@git branch NAME COMMIT@
+<[block]{''branch'' Erstellen und hineinwechseln}
+@git checkout -b NAME COMMIT@
 [block]>
 
 <[block]{In einen ''branch'' wechseln}
@@ -268,10 +282,6 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
 
 <[block]{''branch'' löschen}
 @git branch -d NAME@
-[block]>
-
-<[block]{''branch'' umbenennen}
-@git branch -m OLD NEW@
 [block]>
 
 === Merging ===
@@ -403,16 +413,26 @@ um eine Version zu kennzeichnen.
 
 ==== ''remote repositories'' ====
 
-* '''Remote Repositories''': Alle anderen ''repostories''
-* Meist übers Netzwerk zu erreichen
-* Der Schlüssel zu Kollaboration mit anderen
-* Veränderungen müssen hin-und-her geschoben werden
+* '''Remote Repositories''': Alle entfernten ''repositories''
+* Jeder Entwickler hat ein lokales ''repository''
+* Um mit anderen zu Kollaboration müssen die Veränderungen zwischen diesen synchronisiert werden
+* Oft wird hierfür ein spezielles ''repository'' auf einem Server eingerichtet das keinen ''working tree'' hat
+
+==== Transport Kommandos mit Remote ====
+
+<[figure][ht]
+	<<<figs/transport-commands-remote.pdf, scale=0.6>>>
+[figure]>
 
 ==== Was passiert bei @git clone@ ====
 
+<[block]{Beispiel}
+@git clone git://git.goodpoint.de/git-talk-val.git@
+[block]>
+
 * Es entstehen zwei ''branches''
 ** @master@: lokale Arbeitskopie und '''remote tracking branch'''
-** @orgin/master@: lokale Kopie des '''remote branch'''
+** @origin/master@: lokale Kopie des '''remote branch'''
 
 * @origin@: der Ursprung von unserm Klon
 
@@ -422,37 +442,27 @@ um eine Version zu kennzeichnen.
 
 ==== Veränderungen hin-und-her schieben ====
 
-<[block]{Veränderungen aus @origin/master@ herunterladen}
+<[block]{Veränderungen herunterladen}
 @git fetch@
 [block]>
 
-<[block]{herunterladen und @merge@ mit @master@}
+<[block]{herunterladen und @merge@}
 @git pull@
 [block]>
 
-<[block]{herunterladen und @rebase@ auf @master@}
-@git pull --rebase@
+<[block]{herunterladen und @rebase@}
+@git pull -{-}rebase@
 [block]>
 
-<[block]{Veränderungen aus @master@ hochladen}
+<[block]{Veränderungen hochladen}
 @git push@
 [block]>
 
-==== Transport Kommandos mit Remote ====
-
-<[figure][ht]
-	<<<figs/transport-commands-remote.pdf, scale=0.6>>>
-[figure]>
-
 == Schluss ==
-
-==== Nützliches ====
-
-* Um dem letzten ''commit'' noch eine kleine Änderung hinzuzufügen: @git commit -{-}reuse-message=HEAD -a --amend@
 
 ==== Was ich euch nicht erzählt habe ====
 
-* Das Lösen von Konflikten die bei @merge@ und @rebase@ auftreten können
+* Das Lösen von Konflikten bei @merge@ und @rebase@
 * ''remote branches'' erstellen und löschen
 * Dateien ignorieren mit @.gitignore@
 * Git in eclipse mit egit oder gitclipse
@@ -486,4 +496,5 @@ Dank gilt den Entwicklern von:
 Dank gilt folgenden Personen fürs Korrekturlesen und patches
 * Dan Levin
 * Sebastian Pipping
+* Robert Buchholz 
 
