@@ -399,6 +399,51 @@ um eine Version zu kennzeichnen.
 @git rebase -i@
 [block]>
 
+=== Remote Repositories ===
+
+==== ''remote repositories'' ====
+
+* '''Remote Repositories''': Alle anderen ''repostories''
+* Meist übers Netzwerk zu erreichen
+* Der Schlüssel zu Kollaboration mit anderen
+* Veränderungen müssen hin-und-her geschoben werden
+
+==== Beispiel ====
+
+Kopieren wir mit @git clone@ ein ''repository'' entstehen zwei ''branches''
+* @master@: lokale Arbeitskopie und '''remote tracking branch''
+* @orgin/master@: lokale Kopie des '''remote branch'''
+
+* @origin@: der Ursprung von unserm Klon
+
+<[block]{Anzeigen aller ''branches''}
+@git branch -a@
+[block]>
+
+==== Veränderungen hin-und-her schieben ====
+
+<[block]{Veränderungen aus @origin/master@ herunterladen}
+@git fetch@
+[block]>
+
+<[block]{herunterladen und @merge@ mit @master@}
+@git pull@
+[block]>
+
+<[block]{herunterladen und @rebase@ auf @master@}
+@git pull --rebase@
+[block]>
+
+<[block]{Veränderungen aus @master@ hochladen}
+@git push@
+[block]>
+
+==== Transport Kommandos mit Remote ====
+
+<[figure][ht]
+	<<<figs/transport-commands-remote.pdf, scale=0.6>>>
+[figure]>
+
 == Schluss ==
 
 ==== Nützliches ====
