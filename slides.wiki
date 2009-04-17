@@ -415,7 +415,7 @@ um eine Version zu kennzeichnen.
 
 * '''Remote Repositories''': Alle entfernten ''repositories''
 * Jeder Entwickler hat ein lokales ''repository''
-* Um mit anderen zu Kollaboration müssen die Veränderungen zwischen diesen synchronisiert werden
+* Um mit anderen zusammenzuarbeiten müssen die Veränderungen zwischen diesen synchronisiert werden
 * Oft wird hierfür ein spezielles ''repository'' auf einem Server eingerichtet das keinen ''working tree'' hat
 
 ==== Transport Kommandos mit Remote ====
