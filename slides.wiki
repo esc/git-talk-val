@@ -292,7 +292,7 @@ Das Zusammenführen von Veränderungen ('''merge''') aus zwei (oder mehr) ''bran
 
 * '''Fast Forward''': den @HEAD@ vorspulen 
 * '''Straight Merging''':  aus @HEAD@s von ''branches'' einen neuen ''commit'' machen
-* '''Rebaseing''': den ''base commit'' ändern
+* '''Rebasing''': den ''base commit'' ändern
 
 ==== ''fast forward'' ====
 
@@ -334,7 +334,7 @@ Das Zusammenführen von Veränderungen ('''merge''') aus zwei (oder mehr) ''bran
 [figure]>
 [block]>
 
-==== ''rebaseing'' ====
+==== ''rebasing'' ====
 
 <[block]{Ändern vom ''base commit''}
 @git rebase@
