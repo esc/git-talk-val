@@ -6,6 +6,23 @@
 
 === Grundbegriffe ===
 
+==== Verteilte Versionsverwaltung ====
+
+<[block]{Was ist das?}
+* System zum speichern von Veränderungen an:
+** Software Quelltext 
+** Digitale Information
+[block]>
+
+<[block]{Warum brauch ich das?}
+* Rückgängigmachen von Veränderungen
+* Synchronisation von Entwicklern
+[block]>
+
+<[block]{Was heisst Verteilt?}
+* Jeder Teilnehmer hat eine Komplette Kopie
+[block]>
+
 ==== Grundbegriffe ====
 
 * '''Working Tree''': ein Verzeichnis, dessen Zustände in einem ''repository'' archiviert sind
