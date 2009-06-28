@@ -16,7 +16,7 @@
 
 <[block]{Warum brauch ich das?}
 * Rückgängigmachen von Veränderungen
-* Synchronisation von Entwicklern
+* Zussamenarbeit von Entwicklern
 [block]>
 
 <[block]{Was heisst Verteilt?}
