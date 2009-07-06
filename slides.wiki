@@ -52,7 +52,7 @@
 * ''objects'' werden mit '''SHA-1 IDs''' identifiziert.
 * Die Identifikation ist der '''object name'''.
 * ''SHA-1'' ist eine sogenannte Hash-Funktion; sie liefert für eine beliebig lange Bit-Sequenz in eine Hexadezimal-Zahl der Länge 40 (dh 160 bits).
-* Die resultierende Zahl ist eine von $2^160 (~ 1.5* 10^49)$ möglichen Zahlen und ziemlich einzigartig.
+* Die resultierende Zahl ist eine von $2^{160} (\approx 1.5* 10^{49})$ möglichen Zahlen und ziemlich einzigartig.
 
 <[figure][htp]
     <<<figs/sha.pdf, scale=0.7>>>
