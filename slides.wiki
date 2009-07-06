@@ -9,83 +9,84 @@
 ==== Verteilte Versionsverwaltung ====
 
 <[block]{Was ist das?}
-* System zum speichern von Veränderungen an:
-** Software Quelltext 
-** Digitale Information
+* System zum Speichern von Veränderungen an:
+** Quelltext von Software
+** Digitaler Information
 [block]>
 
 <[block]{Warum brauch ich das?}
-* Rückgängigmachen von Veränderungen
-* Zussamenarbeit von Entwicklern
+* Rückgängigmachen von Änderungen
+* Synchronisation  von Änderungen
 [block]>
 
-<[block]{Was heisst Verteilt?}
-* Jeder Teilnehmer hat eine Komplette Kopie
+<[block]{Was heisst "verteilt"?}
+* Jeder Teilnehmer hat eine komplette Kopie aller Daten.
 [block]>
 
 ==== Grundbegriffe ====
 
-* '''Working Tree''': ein Verzeichnis, dessen Zustände in einem ''repository'' archiviert sind
-* '''Repository''': ein Archiv der Zustände von einem ''working tree''
-* '''Index''': die Verbindung zwischen ''working tree'' und ''repository''
+* '''Working Tree''': Ein Verzeichnis, dessen Zustände in einem ''repository'' archiviert sind.
+* '''Repository''': Ein Archiv der Zustände eines ''working tree''.
+* '''Index''': Die Verbindung zwischen ''working tree'' und ''repository''.
 
 <[figure][ht]
-	<<<figs/state-diagram.pdf, scale=0.5>>>
+    <<<figs/state-diagram.pdf, scale=0.5>>>
 [figure]>
 
-* '''Commit''': ein spezifischer Zustand des ''working tree'' der im ''repository'' gespeichert ist
+* '''Commit''': ein spezifischer Zustand des ''working tree'', der im ''repository'' gespeichert ist.
 
-=== Objekt Modell === 
+=== ObjektModell ===
 
-==== Objekt Modell ====
+==== ObjektModell ====
 
-* '''Blob''': enthält im Allgemeinen den Inhalt einer Datei
-* '''Tree''': eine Ansammlung von ''tree'' und ''blob'' Objekten, meist der Inhalt von einem Verzeichnis
-* '''Commit''': besteht aus einem ''tree'' mit zusätzlichen Informationen, unter anderem: ''author'', ''parents'' und ''commit message''
+* '''Blob''': Enthält im Allgemeinen den Inhalt einer Datei.
+* '''Tree''': Eine Ansammlung von ''tree'' und ''blob'' Objekten, meist der Inhalt von einem Verzeichnis.
+* '''Commit''': Besteht aus einem ''tree'' mit zusätzlichen Informationen, unter anderem: ''author'', ''parents'' und
+''commit message''.
 
 <[figure][ht]
-	<<<figs/objects.pdf, scale=0.6>>>
+    <<<figs/objects.pdf, scale=0.6>>>
 [figure]>
 
 ==== SHA-1 IDs ====
 
-* ''objects'' werden mit '''SHA-1 IDs''' identifiziert
-* Dies ist der '''object name'''
-* ''SHA-1'' ist eine Hash-Funktion die eine beliebige Bit-Sequenz in eine Hexadezimal-Sequenz der Länge 40 übersetzt
-* Wird aus dem Inhalt berechnet und ist somit fast einzigartig
+* ''objects'' werden mit '''SHA-1 IDs''' identifiziert.
+* Die Identifikation ist der '''object name'''.
+* ''SHA-1'' ist eine sogenannte Hash-Funktion; sie liefert für eine beliebig lange Bit-Sequenz in eine Hexadezimal-Zahl der Länge 40 (dh 160 bits).
+* Die resultierende Zahl ist eine von 2^160 (~ 1.5* 10^49) möglichen Zahlen und ziemlich einzigartig.
 
 <[figure][htp]
-	<<<figs/sha.pdf, scale=0.7>>>
+    <<<figs/sha.pdf, scale=0.7>>>
 [figure]>
 
 ==== Zusammenfassung ====
 
-Ein Git ''repository'' enthält ''commits'', diese wiederum bestehen aus ''trees'' und ''blobs''.
+Ein Git ''repository'' enthält ''commits''; diese wiederum bestehen aus ''trees'' und ''blobs''.
 
 <[figure][ht]
-	<<<figs/structure.pdf, scale=0.7>>>
+    <<<figs/structure.pdf, scale=0.7>>>
 [figure]>
 
 [frame]>
 
-==== ''commits'' Benennen ====
+==== Benennen von ''commits'' ====
 
 <[columns]
 [[[3cm]]]
 
 <[figure][ht]
-	<<<figs/History.pdf, scale=0.7>>>
+    <<<figs/History.pdf, scale=0.7>>>
 [figure]>
 
 [[[9cm]]]
 
-Für Git Kommandos müssen wir ''commits'' benennen
+Für Git Kommandos müssen wir ''commits'' benennen.
 
 \hspace{1cm}
 
-* Meist reicht ein '''partial SHA''': die ersten 4-7 Zeichen vom ''SHA-1 ID''
-* \textbf{\texttt{HEAD}} : Zeiger auf den aktuellen ''commit''
-* Relative Angaben mit \^{} und $\sim$
+* Meist reicht ein '''partial SHA''': die ersten 4-7 Zeichen vom ''SHA-1 ID''.
+* \textbf{\texttt{HEAD}} : Zeiger auf den aktuellen ''commit''.
+* Relative Angaben mit \^{} und $\sim$.
 [columns]>
 
 === Inhalt von .git ===
@@ -93,9 +94,8 @@ Für Git Kommandos müssen wir ''commits'' benennen
 \begin{frame}[fragile]
 \frametitle{Inhalt von .git}
 
-* Git speichert alles in dem Verzeichnis {\tt.git/} im Wurzelverzeichnis des ''working tree''.
-* auch bekannt als \textbf{git directory}
-
+* Git speichert seine Daten in dem Unterverzeichnis {\tt.git/} im Wurzelverzeichnis des ''working tree''.
+* auch bekannt als \textbf{git (sub)directory}.
 
 hier ein Ausschnitt:
 
@@ -125,31 +125,31 @@ hier ein Ausschnitt:
 
 ==== Ein ''repository'' bekommen ====
 
-<[block]{Leeres ''repository'' aufsetzen}
+<[block]{Leeres ''repository'' aufsetzen:}
     @git init@
 [block]>
 
-<[block]{Existierendes kopieren}
+<[block]{Existierendes ''repository'' kopieren:}
     @git clone@
 [block]>
 
-<[block]{Beispiel}
+<[block]{Beispiel:}
 @git clone git://git.goodpoint.de/git-talk-val.git@
 [block]>
 
 ==== Wichtig: Setzen von Namen und Email ====
 
-<[block]{Setzen des Namen}
+<[block]{Setzen des eigenen Namens}
 @git config user.name "Valentin Haenel"@
 [block]>
 
-<[block]{Setzen der Email}
+<[block]{Setzen der eigenen Emailadresse}
 \texttt{git config user.email valentin@cs.tu-berlin.de}
 [block]>
 
-* Sonst wird @username@ und @host@ von dem aktuellen Rechner verwendet
+* Sonst wird @username@ und @host@ des aktuellen Rechners verwendet.
 
-* Mit der Option @-{-}global@ werden diese der @$\sim$/.gitconfig@ hinzugefügt
+* Mit der Option @-{-}global@ werden diese der @$\sim$/.gitconfig@ hinzugefügt.
 
 
 ==== FAIL! ====
@@ -159,54 +159,52 @@ Wird das Setzen von Name und Email vergessen:
 \hspace{1cm}
 
 <[figure][ht]
-	<<<canvas.png, scale=0.23>>>
+    <<<canvas.png, scale=0.23>>>
 [figure]>
 
-\href{http://github.com/esc/molif/graphs/impact}{Impact Graph von @molif@}: 
-Jeder Farbe steht für einen ''committer'', aber bei dem Projekt gab es nur 2 Entwickler. :-(
-
+\href{http://github.com/esc/molif/graphs/impact}{Impact Graph von @molif@}:
+Jede Farbe steht für einen ''committer'', aber bei dem Projekt gab es nur zwei Entwickler. :-(
 
 ==== Transport Kommandos ====
 
 <[figure][ht]
-	<<<figs/transport-commands.pdf, scale=0.6>>>
-	\caption{Zusammenhang von @git add@, @git commit@ und @git checkout@}
+    <<<figs/transport-commands.pdf, scale=0.6>>>
+    \caption{Zusammenhang von @git add@, @git commit@ und @git checkout@}
 [figure]>
-
 
 === Commits Machen  ===
 
 ==== Vom ''working tree'' in den ''index'' ====
 
-Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Möglichkeit einen ''commit'' schrittweise zusammenzusetzen. 
+Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Möglichkeit einen ''commit'' schrittweise zusammenzusetzen:
 
-<[block]{Quellcode dem ''index'' hinzufügen}
+<[block]{Quellcode dem ''index'' hinzufügen:}
     @git add@
 [block]>
 
-<[block]{Interaktiv einzelne Veränderungen hinzufügen}
+<[block]{Interaktives Hinzufügen einzelner Änderungen:}
 @git add -p@
 [block]>
 
-<[block]{Sehen, welche Dateien sich im ''index'' befinden}
+<[block]{Anzeige der Dateien im ''index'':}
     @git status@
 [block]>
 
 ==== Vom ''index'' in das ''repository'' ====
 
-<[block]{Alles im ''index'' als ''commit'' ins ''repository''}
+<[block]{Alles im ''index'' als ''commit'' ins ''repository'' geben:}
     @git commit@
 [block]>
 
-<[block]{''commit message'' angeben}
+<[block]{''commit message'' angeben"}
     @git commit -m "MESSAGE"@
 [block]>
 
-<[block]{''index'' umgehen, und direkt vom ''working tree'' ins ''repository''}
+<[block]{''index'' umgehen, und direkt vom ''working tree'' ins ''repository'':}
     @git commit -a@
 [block]>
 
-<[block]{''working tree'' in einen früheren Zustand zurückversetzen}
+<[block]{''working tree'' in einen früheren Zustand zurückversetzen:}
     @git checkout@
 [block]>
 
@@ -214,7 +212,7 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
 
 ==== Die ''commit'' Geschichte einsehen ====
 
-<[block]{Alle ''commits'' anzeigen}
+<[block]{Alle ''commits'' anzeigen:}
 @git log@
 [block]>
 
@@ -222,9 +220,9 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
 \begin{tabular}{ l l }
 {\tt git log -N}                            & die letzten @N@ anzeigen\\
 {\tt git log COMMIT}                        & bis zu @COMMIT@ anzeigen \\
-{\tt git log -{-}since="23 hours"}            & alle seit ... \\
-{\tt git log -{-}before="42 days"}            & alle vor ... \\
-{\tt git log -{-}pretty=oneline}              & ein ''commit'' pro Zeile \\
+{\tt git log -{-}since="23 hours"}          & alle seit ... \\
+{\tt git log -{-}before="42 days"}          & alle vor ... \\
+{\tt git log -{-}pretty=oneline}            & ein ''commit'' pro Zeile \\
 {\tt git log A..B}                          & alle zwischen {\tt A} und {\tt B}
 \end{tabular}
 [block]>
@@ -233,23 +231,23 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
 
 ==== Unterschiede ====
 
-<[block]{Unterschiede zwischen ''working tree'' ohne ''index'' und @HEAD@}
+<[block]{Unterschiede zwischen ''working tree'' ohne ''index'' und @HEAD@:}
 @git diff@
 [block]>
 
-<[block]{Unterschiede zwischen ''index'' und ''repository'' (Inhalt des ''index'')}
+<[block]{Unterschiede zwischen ''index'' und ''repository'' (Inhalt des ''index''):}
 @git diff -{-}cached@
 [block]>
 
-<[block]{Unterschiede zwischen ''working tree'' mit ''index'' und @HEAD@}
+<[block]{Unterschiede zwischen ''working tree'' mit ''index'' und @HEAD@:}
 @git diff HEAD@
 [block]>
 
-<[block]{Unterschiede zwischen zwei ''commits''}
+<[block]{Unterschiede zwischen zwei ''commits'':}
 @git diff A B@
 [block]>
 
-<[block]{Unterschiede zwischen den letzten zwei}
+<[block]{Unterschiede der letzten zwei Versionen:}
 @git diff HEAD\^{} HEAD@
 [block]>
 
@@ -263,19 +261,20 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
 
 ==== Branches ====
 
-* Bisher: lineare ''commit''-Geschichte
-* Problem: parallele Entwicklung
-* Lösung: ''Branches''
+* Bisher: Lineare ''commit''-Geschichte.
+* Problem: Parallele Entwicklung.
+* Lösung: ''Branches''.
 
-* Neue Funktionalität 
-* 'Herumexperimentieren'
-* Bugs Reparieren
+Wozu:
+* Test von neuen Funktionalitäten.
+* 'Herumexperimentieren'.
+* Reparatur von Bugs.
 
-==== Branch Diagram ==== 
+==== Branch Diagram ====
 
-* '''Branch''': ein Zeiger auf einem  ''commit''
-* Ein ''commit'' hat Vorfahren (evtl. mehrere)
-* Der gemeinsame Vorfahre heisst '''base commit'''
+* '''Branch''': ein Zeiger auf einem  ''commit''.
+* Ein ''commit'' hat Vorfahren (evtl. mehrere).
+* Der gemeinsame Vorfahre heisst '''base commit'''.
 
 <[figure][ht]
     <<<figs/branch-basic.pdf, scale=0.6>>>
@@ -289,27 +288,28 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
 @git branch@
 [block]>
 
-<[block]{''branch'' erstellen und hineinwechseln}
+<[block]{''branch'' erstellen und hineinwechseln:}
 @git checkout -b NAME COMMIT@
 [block]>
 
-<[block]{In einen ''branch'' wechseln}
+<[block]{In einen ''branch'' wechseln:}
 @git checkout NAME@
 [block]>
 
-<[block]{''branch'' löschen}
+<[block]{''branch'' löschen:}
 @git branch -d NAME@
 [block]>
 
 === Merging ===
 
-==== Verschiedene Merge Strategien ====
+==== Merge Strategien ====
 
-Das Zusammenführen von Veränderungen ('''merge''') aus zwei (oder mehr) ''branches'' kann auf vielerlei Arten passieren:
+Das Zusammenführen von Veränderungen ('''merge''')
+aus zwei (oder mehr) ''branches'' kann auf diesen Arten passieren:
 
-* '''Fast Forward''': den @HEAD@ vorspulen 
-* '''Straight Merging''':  aus @HEAD@s von ''branches'' einen neuen ''commit'' machen
-* '''Rebasing''': den ''base commit'' ändern
+* '''Fast Forward''': den @HEAD@ vorspulen.
+* '''Straight Merging''':  aus @HEAD@s von ''branches'' einen neuen ''commit'' machen.
+* '''Rebasing''': den ''base commit'' ändern.
 
 ==== ''fast forward'' ====
 
@@ -375,54 +375,58 @@ Das Zusammenführen von Veränderungen ('''merge''') aus zwei (oder mehr) ''bran
 
 ==== Tags ====
 
-Da die ''SHA-1 IDs'' unhandlich und semantikarm sind, bietet Git eine
-Möglichkeit, um ''commits'' mit Namen, so genanten ''tags'', zu versehen, z.B.
-um eine Version zu kennzeichnen.
+Da die ''SHA-1 IDs'' unhandlich und semantikarm sind,
+bietet Git eine Möglichkeit, um ''commits''
+mit Namen (''tags'') zu versehen,
+z.B.  um eine Version zu kennzeichnen.
 
-<[block]{Anzeigen aller tags}
+<[block]{Anzeigen aller tags:}
 @git tag@
 [block]>
 
-<[block]{Den @HEAD@ mit einem ''tag'' versehn}
+<[block]{Den @HEAD@ mit einem ''tag'' versehen:}
 @git tag NAME@
 [block]>
 
-<[block]{''tag'' löschen}
+<[block]{''tag'' löschen:}
 @git tag -d NAME@
 [block]>
 
 === Zurücksetzen ===
 
-==== Veränderungen Rückgängig machen die noch nicht im ''repository'' sind ====
+==== Veränderungen Rückgängig machen, die noch nicht im ''repository'' sind ====
+% SvenG: der Titel ist ein bischen lang
+% "Undo changes not yet within repository"
 
-<[block]{Veränderung aus dem ''index'' herausnehmen (''unstage'')}
+<[block]{Veränderung aus dem ''index'' herausnehmen (''unstage''):}
 @git reset HEAD@
 [block]>
 
-<[block]{Einzelne Datei zurücksetzen}
+<[block]{Einzelne Datei zurücksetzen:}
 @git checkout FILE@
 [block]>
 
-<[block]{Gesamten ''working tree'' zurücksetzen}
+<[block]{Gesamten ''working tree'' zurücksetzen:}
 @git reset -{-}hard HEAD@
 [block]>
 
-\textcolor{red}{\textbf{VORSICHT!} Veränderungen am ''working tree'' die zurückgesetzt werden sind unwiderruflich gelöscht}
+\textcolor{red}{\textbf{VORSICHT!} Veränderungen am ''working tree'', die zurückgesetzt werden, sind unwiderruflich gelöscht}
 
-==== Veränderungen Rückgängig machen die bereites im ''repository'' sind ====
+==== Veränderungen rückgängig machen, die bereites im ''repository'' sind ====
+% "Undo changes within repository"
 
 <[block]{Rückgängig machen von ''commits''}
 @git reset COMMIT@
-* ohne Option: in den ''working tree''
-* @-{-}soft@: in den ''index''
-* @-{-}hard@: Löschen (\textcolor{red}{\textbf{VORSICHT!}})
+* Ohne Option: in den ''working tree''.
+* @-{-}soft@: in den ''index''.
+* @-{-}hard@: Löschen (\textcolor{red}{\textbf{VORSICHT!}}).
 [block]>
 
-<[block]{Veränderungen von einem ''commit'' in einem neuen rückgängig machen}
+<[block]{Veränderungen von einem ''commit'' in einem neuen rückgängig machen"}
 @git revert@
 [block]>
 
-<[block]{Reihenfolge ändern, sowie ''commits'' trennen oder zusammenfügen}
+<[block]{Reihenfolge ändern, sowie ''commits'' trennen oder zusammenfügen"}
 @git rebase -i@
 [block]>
 
@@ -430,18 +434,18 @@ um eine Version zu kennzeichnen.
 
 ==== ''remote repositories'' ====
 
-* '''Remote Repositories''': Alle entfernten ''repositories''
-* Jeder Entwickler hat ein lokales ''repository''
-* Um mit anderen zusammenzuarbeiten müssen die Veränderungen zwischen diesen synchronisiert werden
-* Oft wird hierfür ein spezielles ''repository'' auf einem Server eingerichtet das keinen ''working tree'' hat
+* '''Remote Repositories''': Alle entfernten ''repositories''.
+* Jeder Entwickler hat ein lokales ''repository''.
+* Um mit anderen zusammenzuarbeiten, müssen die Veränderungen zwischen diesen synchronisiert werden.
+* Oft wird hierfür ein spezielles ''repository'' auf einem Server eingerichtet, das keinen ''working tree'' hat.
 
 ==== Transport Kommandos mit Remote ====
 
 <[figure][ht]
-	<<<figs/transport-commands-remote.pdf, scale=0.6>>>
+    <<<figs/transport-commands-remote.pdf, scale=0.6>>>
 [figure]>
 
-==== Was passiert bei @git clone@ ====
+==== Was passiert bei @git clone@? ====
 
 <[block]{Beispiel}
 @git clone git://git.goodpoint.de/git-talk-val.git@
@@ -457,61 +461,65 @@ um eine Version zu kennzeichnen.
 @git branch -a@
 [block]>
 
-==== Veränderungen hin-und-her schieben ====
+==== Veränderungen hin-und-her-schieben ====
 
-<[block]{Veränderungen herunterladen}
+<[block]{Veränderungen herunterladen:}
 @git fetch@
 [block]>
 
-<[block]{Herunterladen und @merge@}
+<[block]{Herunterladen und @merge@:}
 @git pull@
 [block]>
 
-<[block]{Herunterladen und @rebase@}
+<[block]{Herunterladen und @rebase@:}
 @git pull -{-}rebase@
 [block]>
 
-<[block]{Veränderungen hochladen}
+<[block]{Veränderungen hochladen:}
 @git push@
 [block]>
 
 == Schluss ==
 
-==== Was ich euch nicht erzählt habe ====
+==== Ausblick ====
 
-* Das Lösen von Konflikten bei @merge@ und @rebase@
-* ''remote branches'' erstellen und löschen
-* Dateien ignorieren mit @.gitignore@
-* Git in Eclipse mit egit oder gitclipse
-* Patches formatieren und per Email versenden
-* Was der @reflog@ ist, und warum er ALLES speichert
-* Wie man @git stash@ verwendet
-* Git aliase erstellen
+oder: "Was ich euch noch nicht erzählt habe"
 
-==== Literatur-Empfehlungen ====
+* Das Lösen von Konflikten bei @merge@ und @rebase@.
+* ''remote branches'' erstellen und löschen.
+* Dateien ignorieren mit @.gitignore@.
+* Git in Eclipse mit egit oder gitclipse verwenden.
+* Patches formatieren und per Email versenden.
+* Was der @reflog@ ist, und warum er ALLES speichert.
+* Wie man @git stash@ verwendet.
+* Erstellung von Aliasen für git.
+* Verwaltung von Konfigurationsdateien mit git.
 
-* Pragmatic Version Control Using Git, by Travis Swicegood (200 pages, Dec 2008, ISBN: 9781934356159 )
-* Sehr gute Einführung, exzellente Beispiele die auch online verfügbar sind
+==== Literatur ====
+
+Ein paar Empfehlungen:
+* Pragmatic Version Control Using Git, by Travis Swicegood
+* (200 pages, Dec 2008, ISBN: 9781934356159)
+* Sehr gute Einführung mit exzellenten Beispielen, die auch online verfügbar sind.
 
 * \href{http://www.newartisans.com/2008/04/git-from-the-bottom-up.html}{git-from-the-bottom-up}
-* Sehr gute Beschreibung der Details und trotzdem relativ kurz
+* Sehr gute Beschreibung der Details und trotzdem relativ kurz.
 
 * \href{http://book.git-scm.com/}{git community book}
-* Hervorragende Beschreibung von ''objects'' und Implementationsdetails, Webseite mit Videos
+* Hervorragende Beschreibung von ''objects'' und Implementationsdetails, Webseite mit Videos.
 
 ==== Dank ====
 
 Dank gilt den Entwicklern von:
 * wiki2beamer
 * \LaTeX beamer
-* impressive
 * dia
+* impressive
+* (gnu) make
 * pdflatex
-* gnu make
 * vim
 
-Dank gilt folgenden Personen fürs Korrekturlesen und patches
+Dank gilt den folgenden Personen für's Korrekturlesen und für Patches:
 * Dan Levin
 * Sebastian Pipping
-* Robert Buchholz 
-
+* Robert Buchholz
