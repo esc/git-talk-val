@@ -41,11 +41,10 @@
 
 * '''Blob''': Enthält im Allgemeinen den Inhalt einer Datei.
 * '''Tree''': Eine Ansammlung von ''tree'' und ''blob'' Objekten, meist der Inhalt von einem Verzeichnis.
-* '''Commit''': Besteht aus einem ''tree'' mit zusätzlichen Informationen, unter anderem: ''author'', ''parents'' und
-''commit message''.
+* '''Commit''': Besteht aus einem ''tree'' mit zusätzlichen Informationen, unter anderem: ''author'', ''parents'' und ''commit message''.
 
 <[figure][ht]
-    <<<figs/objects.pdf, scale=0.6>>>
+<<<figs/objects.pdf, scale=0.6>>>
 [figure]>
 
 ==== SHA-1 IDs ====
@@ -53,7 +52,7 @@
 * ''objects'' werden mit '''SHA-1 IDs''' identifiziert.
 * Die Identifikation ist der '''object name'''.
 * ''SHA-1'' ist eine sogenannte Hash-Funktion; sie liefert für eine beliebig lange Bit-Sequenz in eine Hexadezimal-Zahl der Länge 40 (dh 160 bits).
-* Die resultierende Zahl ist eine von 2^160 (~ 1.5* 10^49) möglichen Zahlen und ziemlich einzigartig.
+* Die resultierende Zahl ist eine von $2^160 (~ 1.5* 10^49)$ möglichen Zahlen und ziemlich einzigartig.
 
 <[figure][htp]
     <<<figs/sha.pdf, scale=0.7>>>
@@ -196,7 +195,7 @@ Der '''index''' (auch ''staging area'' oder ''cache'' genannt) bietet die Mögli
     @git commit@
 [block]>
 
-<[block]{''commit message'' angeben"}
+<[block]{''commit message'' angeben''}
     @git commit -m "MESSAGE"@
 [block]>
 
@@ -422,11 +421,11 @@ z.B.  um eine Version zu kennzeichnen.
 * @-{-}hard@: Löschen (\textcolor{red}{\textbf{VORSICHT!}}).
 [block]>
 
-<[block]{Veränderungen von einem ''commit'' in einem neuen rückgängig machen"}
+<[block]{Veränderungen von einem ''commit'' in einem neuen rückgängig machen}
 @git revert@
 [block]>
 
-<[block]{Reihenfolge ändern, sowie ''commits'' trennen oder zusammenfügen"}
+<[block]{Reihenfolge ändern, sowie ''commits'' trennen oder zusammenfügen}
 @git rebase -i@
 [block]>
 
@@ -437,7 +436,7 @@ z.B.  um eine Version zu kennzeichnen.
 * '''Remote Repositories''': Alle entfernten ''repositories''.
 * Jeder Entwickler hat ein lokales ''repository''.
 * Um mit anderen zusammenzuarbeiten, müssen die Veränderungen zwischen diesen synchronisiert werden.
-* Oft wird hierfür ein spezielles ''repository'' auf einem Server eingerichtet, das keinen ''working tree'' hat.
+* Oft wird hierfür ein spezielles ''repository'' auf einem Server eingerichtet, das keinen ''working tree'' hat. ('''bare repository''')
 
 ==== Transport Kommandos mit Remote ====
 
@@ -523,3 +522,4 @@ Dank gilt den folgenden Personen für's Korrekturlesen und für Patches:
 * Dan Levin
 * Sebastian Pipping
 * Robert Buchholz
+* Sven Guckes
