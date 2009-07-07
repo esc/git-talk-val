@@ -492,6 +492,7 @@ oder: "Was ich euch noch nicht erzählt habe"
 * Was der @reflog@ ist, und warum er ALLES speichert.
 * Wie man @git stash@ verwendet.
 * Erstellung von Aliasen für git.
+\pause
 * Verwaltung von Konfigurationsdateien mit git.
 
 ==== Literatur ====
