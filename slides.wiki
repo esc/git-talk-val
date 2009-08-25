@@ -9,18 +9,14 @@
 ==== Verteilte Versionsverwaltung ====
 
 <[block]{Was ist das?}
-* System zum Speichern von Veränderungen an:
-** Quelltext von Software
+* System zum speichern von Veränderungen an:
+** Software Quelltext 
 ** Digitaler Information
 [block]>
 
 <[block]{Warum brauch ich das?}
-* Rückgängigmachen von Änderungen
-* Synchronisation  von Änderungen
-[block]>
-
-<[block]{Was heisst "verteilt"?}
-* Jeder Teilnehmer hat eine komplette Kopie aller Daten.
+* Rückgängigmachen von Veränderungen
+* Zussamenarbeit von Entwicklern
 [block]>
 
 ==== Grundbegriffe ====
@@ -35,11 +31,11 @@
 
 * '''Commit''': ein spezifischer Zustand des ''working tree'', der im ''repository'' gespeichert ist.
 
-=== ObjektModell ===
+=== Objektmodel ===
 
-==== ObjektModell ====
+==== Objektmodel ====
 
-* '''Blob''': Enthält im Allgemeinen den Inhalt einer Datei.
+* '''Blob''': E:qnthält im Allgemeinen den Inhalt einer Datei.
 * '''Tree''': Eine Ansammlung von ''tree'' und ''blob'' Objekten, meist der Inhalt von einem Verzeichnis.
 * '''Commit''': Besteht aus einem ''tree'' mit zusätzlichen Informationen, unter anderem: ''author'', ''parents'' und ''commit message''.
 
@@ -50,7 +46,8 @@
 ==== SHA-1 IDs ====
 
 * ''objects'' werden mit '''SHA-1 IDs''' identifiziert.
-* Die Identifikation ist der '''object name'''.
+* Dies ist der '''object name'''.
+* Wird aus dem Inhalt berechnet.
 * ''SHA-1'' ist eine sogenannte Hash-Funktion; sie liefert für eine beliebig lange Bit-Sequenz in eine Hexadezimal-Zahl der Länge 40 (dh 160 bits).
 * Die resultierende Zahl ist eine von $2^{160} (\approx 1.5* 10^{49})$ möglichen Zahlen und ziemlich einzigartig.
 
@@ -68,7 +65,7 @@ Ein Git ''repository'' enthält ''commits''; diese wiederum bestehen aus ''trees
 
 [frame]>
 
-==== Benennen von ''commits'' ====
+==== Benennen der ''commits'' ====
 
 <[columns]
 [[[3cm]]]
