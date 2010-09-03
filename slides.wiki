@@ -111,6 +111,27 @@ hier ein Ausschnitt:
 
 \end{frame}
 
+=== Workflows ===
+
+==== Zentralisiert ====
+
+<[figure][ht]
+    <<<figs/centralised.pdf, scale=0.4>>>
+[figure]>
+
+==== Öffentliche Entwickler Repositories ====
+
+<[figure][ht]
+    <<<figs/developer-public.pdf, scale=0.4>>>
+[figure]>
+
+==== Patches per Email ====
+
+<[figure][ht]
+    <<<figs/patches-per-mail.pdf, scale=0.3>>>
+[figure]>
+
+
 == Arbeitsablauf ==
 
 ==== Fahrplan ====
