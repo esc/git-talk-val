@@ -536,7 +536,4 @@ Dank gilt den Entwicklern von:
 * vim
 
 Dank gilt den folgenden Personen für's Korrekturlesen und für Patches:
-* Dan Levin
-* Sebastian Pipping
-* Robert Buchholz
-* Sven Guckes
+* Robert Gieseke, Dan Levin, Sebastian Pipping, Robert Buchholz, Sven Guckes und Julius Plenz
