@@ -496,6 +496,58 @@ z.B.  um eine Version zu kennzeichnen.
 @git push@
 [block]>
 
+=== git und cvs ===
+
+==== Integration von git und CVS ====
+
+* Warum CVS? Externe Zwänge:
+** Kunde / Firma besteht auf CVS als "Master-Reposioty"
+** Revisionsgründe ("Waaas? Alles dezentral? Und was sagen wir den Leuten von McKinsey?")
+** Unflexible / unbeugsame Kollegen ("Bleib mir weg mit Deinem modernen Schnick-Schnack!")
+* git cvsimport
+** Import von CVS-Repositories nach git
+** Update von Änderungen im CVS nach git
+* git cvsexportcommit
+** Abgleich von Änderungen im git nach CVS
+* git-cvsserver
+** emuliert einen CVS-Server auf einem git Repository
+** keine tags/Branches :-(
+
+==== Workflow-Modell ====
+
+<[figure][ht]
+    <<<figs/git-cvs-workflow.pdf, scale=0.4>>>
+[figure]>
+
+==== CVS Repository importieren ====
+
+<[block]{@.git/config@}
+@[cvsimport]\newline@
+@        module = Path/in/CVS/Repo/project/subproject\newline@
+@        r = cvs\newline@
+@        d = :pserver:user(at)repository.company.com:/root.cvs\newline@
+@[cvsexportcommit]\newline@
+@        cvsdir = ../../project-cvs/subproject\newline@
+[block]>
+
+<[block]{Repository initial / inkrementell updaten}
+* @git cvsimport -a@ 
+* sollte immer im master-branch gemacht werden
+[block]>
+
+==== Arbeiten  ====
+
+* cvs liegt unter remotes/cvs
+* am besten pro cvs branch ein git-repo clonen und dort arbeiten
+* Änderungen ins "master-repository" pushen
+* dann git cvsexportcommit
+
+==== Änderungen ins CVS exportieren ====
+
+* man braucht ein CVS Workingdirectory
+* git cvsexportcommit schreibt Änderungen dort hinein
+* automatischer / manueller Commit
+
 == Schluss ==
 
 ==== Ausblick ====
