@@ -515,10 +515,8 @@ oder: "Was ich euch noch nicht erzählt habe"
 
 ==== Literatur ====
 
-Ein paar Empfehlungen:
-* Pragmatic Version Control Using Git, by Travis Swicegood
-* (200 pages, Dec 2008, ISBN: 9781934356159)
-* Sehr gute Einführung mit exzellenten Beispielen, die auch online verfügbar sind.
+* \href{http://progit.org}{Progit} von Scott Chacon
+* Hervorragendes Buch, auch online verfügbar.
 
 * \href{http://www.newartisans.com/2008/04/git-from-the-bottom-up.html}{git-from-the-bottom-up}
 * Sehr gute Beschreibung der Details und trotzdem relativ kurz.
