@@ -161,7 +161,7 @@ hier ein Ausschnitt:
 [block]>
 
 <[block]{Setzen der eigenen Emailadresse}
-\texttt{git config user.email valentin@cs.tu-berlin.de}
+\texttt{git config user.email valentin.haenel@bccn-berlin.de}
 [block]>
 
 * Sonst wird @username@ und @host@ des aktuellen Rechners verwendet.
