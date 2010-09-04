@@ -509,6 +509,7 @@ z.B.  um eine Version zu kennzeichnen.
 ** Update von Änderungen im CVS nach git
 * git cvsexportcommit
 ** Abgleich von Änderungen im git nach CVS
+** nachteil: cvs-commit erscheint im git nochmal
 * git-cvsserver
 ** emuliert einen CVS-Server auf einem git Repository
 ** keine tags/Branches :-(
@@ -521,32 +522,70 @@ z.B.  um eine Version zu kennzeichnen.
 
 ==== CVS Repository importieren ====
 
+<[block]{git Repository anlegen}
+@git init@
+[block]>
+
 <[block]{@.git/config@}
 @[cvsimport]\newline@
 @        module = Path/in/CVS/Repo/project/subproject\newline@
 @        r = cvs\newline@
 @        d = :pserver:user(at)repository.company.com:/root.cvs\newline@
 @[cvsexportcommit]\newline@
-@        cvsdir = ../../project-cvs/subproject\newline@
+@        cvsdir = ../../project-cvs/subproject
 [block]>
 
-<[block]{Repository initial / inkrementell updaten}
-* @git cvsimport -a@ 
-* sollte immer im master-branch gemacht werden
+* cvs-Authors file mapt CVS-User auf git-User
+
+<[block]{Repository initial importieren}
+@git cvsimport -a@ 
 [block]>
 
 ==== Arbeiten  ====
 
-* cvs liegt unter remotes/cvs
+<[block]{Branch erstellen}
+@git branch --track remotes/cvs/dev-V42 dev-V42@
+[block]>
+
+<[block]{cvs liegt unter @remotes/cvs@}
+@dev-V41\newline@
+@*dev-V42\newline@
+@dev-V42-FEATURE\newline@
+@dev-V43\newline@
+@master\newline@
+@remotes/cvs/HEAD -> cvs/master\newline@
+@remotes/cvs/dev-V41\newline@
+@remotes/cvs/dev-V42\newline@
+@remotes/cvs/dev-V42-FEATURE\newline@
+@remotes/cvs/dev-V43\newline@
+@remotes/cvs/master\newline@
+[block]>	
+
+* sollte immer im master-branch gemacht werden:
+* @git checkout master \&\& git cvsimport -a \&\& git checkout dev-V42 \&\& git pull@
+
+==== Arbeiten  ====
+
 * am besten pro cvs branch ein git-repo clonen und dort arbeiten
-* Änderungen ins "master-repository" pushen
+* Änderungen ins git master-repository pushen
 * dann git cvsexportcommit
 
 ==== Änderungen ins CVS exportieren ====
 
-* man braucht ein CVS Workingdirectory
-* git cvsexportcommit schreibt Änderungen dort hinein
-* automatischer / manueller Commit
+<[block]{man braucht ein CVS Workingdirectory}
+@cvs co Path/in/CVS/Repo/project/subproject@
+[block]>
+
+<[block]{Workingdirectory muss den Branch repräsentieren, in den man committen will!}
+@cvs up -r dev-V42@
+[block]>
+
+<[block]{Änderungen ins Workingdirectory schreiben}
+@git cvsexportcommit -u -p -a@
+[block]>
+
+* cvs directory mit @cvs diff@ reviewen 
+* oder man vertraut git und committet automatisch mit -c
 
 == Schluss ==
 
