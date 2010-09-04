@@ -10,7 +10,7 @@
 
 <[block]{Was ist das?}
 * System zum speichern von Veränderungen an:
-** Software Quelltext 
+** Software Quelltext
 ** Digitaler Information
 [block]>
 
