@@ -538,7 +538,7 @@ z.B.  um eine Version zu kennzeichnen.
 * cvs-Authors file mapt CVS-User auf git-User
 
 <[block]{Repository initial importieren}
-@git cvsimport -a@ 
+@git cvsimport -a@
 [block]>
 
 ==== Arbeiten  ====
@@ -559,7 +559,7 @@ z.B.  um eine Version zu kennzeichnen.
 @remotes/cvs/dev-V42-FEATURE\newline@
 @remotes/cvs/dev-V43\newline@
 @remotes/cvs/master\newline@
-[block]>	
+[block]>
 
 * sollte immer im master-branch gemacht werden:
 * @git checkout master \&\& git cvsimport -a \&\& git checkout dev-V42 \&\& git pull@
@@ -584,7 +584,7 @@ z.B.  um eine Version zu kennzeichnen.
 @git cvsexportcommit -u -p -a@
 [block]>
 
-* cvs directory mit @cvs diff@ reviewen 
+* cvs directory mit @cvs diff@ reviewen
 * oder man vertraut git und committet automatisch mit -c
 
 == Schluss ==
