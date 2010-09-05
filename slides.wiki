@@ -16,7 +16,7 @@
 
 <[block]{Warum brauch ich das?}
 * Rückgängigmachen von Veränderungen
-* Zussamenarbeit von Entwicklern
+* Zusammenarbeit von Entwicklern
 [block]>
 
 ==== Grundbegriffe ====
@@ -35,7 +35,7 @@
 
 ==== Objektmodel ====
 
-* '''Blob''': E:qnthält im Allgemeinen den Inhalt einer Datei.
+* '''Blob''': Enthält im Allgemeinen den Inhalt einer Datei.
 * '''Tree''': Eine Ansammlung von ''tree'' und ''blob'' Objekten, meist der Inhalt von einem Verzeichnis.
 * '''Commit''': Besteht aus einem ''tree'' mit zusätzlichen Informationen, unter anderem: ''author'', ''parents'' und ''commit message''.
 
@@ -85,17 +85,15 @@ Für Git Kommandos müssen wir ''commits'' benennen.
 * Relative Angaben mit \^{} und $\sim$.
 [columns]>
 
-=== Inhalt von .git ===
 
-\begin{frame}[fragile]
-\frametitle{Inhalt von .git}
+==== Inhalt von .git ====[containsverbatim]
 
 * Git speichert seine Daten in dem Unterverzeichnis {\tt.git/} im Wurzelverzeichnis des ''working tree''.
 * auch bekannt als \textbf{git (sub)directory}.
 
 hier ein Ausschnitt:
 
-\begin{verbatim}
+<[verbatim]
 
         .git/
         |-- HEAD            # Der HEAD
@@ -107,9 +105,7 @@ hier ein Ausschnitt:
         |-- objects         # Die objects
         `-- refs
 
-\end{verbatim}
-
-\end{frame}
+[verbatim]>
 
 === Workflows ===
 
@@ -119,11 +115,17 @@ hier ein Ausschnitt:
     <<<figs/centralised.pdf, scale=0.4>>>
 [figure]>
 
+* Ein einziges zentrales Repository
+* Alle Entwickler haben Schreibzugriff
+
 ==== Öffentliche Entwickler Repositories ====
 
 <[figure][ht]
     <<<figs/developer-public.pdf, scale=0.4>>>
 [figure]>
+
+* Ein öffentliches Repository pro Entwickler
+* Der Projektleiter integriert Verbesserungen
 
 ==== Patches per Email ====
 
@@ -131,6 +133,7 @@ hier ein Ausschnitt:
     <<<figs/patches-per-mail.pdf, scale=0.3>>>
 [figure]>
 
+* Entwicklungsmodell vom Kern
 
 == Arbeitsablauf ==
 
@@ -305,12 +308,12 @@ Wozu:
 @git branch@
 [block]>
 
-<[block]{''branch'' erstellen und hineinwechseln:}
-@git checkout -b NAME COMMIT@
-[block]>
-
 <[block]{In einen ''branch'' wechseln:}
 @git checkout NAME@
+[block]>
+
+<[block]{''branch'' erstellen und hineinwechseln:}
+@git checkout -b NAME COMMIT@
 [block]>
 
 <[block]{''branch'' löschen:}
@@ -627,10 +630,6 @@ Dank gilt den Entwicklern von:
 * wiki2beamer
 * \LaTeX beamer
 * dia
-* impressive
-* (gnu) make
-* pdflatex
-* vim
 
 Dank gilt den folgenden Personen für's Korrekturlesen und für Patches:
 * Robert Gieseke, Dan Levin, Sebastian Pipping, Robert Buchholz, Sven Guckes und Julius Plenz
