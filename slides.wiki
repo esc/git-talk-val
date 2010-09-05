@@ -520,19 +520,21 @@ z.B.  um eine Version zu kennzeichnen.
     <<<figs/git-cvs-workflow.pdf, scale=0.4>>>
 [figure]>
 
-==== CVS Repository importieren ====
+==== CVS Repository importieren ====[containsverbatim]
 
 <[block]{git Repository anlegen}
 @git init@
 [block]>
 
 <[block]{@.git/config@}
-@[cvsimport]\newline@
-@        module = Path/in/CVS/Repo/project/subproject\newline@
-@        r = cvs\newline@
-@        d = :pserver:user(at)repository.company.com:/root.cvs\newline@
-@[cvsexportcommit]\newline@
-@        cvsdir = ../../project-cvs/subproject
+<[verbatim]
+[cvsimport]
+        module = Path/in/CVS/Repo/project/subproject
+        r = cvs
+        d = :pserver:user@repository.company.com:/root.cvs
+[cvsexportcommit]
+        cvsdir = ../../project-cvs/subproject
+[verbatim]>
 [block]>
 
 * cvs-Authors file mapt CVS-User auf git-User
@@ -541,24 +543,28 @@ z.B.  um eine Version zu kennzeichnen.
 @git cvsimport -a@
 [block]>
 
-==== Arbeiten  ====
+==== Arbeiten  ====[containsverbatim]
 
 <[block]{Branch erstellen}
 @git branch --track remotes/cvs/dev-V42 dev-V42@
 [block]>
 
 <[block]{cvs liegt unter @remotes/cvs@}
-@dev-V41\newline@
-@*dev-V42\newline@
-@dev-V42-FEATURE\newline@
-@dev-V43\newline@
-@master\newline@
-@remotes/cvs/HEAD -> cvs/master\newline@
-@remotes/cvs/dev-V41\newline@
-@remotes/cvs/dev-V42\newline@
-@remotes/cvs/dev-V42-FEATURE\newline@
-@remotes/cvs/dev-V43\newline@
-@remotes/cvs/master\newline@
+<[verbatim]
+
+dev-V41
+dev-V42
+dev-V42-FEATURE
+dev-V43
+master
+remotes/cvs/HEAD -> cvs/master
+remotes/cvs/dev-V41
+remotes/cvs/dev-V42
+remotes/cvs/dev-V42-FEATURE
+remotes/cvs/dev-V43
+remotes/cvs/master
+
+[verbatim]>
 [block]>
 
 * sollte immer im master-branch gemacht werden:
