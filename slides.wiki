@@ -85,17 +85,15 @@ Für Git Kommandos müssen wir ''commits'' benennen.
 * Relative Angaben mit \^{} und $\sim$.
 [columns]>
 
-=== Inhalt von .git ===
 
-\begin{frame}[fragile]
-\frametitle{Inhalt von .git}
+==== Inhalt von .git ====[containsverbatim]
 
 * Git speichert seine Daten in dem Unterverzeichnis {\tt.git/} im Wurzelverzeichnis des ''working tree''.
 * auch bekannt als \textbf{git (sub)directory}.
 
 hier ein Ausschnitt:
 
-\begin{verbatim}
+<[verbatim]
 
         .git/
         |-- HEAD            # Der HEAD
@@ -107,9 +105,7 @@ hier ein Ausschnitt:
         |-- objects         # Die objects
         `-- refs
 
-\end{verbatim}
-
-\end{frame}
+[verbatim]>
 
 === Workflows ===
 
