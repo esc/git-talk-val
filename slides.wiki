@@ -308,12 +308,12 @@ Wozu:
 @git branch@
 [block]>
 
-<[block]{''branch'' erstellen und hineinwechseln:}
-@git checkout -b NAME COMMIT@
-[block]>
-
 <[block]{In einen ''branch'' wechseln:}
 @git checkout NAME@
+[block]>
+
+<[block]{''branch'' erstellen und hineinwechseln:}
+@git checkout -b NAME COMMIT@
 [block]>
 
 <[block]{''branch'' löschen:}
