@@ -533,10 +533,6 @@ Dank gilt den Entwicklern von:
 * wiki2beamer
 * \LaTeX beamer
 * dia
-* impressive
-* (gnu) make
-* pdflatex
-* vim
 
 Dank gilt den folgenden Personen für's Korrekturlesen und für Patches:
 * Robert Gieseke, Dan Levin, Sebastian Pipping, Robert Buchholz, Sven Guckes und Julius Plenz
