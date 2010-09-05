@@ -115,11 +115,17 @@ hier ein Ausschnitt:
     <<<figs/centralised.pdf, scale=0.4>>>
 [figure]>
 
+* Ein einziges zentrales Repository
+* Alle Entwickler haben Schreibzugriff
+
 ==== Öffentliche Entwickler Repositories ====
 
 <[figure][ht]
     <<<figs/developer-public.pdf, scale=0.4>>>
 [figure]>
+
+* Ein öffentliches Repository pro Entwickler
+* Der Projektleiter integriert Verbesserungen
 
 ==== Patches per Email ====
 
@@ -127,6 +133,7 @@ hier ein Ausschnitt:
     <<<figs/patches-per-mail.pdf, scale=0.3>>>
 [figure]>
 
+* Entwicklungsmodell vom Kern
 
 == Arbeitsablauf ==
 
