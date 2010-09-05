@@ -16,7 +16,7 @@
 
 <[block]{Warum brauch ich das?}
 * Rückgängigmachen von Veränderungen
-* Zussamenarbeit von Entwicklern
+* Zusammenarbeit von Entwicklern
 [block]>
 
 ==== Grundbegriffe ====
@@ -35,7 +35,7 @@
 
 ==== Objektmodel ====
 
-* '''Blob''': E:qnthält im Allgemeinen den Inhalt einer Datei.
+* '''Blob''': Enthält im Allgemeinen den Inhalt einer Datei.
 * '''Tree''': Eine Ansammlung von ''tree'' und ''blob'' Objekten, meist der Inhalt von einem Verzeichnis.
 * '''Commit''': Besteht aus einem ''tree'' mit zusätzlichen Informationen, unter anderem: ''author'', ''parents'' und ''commit message''.
 
